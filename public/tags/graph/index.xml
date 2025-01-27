@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Graph on Algo Zoo</title><link>https://algo-zoo.com/tags/graph/</link><description>Recent content in Graph on Algo Zoo</description><generator>Hugo</generator><language>en</language><atom:link href="https://algo-zoo.com/tags/graph/index.xml" rel="self" type="application/rss+xml"/><item><title>クラスカル法</title><link>https://algo-zoo.com/ja/kruskal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/kruskal/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
+&lt;ul>
+&lt;li>入力: 連結な重み付き無向グラフ $G = (V, E, w)$&lt;/li>
+&lt;li>出力: $G$ の最小全域木&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>
+&lt;p>$\gdef\Vp{V^\prime}$
+$\gdef\Ep{E^\prime}$&lt;/p>
+&lt;ul>
+&lt;li>$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」&lt;/li>
+&lt;li>$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」&lt;/li>
+&lt;/ul>
+&lt;h3 id="手続き">手続き&lt;/h3>
+&lt;ol>
+&lt;li>$\Vp, \Ep$の初期値はそれぞれ空集合とする．入力のグラフの辺集合 $E$ について，各辺を重みが小さい順にソートする．ソート結果の辺を順に $e_0, e_1, \ldots, e_{|E|-1}$とする．ただし，$|E|$は$E$の要素数を表す．&lt;/li>
+&lt;li>各 $i = 0, 1, \ldots, (|E|-1)$に対して，以下を実行:
+&lt;ul>
+&lt;li>辺 $e_i = (u_i, v_i)$ について，$\Ep$ に $e_i$ を追加することを考えたとき……
+&lt;ul>
+&lt;li>サイクルが形成されるならば，辺 $e_i$ を $\Ep$ に追加せず破棄;&lt;/li>
+&lt;li>サイクルが形成されないなら，$\Vp \gets \Vp \cup \lbrace u_i, v_i \rbrace$ と $\Ep \gets \Ep \cup \lbrace e_i \rbrace$により各集合を更新．&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>この時点で $\Vp = V$ であり，$(V, \Ep)$ が最小全域木となるので終了．&lt;/li>
+&lt;/ol>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">グラフの設定（
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）
+ &lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="graph-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>頂点の追加&lt;/label>
+ &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
+ &lt;button class="alg-btn" id="add">追加&lt;/button>
+ &lt;/div>
+ &lt;label>隣接行列&lt;/label>
+ &lt;table class="w-full border" id="matrix_tbl">
+ &lt;thead>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;/tbody>
+ &lt;/table>
+ &lt;div>
+ &lt;label>グラフ（ 
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div>
+
+&lt;div class="container">
+ &lt;button class="alg-btn" id="search">ワンステップ探索&lt;/button>
+ &lt;button class="alg-btn" id="goal">最終状態まで探索&lt;/button>
+ &lt;button class="alg-btn" id="reset">リセット&lt;/button>
+ &lt;table border="1" id="data_tbl">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>辺&lt;/th>
+ &lt;th>重み&lt;/th>
+ &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>&lt;/tbody>
+ &lt;/table>
+&lt;/div></description></item><item><title>ダイクストラ法</title><link>https://algo-zoo.com/ja/dijkstra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/dijkstra/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
+&lt;ul>
+&lt;li>入力: 辺の重みが非負である重み付きグラフ $G = (V, E, w)$ と探索開始頂点 $s$&lt;/li>
+&lt;li>出力: 開始頂点 $s$ から辿れる拡張点 $v$ について，経路長が最短の $s$-$v$ ウォーク&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>
+&lt;p>$\gdef\dist#1{\mathrm{dist}[{#1}]}$
+$\gdef\prev#1{\mathrm{prev}[{#1}]}$
+$\gdef\null{\mathrm{null}}$
+$\gdef\weight#1#2{w(#1, #2)}$&lt;/p>
+&lt;ul>
+&lt;li>$S$:「すでに最短経路が確定している頂点の集合」&lt;/li>
+&lt;li>$\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」&lt;/li>
+&lt;li>$\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」&lt;/li>
+&lt;/ul>
+&lt;h3 id="手続き">手続き&lt;/h3>
+&lt;ol>
+&lt;li>$S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする．&lt;/li>
+&lt;li>$v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする．
+&lt;ul>
+&lt;li>$u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &amp;gt; \dist{u} + \weight{u}{t}$ ならば，
+$\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．なお，ここで $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値とする．&lt;/li>
+&lt;li>$S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す．&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">グラフの設定（
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）
+ &lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="graph-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>頂点の追加&lt;/label>
+ &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
+ &lt;button class="alg-btn" id="add">追加&lt;/button>
+ &lt;/div>
+ &lt;label>隣接行列&lt;/label>
+ &lt;table class="w-full border" id="matrix_tbl">
+ &lt;thead>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;/tbody>
+ &lt;/table>
+ &lt;div>
+ &lt;label>グラフ（ 
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div>
+
+&lt;div class="container">
+ &lt;label>探索開始頂点&lt;/label>&lt;select id="start">&lt;/select>
+ &lt;button class="alg-btn" id="search">ワンステップ探索&lt;/button>
+ &lt;button class="alg-btn" id="goal">最終状態まで探索&lt;/button>
+ &lt;button class="alg-btn" id="reset">リセット&lt;/button>
+ &lt;table class="border" id="data_tbl">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>ノードi&lt;/th>
+ &lt;th>最短経路が確定&lt;/th>
+ &lt;th>（暫定）最短経路の経路長 dist[i]&lt;/th>
+ &lt;th>（暫定）最短経路における頂点iの一つ前の頂点 prev[i]&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>&lt;/tbody>
+ &lt;/table>
+ &lt;div>注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能&lt;/div>
+&lt;/div></description></item><item><title>プリム法</title><link>https://algo-zoo.com/ja/prim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/prim/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
+&lt;ul>
+&lt;li>入力: 連結な重み付き無向グラフ $G = (V, E, w)$&lt;/li>
+&lt;li>出力: $G$ の最小全域木&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>
+&lt;p>$\gdef\Vp{V^\prime}$
+$\gdef\Ep{E^\prime}$&lt;/p>
+&lt;ul>
+&lt;li>$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」&lt;/li>
+&lt;li>$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」&lt;/li>
+&lt;/ul>
+&lt;h3 id="手続き">手続き&lt;/h3>
+&lt;ol>
+&lt;li>$\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化．&lt;/li>
+&lt;li>$\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行:
+&lt;ul>
+&lt;li>$\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする．&lt;/li>
+&lt;li>$\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行．&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">グラフの設定（
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）
+ &lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="graph-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>頂点の追加&lt;/label>
+ &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
+ &lt;button class="alg-btn" id="add">追加&lt;/button>
+ &lt;/div>
+ &lt;label>隣接行列&lt;/label>
+ &lt;table class="w-full border" id="matrix_tbl">
+ &lt;thead>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;/tbody>
+ &lt;/table>
+ &lt;div>
+ &lt;label>グラフ（ 
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div>
+
+&lt;div class="container">
+ &lt;label>探索開始頂点&lt;/label>&lt;select id="start">&lt;/select>
+ &lt;button class="alg-btn" id="search">ワンステップ探索&lt;/button>
+ &lt;button class="alg-btn" id="goal">最終状態まで探索&lt;/button>
+ &lt;button class="alg-btn" id="reset">リセット&lt;/button>
+ &lt;table border="1" id="data_tbl">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>辺&lt;/th>
+ &lt;th>重み&lt;/th>
+ &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>&lt;/tbody>
+ &lt;/table>
+&lt;/div></description></item><item><title>最短経路探索</title><link>https://algo-zoo.com/ja/nagitsuji/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/nagitsuji/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>椥辻駅・京都橘大学間の最短経路を&lt;a href="../dijkstra">ダイクストラ法&lt;/a>
+により求める例．&lt;/li>
+&lt;li>地図のグラフによるモデル化は，交差点等に頂点を設置することで徒歩の道を実現．また，辺の重みは「画面上のピクセル数」を設定することで地図上の実際の距離を近似している．&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;p>地図の画像は &lt;a href="https://www.openstreetmap.org/copyright/ja" target="_blank" rel="noopener">OpenStreetMap&lt;/a>
+ を使用．&lt;/p>
+&lt;div id="canvas-hole">&lt;/div>
+&lt;div class="container">
+ &lt;div>
+ &lt;button class="alg-btn" id="image_load">画像ON/OFF&lt;/button>
+ &lt;button class="alg-btn" id="graph_draw">グラフON/OFF&lt;/button>
+ &lt;/div>
+ &lt;div>
+ &lt;label>探索開始頂点&lt;/label>&lt;select id="start">&lt;/select>
+ &lt;button class="alg-btn" id="search">ワンステップ探索&lt;/button>
+ &lt;button class="alg-btn" id="goal">最終状態まで探索&lt;/button>
+ &lt;button class="alg-btn" id="reset">リセット&lt;/button>
+ &lt;/div>
+ &lt;table border="1" id="tbl">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>ノードi&lt;/th>
+ &lt;th>（暫定）最短経路の経路長さ d[i]&lt;/th>
+ &lt;th>（暫定）最短経路の頂点iの一つ前の頂点 prev[i]&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>&lt;/tbody>
+ &lt;/table>
+&lt;/div></description></item><item><title>迷路の最短経路探索</title><link>https://algo-zoo.com/ja/maze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/maze/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
+&lt;p>$\gdef\map{\mathrm{map}}$
+$\gdef\sdist{\mathrm{dist}}$
+$\gdef\dist#1#2{\sdist[#1][#2]}$
+$\gdef\xp{x^\prime}$
+$\gdef\yp{y^\prime}$&lt;/p>
+&lt;ul>
+&lt;li>入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$．
+&lt;ul>
+&lt;li>備考: スタートからゴールまでの経路が一つは存在することを仮定する．&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長．&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>
+&lt;ul>
+&lt;li>$\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」&lt;/li>
+&lt;li>$d$:「（暫定）最短経路長を記録するための変数」&lt;/li>
+&lt;/ul>
+&lt;h3 id="手続き">手続き&lt;/h3>
+&lt;ol>
+&lt;li>$d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする．&lt;/li>
+&lt;li>$\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行について:&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>$(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了;&lt;/li>
+&lt;li>$(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d+1) \rbrace$ とする．&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d+1)$として 2. を繰り返す．&lt;/li>
+&lt;/ol>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">迷路の設定&lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="maze-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>入力&lt;/label>
+ &lt;textarea class="w-full" rows="12" id="maze-input">&lt;/textarea>
+ &lt;button class="alg-btn" id="maze-load">設定&lt;/button>
+ &lt;/div>
+ &lt;div>
+ &lt;label>迷路の最短経路探索&lt;/label>
+ &lt;div class="mb-1" id="canvas-hole">&lt;/div>
+ &lt;div class="text-center">
+ &lt;button class="alg-btn" id="prev">前へ&lt;/button>
+ &lt;button class="alg-btn" id="next">次へ&lt;/button>
+ &lt;/div>
+ &lt;/div>
+&lt;/div></description></item><item><title>隣接行列による有向グラフ表示</title><link>https://algo-zoo.com/ja/directed-graph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/directed-graph/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>重み付き有向グラフを隣接行列形式で表現・表示する．&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">グラフの設定（
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）
+ &lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="graph-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>頂点の追加&lt;/label>
+ &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
+ &lt;button class="alg-btn" id="add">追加&lt;/button>
+ &lt;/div>
+ &lt;label>隣接行列&lt;/label>
+ &lt;table class="w-full border" id="matrix_tbl">
+ &lt;thead>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;/tbody>
+ &lt;/table>
+ &lt;div>
+ &lt;label>グラフ（ 
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div></description></item><item><title>隣接行列による無向グラフ表示</title><link>https://algo-zoo.com/ja/undirected-graph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/undirected-graph/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>重み付き無向グラフを隣接行列形式で表現・表示する．&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">グラフの設定（
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）
+ &lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="graph-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>頂点の追加&lt;/label>
+ &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
+ &lt;button class="alg-btn" id="add">追加&lt;/button>
+ &lt;/div>
+ &lt;label>隣接行列&lt;/label>
+ &lt;table class="w-full border" id="matrix_tbl">
+ &lt;thead>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;/tbody>
+ &lt;/table>
+ &lt;div>
+ &lt;label>グラフ（ 
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div></description></item></channel></rss>

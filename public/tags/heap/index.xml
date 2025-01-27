@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Heap on Algo Zoo</title><link>https://algo-zoo.com/tags/heap/</link><description>Recent content in Heap on Algo Zoo</description><generator>Hugo</generator><language>en</language><atom:link href="https://algo-zoo.com/tags/heap/index.xml" rel="self" type="application/rss+xml"/><item><title>Maxヒープ</title><link>https://algo-zoo.com/ja/max-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/max-heap/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>TODO: write&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="maxヒープの配列表現">Maxヒープの配列表現&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>TODO: write&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;h3 id="挿入処理-insert">挿入処理: insert&lt;/h3>
+&lt;ul>
+&lt;li>値 $x$ の挿入は以下の通り実行:
+&lt;ol>
+&lt;li>ヒープの最後尾に $x$ を値として持つ頂点を追加&lt;/li>
+&lt;li>追加した頂点と，その親の頂点との間でヒープ条件が満たされない場合……
+&lt;ul>
+&lt;li>追加した頂点と，その親頂点とを交換&lt;/li>
+&lt;li>ヒープ条件が満たされるまで同様の処理を根の方に向かって行う&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="最大値削除処理-delete">最大値削除処理: delete&lt;/h3>
+&lt;ul>
+&lt;li>最大値を持つ頂点（＝根の頂点）の削除は以下の通り実行:
+&lt;ol>
+&lt;li>根の頂点を削除し，最後尾の頂点を根に一時的に移す&lt;/li>
+&lt;li>移された頂点と，その子の頂点との間でヒープ条件が満たされない場合……
+&lt;ul>
+&lt;li>移された頂点とこの頂点を交換する（注: このとき，子頂点が２つあるならば値が大きい方と交換する）&lt;/li>
+&lt;li>ヒープ条件が満たされるまで同様の処理を葉の方に向かって行う&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="program">コマンド列&lt;/label>&lt;br>
+ &lt;textarea class="w-full" id="program">&lt;/textarea>&lt;br>
+ &lt;button class="alg-btn" id="run">実行&lt;/button>
+ &lt;/div>
+ &lt;div>
+ &lt;label>Maxヒープの処理&lt;/label>
+ &lt;div class="mb-1" id="canvas-hole">&lt;/div>
+ &lt;div class="text-center">
+ &lt;button class="alg-btn" id="prev">前へ&lt;/button>
+ &lt;button class="alg-btn" id="next">次へ&lt;/button>
+ &lt;/div>
+ &lt;/div>
+&lt;/div></description></item><item><title>Minヒープ</title><link>https://algo-zoo.com/ja/min-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/min-heap/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>TODO: write. dual to Max heap&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>TODO: write. dual to max heap&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="program">コマンド列&lt;/label>&lt;br>
+ &lt;textarea class="w-full" id="program">&lt;/textarea>&lt;br>
+ &lt;button class="alg-btn" id="run">実行&lt;/button>
+ &lt;/div>
+ &lt;div>
+ &lt;label>Minヒープの処理&lt;/label>
+ &lt;div class="mb-1" id="canvas-hole">&lt;/div>
+ &lt;div class="text-center">
+ &lt;button class="alg-btn" id="prev">前へ&lt;/button>
+ &lt;button class="alg-btn" id="next">次へ&lt;/button>
+ &lt;/div>
+ &lt;/div>
+&lt;/div></description></item></channel></rss>

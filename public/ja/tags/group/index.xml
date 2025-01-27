@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Group on Algo Zoo</title><link>https://algo-zoo.com/ja/tags/group/</link><description>Recent content in Group on Algo Zoo</description><generator>Hugo</generator><language>ja</language><atom:link href="https://algo-zoo.com/ja/tags/group/index.xml" rel="self" type="application/rss+xml"/><item><title>グループビジュアライザ</title><link>https://algo-zoo.com/ja/group-vis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/group-vis/</guid><description>&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div>
+ &lt;label for="setting">グラフの設定（
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）
+ &lt;/label>
+ &lt;select class="alg-select mb-1" name="setting" id="graph-select">
+ &lt;option value="0">カスタム&lt;/option>
+ &lt;option value="1">サンプル1&lt;/option>
+ &lt;option value="2">サンプル2&lt;/option>
+ &lt;/select>
+ &lt;label>頂点の追加&lt;/label>
+ &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
+ &lt;button class="alg-btn" id="add">追加&lt;/button>
+ &lt;/div>
+ &lt;label>隣接行列&lt;/label>
+ &lt;table class="w-full border" id="matrix_tbl">
+ &lt;thead>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;/tbody>
+ &lt;/table>
+ &lt;div>
+ &lt;label>グラフ（ 
+ &lt;span class="relative">
+ &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+ 補足説明 ⓘ
+ &lt;/button>
+ &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+ &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+ 補足説明 ⓘ
+ &lt;/div>
+ &lt;div class="px-3 py-2">
+ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+ &lt;/div>
+ &lt;/div>
+ &lt;/span>
+ ）&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div></description></item></channel></rss>

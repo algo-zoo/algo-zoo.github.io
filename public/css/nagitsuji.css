@@ -1,0 +1,10 @@
+#canvas-hole {
+  text-align: center;
+}
+canvas {
+  width: 300% ! important;
+  height: 300% ! important;
+}
+thead, .gray {
+  background-color: rgb(200, 200, 203);
+}

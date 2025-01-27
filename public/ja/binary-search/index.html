@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.7.45">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.png">
+  <title>二分探索 - Algo Zoo</title>
+  <meta name="generator" content="Hugo 0.142.0">
+  <link rel="stylesheet" href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css">
+  <meta property="og:url" content="https://algo-zoo.com/ja/binary-search/">
+  <meta property="og:site_name" content="Algo Zoo">
+  <meta property="og:title" content="二分探索">
+  <meta property="og:description" content="問題 入力: 長さ $N$ の昇順ソート済みの配列 $a$ と探索したい値 $v$ 出力: $a[i] = v$ となる $v$ が存在するならば $i$ を，存在しないならばその旨を返す． アルゴリズム 使用するデータ構造 $\gdef\vleft{\mathrm{left}}$ $\gdef\vright{\mathrm{right}}$ $\gdef\vmid{\mathrm{mid}}$ $\vleft$:「探索範囲の左端の添字を格納するための変数」 $\vright$:「探索範囲の右端の添字を格納するための変数」 $\vmid$:「探索範囲の中間点の添字を格納するための変数」 手続き $\vleft \gets 0$ と $\vright \gets (N-1)$ で各変数を初期化． $\vleft \leq \vright$が成立する間，以下を繰り返す: $\displaystyle\vmid \gets \left\lbrack \frac{\vleft + \vright}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） $a[\vmid]$ の値に応じて以下の通り場合分け: $a[\vmid] = v$ ならば，値が存在したことになるので添字 $\vmid$ を返して終了; $a[\vmid] &lt; v$ ならば，$\vleft \gets (\vmid + 1)$ として 2. を繰り返す; $a[\vmid] &gt; v$ ならば，$\vright \gets (\vmid - 1)$ として 2. を繰り返す． この部分に達した場合，配列 $a$ 中に $v$ が存在しないので，その旨を返して終了． ビジュアライザ 配列要素数 入力の生成 入力: 数値配列 設定 配列状態・探索状況 探索する値（＝配列に存在するか判定する値） ワンステップ実行 リセット 実行記録">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+  <meta property="article:tag" content="Binary Search">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="二分探索">
+  <meta name="twitter:description" content="問題 入力: 長さ $N$ の昇順ソート済みの配列 $a$ と探索したい値 $v$ 出力: $a[i] = v$ となる $v$ が存在するならば $i$ を，存在しないならばその旨を返す． アルゴリズム 使用するデータ構造 $\gdef\vleft{\mathrm{left}}$ $\gdef\vright{\mathrm{right}}$ $\gdef\vmid{\mathrm{mid}}$ $\vleft$:「探索範囲の左端の添字を格納するための変数」 $\vright$:「探索範囲の右端の添字を格納するための変数」 $\vmid$:「探索範囲の中間点の添字を格納するための変数」 手続き $\vleft \gets 0$ と $\vright \gets (N-1)$ で各変数を初期化． $\vleft \leq \vright$が成立する間，以下を繰り返す: $\displaystyle\vmid \gets \left\lbrack \frac{\vleft + \vright}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） $a[\vmid]$ の値に応じて以下の通り場合分け: $a[\vmid] = v$ ならば，値が存在したことになるので添字 $\vmid$ を返して終了; $a[\vmid] &lt; v$ ならば，$\vleft \gets (\vmid + 1)$ として 2. を繰り返す; $a[\vmid] &gt; v$ ならば，$\vright \gets (\vmid - 1)$ として 2. を繰り返す． この部分に達した場合，配列 $a$ 中に $v$ が存在しないので，その旨を返して終了． ビジュアライザ 配列要素数 入力の生成 入力: 数値配列 設定 配列状態・探索状況 探索する値（＝配列に存在するか判定する値） ワンステップ実行 リセット 実行記録">
+  <meta itemprop="name" content="二分探索">
+  <meta itemprop="description" content="問題 入力: 長さ $N$ の昇順ソート済みの配列 $a$ と探索したい値 $v$ 出力: $a[i] = v$ となる $v$ が存在するならば $i$ を，存在しないならばその旨を返す． アルゴリズム 使用するデータ構造 $\gdef\vleft{\mathrm{left}}$ $\gdef\vright{\mathrm{right}}$ $\gdef\vmid{\mathrm{mid}}$ $\vleft$:「探索範囲の左端の添字を格納するための変数」 $\vright$:「探索範囲の右端の添字を格納するための変数」 $\vmid$:「探索範囲の中間点の添字を格納するための変数」 手続き $\vleft \gets 0$ と $\vright \gets (N-1)$ で各変数を初期化． $\vleft \leq \vright$が成立する間，以下を繰り返す: $\displaystyle\vmid \gets \left\lbrack \frac{\vleft + \vright}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） $a[\vmid]$ の値に応じて以下の通り場合分け: $a[\vmid] = v$ ならば，値が存在したことになるので添字 $\vmid$ を返して終了; $a[\vmid] &lt; v$ ならば，$\vleft \gets (\vmid + 1)$ として 2. を繰り返す; $a[\vmid] &gt; v$ ならば，$\vright \gets (\vmid - 1)$ として 2. を繰り返す． この部分に達した場合，配列 $a$ 中に $v$ が存在しないので，その旨を返して終了． ビジュアライザ 配列要素数 入力の生成 入力: 数値配列 設定 配列状態・探索状況 探索する値（＝配列に存在するか判定する値） ワンステップ実行 リセット 実行記録">
+  <meta itemprop="wordCount" content="94">
+  <meta itemprop="keywords" content="Binary Search">
+  <meta name="lang" content="ja">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA==" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS+2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js" integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="" crossorigin="anonymous">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body)"></script>
+  <link rel="stylesheet" href="/css/binary-search.css">
+  <script type="module" src="/js/binary-search.js"></script>
+  <link href="/css/algo-util.css" rel="stylesheet">
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
+  <header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+    <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">Algo Zoo</a> <button class="mobile-menu-button md:hidden"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <line x1="4" y1="8" x2="20" y2="8"></line>
+    <line x1="4" y1="16" x2="20" y2="16"></line></svg></button>
+    <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+      <li>
+        <a href="/ja/tags">タグ</a>
+      </li>
+      <li class="flex items-center">
+        <svg class="mr-2" width="16" height="16" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="12" cy="12" r="9"></circle>
+        <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
+        <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
+        <path d="M11.5 3a17 17 0 000 18"></path>
+        <path d="M12.5 3a17 17 0 010 18"></path></svg> <a href="/en/" lang="en">🇺🇸 English</a>
+      </li>
+    </ul>
+  </header>
+  <main class="flex-1">
+    <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+      <h1 class="text-2xl font-bold mb-2">二分探索</h1>
+      <h2 id="問題">問題</h2>
+      <ul>
+        <li>入力: 長さ $N$ の昇順ソート済みの配列 $a$ と探索したい値 $v$</li>
+        <li>出力: $a[i] = v$ となる $v$ が存在するならば $i$ を，存在しないならばその旨を返す．</li>
+      </ul>
+      <h2 id="アルゴリズム">アルゴリズム</h2>
+      <h3 id="使用するデータ構造">使用するデータ構造</h3>
+      <p>$\gdef\vleft{\mathrm{left}}$ $\gdef\vright{\mathrm{right}}$ $\gdef\vmid{\mathrm{mid}}$</p>
+      <ul>
+        <li>$\vleft$:「探索範囲の左端の添字を格納するための変数」</li>
+        <li>$\vright$:「探索範囲の右端の添字を格納するための変数」</li>
+        <li>$\vmid$:「探索範囲の中間点の添字を格納するための変数」</li>
+      </ul>
+      <h3 id="手続き">手続き</h3>
+      <ol>
+        <li>$\vleft \gets 0$ と $\vright \gets (N-1)$ で各変数を初期化．</li>
+        <li>$\vleft \leq \vright$が成立する間，以下を繰り返す:
+          <ul>
+            <li>$\displaystyle\vmid \gets \left\lbrack \frac{\vleft + \vright}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数）</li>
+            <li>$a[\vmid]$ の値に応じて以下の通り場合分け:
+              <ul>
+                <li>$a[\vmid] = v$ ならば，値が存在したことになるので添字 $\vmid$ を返して終了;</li>
+                <li>$a[\vmid] &lt; v$ ならば，$\vleft \gets (\vmid + 1)$ として 2. を繰り返す;</li>
+                <li>$a[\vmid] &gt; v$ ならば，$\vright \gets (\vmid - 1)$ として 2. を繰り返す．</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>この部分に達した場合，配列 $a$ 中に $v$ が存在しないので，その旨を返して終了．</li>
+      </ol>
+      <h2 id="ビジュアライザ">ビジュアライザ</h2>
+      <div class="container">
+        <div class="mb-2">
+          <label for="size">配列要素数</label> <input class="alg-input mb-1" type="number" id="size" value="16"> <button class="alg-btn" id="generate">入力の生成</button>
+        </div>
+        <div class="mb-2">
+          <label for="array">入力: 数値配列</label> <input class="alg-input mb-1" type="text" id="array"> <button class="alg-btn" id="set">設定</button>
+        </div>
+        <div class="mb-2">
+          <label>配列状態・探索状況</label>
+          <div id="canvas-hole"></div>
+        </div>
+        <div class="mb-2">
+          <label for="begin">探索する値（＝配列に存在するか判定する値）</label><br>
+          <input class="alg-input" type="number" id="target" value="0">
+        </div>
+        <div class="mb-2">
+          <button class="alg-btn" id="run">ワンステップ実行</button> <button class="alg-btn" id="reset">リセット</button>
+        </div>
+        <div>
+          <label>実行記録</label><br>
+          <textarea class="w-full" rows="12" id="textbox" disabled></textarea>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="container p-6 mx-auto flex justify-between items-center">
+    <span class="text-sm font-light"><a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a></span> <span onclick='window.scrollTo({top:0,behavior:"smooth"})' class="p-1 cursor-pointer"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M18 15l-6-6-6 6h12"></path></svg></span>
+  </footer>
+  <script>
+  const mobileMenuButton=document.querySelector(".mobile-menu-button"),mobileMenu=document.querySelector(".mobile-menu");function toggleMenu(){mobileMenu.classList.toggle("hidden"),mobileMenu.classList.toggle("flex")}mobileMenu&&mobileMenuButton&&mobileMenuButton.addEventListener("click",toggleMenu)
+  </script>
+</body>
+</html>

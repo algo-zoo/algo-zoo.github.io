@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sort on Algo Zoo</title><link>https://algo-zoo.com/ja/tags/sort/</link><description>Recent content in Sort on Algo Zoo</description><generator>Hugo</generator><language>ja</language><atom:link href="https://algo-zoo.com/ja/tags/sort/index.xml" rel="self" type="application/rss+xml"/><item><title>マージソート</title><link>https://algo-zoo.com/ja/merge-sort/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/merge-sort/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
+&lt;ul>
+&lt;li>マージソートは整列アルゴリズムの一種で，以下の特徴を持つ:
+&lt;ul>
+&lt;li>配列を半分に分割し，左右それぞれを再帰的にソートして，その両者の結果を併合することを繰り返すことで配列を整列させる．分割統治法に基づくアルゴリズムの一例．&lt;/li>
+&lt;li>配列の長さを $N$ としたとき，平均計算量も最悪計算量も $O(N \log{N})$ となることが知られている．&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
+&lt;p>長さが $N$ の配列 $a$ を昇順にソートするには，以下の &lt;code>MergeSort&lt;/code> 関数を &lt;code>MergeSort(a, 0, N)&lt;/code> で呼び出すことで実現される．&lt;/p>
+&lt;h3 id="用語の定義">用語の定義&lt;/h3>
+&lt;p>$\gdef\arr{\mathrm{arr}}$&lt;/p>
+&lt;ul>
+&lt;li>自然数 $a, b$ について，集合 $\lbrace x \mid a \leq x &amp;lt; b \rbrace$ を $[a, b)$ で表す．いわゆる，左閉右開であるような半開区間．&lt;/li>
+&lt;li>配列 $\arr$ と自然数 $a, b$ について，その部分配列 $\arr[a], \arr[a+1], \arr[a+2], \ldots, \arr[b-1]$ を $\arr[a, b)$ という記法で表す（ 注: $\arr[b]$は含まない ）．&lt;/li>
+&lt;/ul>
+&lt;h3 id="擬似コード">擬似コード&lt;/h3>
+&lt;pre tabindex="0">&lt;code>// 配列 a の 区間 [left, right) 部分，すなわち a[left, right) をソートする関数
+MergeSort(a, left, right) {
+ if 区間 [left, right) のサイズが1 {
+ return;
+ } else {
+ mid = (left + right) / 2; // 区間の中間値を算出（注: 小数点以下がある場合は切り捨てて自然数にする）
+ MergeSort(a, left, mid); // 左区間 a[left, mid) を再帰的にソート
+ MergeSort(a, mid, right); // 右区間 a[mid, right) を再帰的にソート
+ Merge(a, left, mid, right); // ２つのソート済み配列をマージ
+ }
+}
+
+// ソート済みな a[left, mid) と a[mid, right) をマージすることでソート済みの a[left, right) を作る関数
+Merge(a, left, mid, right) {
+ buf = 空配列; // データ退避用に空配列 buf を用意
+ 左区間 a[left, mid) と右区間 a[mid, right) の両方が空になるまで次の①, ②を繰り返し {
+ ① 場合分けにより以下の３つのうちの当てはまる１つを実行:
+ ①-(a) 左区間も右区間も要素が空でないとき: 「左区間の最小値」と「右区間の最小値」を比較し，小さい方を該当区間から抜き出して変数 v に格納;
+ ①-(b) 左区間の要素が空のとき: 「右区間の最小値」を当該区間から抜き出して変数 v に格納;
+ ①-(c) 右区間の要素が空のとき: 「左区間の最小値」を当該区間から抜き出して変数 v に格納;
+ ② 配列 buf に変数 v の値を追加;
+ }
+ buf の中身を a[left, right) にコピーする;
+}
+&lt;/code>&lt;/pre>&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
+&lt;div class="container">
+ &lt;div class="mb-2">
+ &lt;label for="size">配列要素数&lt;/label>
+ &lt;input class="alg-input mb-1" type="number" id="size" value="8">&lt;/input>
+ &lt;button class="alg-btn" id="generate">入力の生成&lt;/button>
+ &lt;/div>
+ &lt;div class="mb-2">
+ &lt;label for="array">入力: 数値配列&lt;/label>
+ &lt;input class="alg-input mb-1" type="text" id="array">&lt;/input>
+ &lt;button class="alg-btn" id="set">実行&lt;/button>
+ &lt;/div>
+ &lt;div>
+ &lt;label>マージソートの処理&lt;/label>
+ &lt;div id="canvas-hole">&lt;/div>
+ &lt;/div>
+&lt;/div></description></item></channel></rss>
