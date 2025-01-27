@@ -1,0 +1,81 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="{{ if (isset .Site.Params "favicon") }}{{ .Site.Params.favicon }}{{ else }}/favicon.ico{{ end }}">
+
+  <title>
+  {{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}
+  </title>
+  <!-- <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}" /> -->
+  {{- if .Keywords }}
+  <meta name="keywords" content="{{ delimit .Keywords "," }}" />
+  {{ end -}}
+  {{- if .Params.Author }}
+  <meta name="author" content="{{ .Params.Author}}" />
+  {{ end -}}
+  
+  {{ hugo.Generator }}
+
+  {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/") -}}
+  {{- if hugo.IsServer }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+  {{ else }}
+  {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
+  <link
+    rel="stylesheet"
+    href="{{ $styles.Permalink }}"
+    inte,grity="{{ $styles.Data.Integrity }}"
+  />
+  {{ end -}}
+
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+
+  {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
+  {{ template "_internal/schema.html" . }}
+
+  {{ if gt (len .Site.Languages) 1}}
+  <meta name="lang" content="{{ .Site.Language }}" />
+  {{ end }}
+
+  <script src="{{ .Site.Params.flowbite.cdn }}" integrity="{{ .Site.Params.flowbite.sri }}" crossorigin="anonymous"></script>
+  <link href="{{ .Site.Params.flowbite.css_cdn }}" integrity="{{ .Site.Params.flowbite.css_sri }}" crossorigin="anonymous" rel="stylesheet" />
+
+  {{ if (in .Params.cdn "jquery") }}
+  <script src="{{ .Site.Params.jquery.cdn }}" integrity="{{ .Site.Params.jquery.sri }}" crossorigin="anonymous"></script>
+  {{ end }}
+  {{ if (in .Params.cdn "p5js") }}
+  <script src="{{ .Site.Params.p5js.cdn }}" integrity="{{ .Site.Params.p5js.sri }}" crossorigin="anonymous"></script>
+  {{ end }}
+  {{ if (in .Params.cdn "katex") }}
+  <link rel="stylesheet" href="{{ .Site.Params.katex.css_cdn }}" integrity="{{ .Site.Params.katex_css_cdn_sri }}" crossorigin="anonymous">
+  <script defer src="{{ .Site.Params.katex.cdn }}" integrity="{{ .Site.Params.katex.sri }}" crossorigin="anonymous"></script>
+  <script defer src="{{ .Site.Params.katex.render_cdn }}" integrity="{{ .Site.Params.katex.render_sri }}" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+  {{ end }}
+  {{ if (in .Params.cdn "d3") }}
+  <script src="{{ .Site.Params.d3.cdn }}" integrity="{{ .Site.Params.d3.sri }}" crossorigin="anonymous"></script>
+  {{ end }}
+  {{ if (in .Params.cdn "fplot") }}
+  <script src="{{ .Site.Params.fplot.cdn }}" integrity="{{ .Site.Params.fplot.sri }}" crossorigin="anonymous"></script>
+  {{ end }}
+
+  {{ with .Params.css }}
+    {{ range . }}
+      <link rel="stylesheet" href="{{ . }}">
+    {{ end }}
+  {{ end }}
+  {{ with .Params.globaljs }}
+    {{ range . }}
+      <script src="{{ . }}"></script>
+    {{ end }}
+  {{ end }}
+  {{ with .Params.js }}
+    {{ range . }}
+      <script type="module" src="{{ . }}"></script>
+    {{ end }}
+  {{ end }}
+  <link href="/css/algo-util.css" rel="stylesheet" />
+</head>

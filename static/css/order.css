@@ -1,0 +1,34 @@
+hr {
+  margin: 15px 0 15px 0;
+  border-top: thick double gray;
+}
+input[type="text"] {
+  background-color: RGB(255, 255, 255);
+}
+
+#plot {
+  width: 100%;
+}
+
+.alg-box {
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 10px 10px 0 10px;
+  margin: 5px 0 5px 0;
+}
+.zebra {
+  background: repeating-linear-gradient(
+    -45deg,
+    #fff 0 10px,
+    RGB(249, 250, 249) 10px 20px
+  );
+}
+
+.blue-text { color: #005AFF; }
+.bold { font-weight: bold; }
+
+.light-red    { background-color: RGB(255, 229, 218); }
+.light-blue   { background-color: RGB(225, 234, 250); }
+.light-yellow { background-color: RGB(255, 255, 217); }
+.light-pink   { background-color: RGB(255, 223, 217); }
+.light-gray   { background-color: RGB(241, 242, 241); }

@@ -1,0 +1,15 @@
+#canvas-hole {
+  text-align: center;
+}
+canvas {
+  width: 100% ! important;
+  height: 100% ! important;
+}
+#data_tbl thead, .gray {
+  background-color: rgb(200, 200, 203);
+}
+/*
+#data_tbl tbody {
+  font-size: 24pt;
+}
+*/

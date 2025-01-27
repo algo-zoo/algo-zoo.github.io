@@ -1,0 +1,28 @@
+.bar {
+  width: 100%;
+}
+.header-left {
+  text-align: left;
+  float: left;
+}
+.header-right {
+  text-align: right;
+}
+.gray-bar {
+  float: left;
+  background-color: rgb(200, 200, 203);
+}
+.blue-bar {
+  float: left;
+  background-color: rgb(0, 95, 255);
+  min-width: 1px;
+}
+.bar:after {
+  clear:both;
+}
+table {
+  border-collapse: collapse;
+}
+tr {
+  border-bottom: 1pt solid black;
+}

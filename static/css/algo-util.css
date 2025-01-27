@@ -1,0 +1,100 @@
+.alg-btn {
+  padding: 0.625rem 1.25rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  border-radius: 0.375rem;
+  outline: none;
+}
+
+.alg-btn:hover {
+  background-color: #f7fafc;
+  color: #1a202c;
+}
+
+.alg-btn:focus {
+  z-index: 10;
+  outline: none;
+  ring: 4px solid #f7fafc;
+}
+
+.alg-btn:disabled {
+  color: #d3d3d3;
+  border: 1px solid #e2e8f0;
+}
+
+.alg-btn:disabled:hover {
+  background-color: #ffffff;
+}
+
+.alg-btn.dark {
+  background-color: #2d3748;
+  color: #cbd5e0;
+  border-color: #4a5568;
+}
+
+.alg-btn.dark:hover {
+  background-color: #4a5568;
+  color: #ffffff;
+}
+
+.alg-input {
+  background-color: #f9fafb;
+  border: 1px solid #d2d6dc;
+  color: #374151;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  outline: none;
+  width: 100%;
+  padding: 0.625rem;
+}
+
+.alg-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.alg-input.dark {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #ffffff;
+}
+
+.alg-input.dark:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.alg-select {
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  color: #1f2937;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  width: 100%;
+  padding: 0.625rem;
+}
+
+.alg-select:focus {
+  border-color: #2563eb;
+  outline-offset: 0;
+}
+
+.alg-select.dark {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+  placeholder-color: #9ca3af;
+}
+
+.alg-select.dark:focus {
+  border-color: #2563eb;
+  outline-offset: 0;
+}
+

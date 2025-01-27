@@ -1,0 +1,56 @@
+baseURL = 'https://algo-zoo.com'
+languageCode = 'en'
+theme = 'blist-hugo-theme'
+title = 'Algo Zoo'
+
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageName = '🇺🇸 English'
+    weight = 1
+    [[languages.en.menu.main]]
+      name = "Tags"
+      url = "tags"
+  [languages.ja]
+    languageCode = 'ja'
+    languageName = '🇯🇵 日本語'
+    contentDir = 'content/ja'
+    weight = 2
+    [[languages.ja.menu.main]]
+      name = "タグ"
+      url = "tags"
+
+defaultContentLanguage = 'en'
+
+[params]
+  favicon = '/favicon.png'
+  hideMeta = true
+  copyright = '<a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a>'
+  [params.flowbite]
+    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js'
+    sri = 'sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA=='
+    css_cdn = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css'
+    css_sri = 'sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS+2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ=='
+  [params.katex]
+    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js'
+    sri = 'sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA=='
+    css_cdn = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css'
+    css_sri = 'sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g=='
+    render_cdn = 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js'
+    render_sri = 'sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg=='
+  [params.jquery]
+    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+    sri = 'sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+  [params.p5js]
+    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js'
+    sri = 'sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ=='
+  [params.d3]
+    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js'
+    sri = 'sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A=='
+  [params.fplot]
+    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.25.1/function-plot.min.js'
+    sri = 'sha512-fsvE52IC5bx7NhuaGLoNE+Sq3EKFQ+fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg=='
+
+[markup.goldmark.renderer]
+  unsafe = true
+
