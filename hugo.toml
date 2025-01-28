@@ -44,9 +44,6 @@ defaultContentLanguage = 'en'
   [params.p5js]
     cdn = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js'
     sri = 'sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ=='
-  [params.d3]
-    cdn = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js'
-    sri = 'sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A=='
   [params.fplot]
     cdn = 'https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.25.1/function-plot.min.js'
     sri = 'sha512-fsvE52IC5bx7NhuaGLoNE+Sq3EKFQ+fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg=='
