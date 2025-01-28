@@ -59,10 +59,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -96,7 +92,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
 &lt;/div></description></item><item><title>プリム法</title><link>https://algo-zoo.com/ja/prim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/prim/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
 &lt;ul>
@@ -154,10 +149,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -192,6 +183,5 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
 &lt;/div></description></item></channel></rss>

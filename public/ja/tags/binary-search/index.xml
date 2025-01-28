@@ -106,8 +106,6 @@ $\gdef\vmid{\mathrm{mid}}$&lt;/p>
  &lt;button class="alg-btn" type="button" id="binary">実行&lt;/button>
  &lt;/div>
  &lt;table id="chat">
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
 &lt;/div>
 &lt;h2 id="出典">出典&lt;/h2>

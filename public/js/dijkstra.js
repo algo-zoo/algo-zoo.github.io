@@ -70,6 +70,9 @@ class Dijkstra extends DirectedGraph {
 
   table_refresh() {
     $('#data_tbl td').parent().empty();
+    if ($('#data_tbl tbody').length == 0) {
+      $('#data_tbl').append($('<tbody>'));
+    }
     for (let i = 0; i < this.V.get_size(); i++) {
       const node = this.V.get(i);
       const dist = "dist[" + node.label + "] = " + (node.dist==Infinity?"∞":node.dist);

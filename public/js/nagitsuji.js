@@ -1290,6 +1290,9 @@ function draw_status() {
 }
 function table_refresh() {
   $('#tbl td').parent().empty();
+  if ($('#tbl tbody').length == 0) {
+    $('#tbl').append($('<tbody>'));
+  }
   for (let i = 0; i < nodes.length; i++) {
     const node = nodes[i];
     const d = "d[" + node.label + "] = " + (node.dist==Infinity?"∞":node.dist);

@@ -31,10 +31,6 @@
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 

@@ -52,6 +52,9 @@ class Kruskal extends UndirectedGraph {
 
   table_refresh() {
     $('#data_tbl td').parent().empty();
+    if ($('#data_tbl tbody').length == 0) {
+      $('#data_tbl').append($('<tbody>'));
+    }
     const to_label = function(e) {
       if (e.dashed)
         return '不採用';
@@ -59,7 +62,6 @@ class Kruskal extends UndirectedGraph {
         return '採用'; 
       return '';
     }
-
     for (const e of this.E.get_edges()) {
       const label = '(' + e.from.toString() + ', ' + e.to.toString() + ')';
       $('#data_tbl tbody').append('<tr>' +

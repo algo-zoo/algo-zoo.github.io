@@ -58,10 +58,6 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -97,7 +93,6 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
  &lt;th>（暫定）最短経路における頂点iの一つ前の頂点 prev[i]&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
  &lt;div>注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能&lt;/div>
 &lt;/div></description></item><item><title>最短経路探索</title><link>https://algo-zoo.com/ja/nagitsuji/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/nagitsuji/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
@@ -129,7 +124,6 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
  &lt;th>（暫定）最短経路の頂点iの一つ前の頂点 prev[i]&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
 &lt;/div></description></item><item><title>迷路の最短経路探索</title><link>https://algo-zoo.com/ja/maze/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/maze/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
 &lt;p>$\gdef\map{\mathrm{map}}$

@@ -220,10 +220,6 @@ Merge(a, left, mid, right) {
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -304,10 +300,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -341,7 +333,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
 &lt;/div></description></item><item><title>ダイクストラ法</title><link>https://algo-zoo.com/ja/dijkstra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/dijkstra/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
 &lt;ul>
@@ -403,10 +394,6 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -442,7 +429,6 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
  &lt;th>（暫定）最短経路における頂点iの一つ前の頂点 prev[i]&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
  &lt;div>注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能&lt;/div>
 &lt;/div></description></item><item><title>プリム法</title><link>https://algo-zoo.com/ja/prim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/prim/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
@@ -501,10 +487,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -539,7 +521,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
 &lt;/div></description></item><item><title>凹包ビジュアライザ</title><link>https://algo-zoo.com/ja/concave-hull-vis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/concave-hull-vis/</guid><description>&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
 &lt;div class="container">
@@ -577,7 +558,6 @@ $\gdef\Ep{E^\prime}$&lt;/p>
  &lt;th>（暫定）最短経路の頂点iの一つ前の頂点 prev[i]&lt;/th>
  &lt;/tr>
  &lt;/thead>
- &lt;tbody>&lt;/tbody>
  &lt;/table>
 &lt;/div></description></item><item><title>凸包ビジュアライザ</title><link>https://algo-zoo.com/ja/convex-hull-vis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/convex-hull-vis/</guid><description>&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
 &lt;div class="container">
@@ -694,8 +674,6 @@ $\gdef\vmid{\mathrm{mid}}$&lt;/p>
  &lt;button class="alg-btn" type="button" id="binary">実行&lt;/button>
  &lt;/div>
  &lt;table id="chat">
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
 &lt;/div>
 &lt;h2 id="出典">出典&lt;/h2>
@@ -792,10 +770,6 @@ $\gdef\yp{y^\prime}$&lt;/p>
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 
@@ -852,10 +826,6 @@ $\gdef\yp{y^\prime}$&lt;/p>
  &lt;/div>
  &lt;label>隣接行列&lt;/label>
  &lt;table class="w-full border" id="matrix_tbl">
- &lt;thead>
- &lt;/thead>
- &lt;tbody>
- &lt;/tbody>
  &lt;/table>
  &lt;div>
  &lt;label>グラフ（ 

@@ -51,7 +51,7 @@ const binarySearch = function() {
   } else if (target < b || e < target) {
     alert('エラー: 答えの数値は探索範囲内を指定してください');
   } else {
-    const tbody = $('#chat tbody').empty();
+    const tbody = $('#chat').empty().append($('<tbody>'));
     let text = '🤡（…… 答えの数は ' + target + ' だ！ ……）';
     let [cb, ce] = [b, e];
     makeRow('初期状態', makeBar(text, cb, ce)).appendTo(tbody);
