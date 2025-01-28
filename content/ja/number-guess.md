@@ -52,8 +52,6 @@ tags = ['binary search']
     <button class="alg-btn" type="button" id="binary">実行</button>
   </div>
   <table id="chat">
-    <tbody>
-    </tbody>
   </table>
 </div>
 

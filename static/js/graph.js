@@ -239,8 +239,7 @@ export class Graph {
   }
 
   matrix_refresh() {
-    $('#matrix_tbl thead').empty();
-    $('#matrix_tbl tbody').empty();
+    $('#matrix_tbl').empty().append($('<thead>'), $('<tbody>'));
     $('#matrix_tbl thead').append([
       '<tr>',
       '<td class="gray"></td>',

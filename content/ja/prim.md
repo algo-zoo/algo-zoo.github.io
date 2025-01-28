@@ -49,6 +49,5 @@ $\gdef\Ep{E^\prime}$
         <th>（暫定）最小全域木の辺として採用</th>
       </tr>
     </thead>
-    <tbody></tbody>
   </table>
 </div>

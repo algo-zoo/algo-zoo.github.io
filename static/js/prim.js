@@ -95,6 +95,9 @@ class Prim extends UndirectedGraph {
 
   table_refresh() {
     $('#data_tbl td').parent().empty();
+    if ($('#data_tbl tbody').length == 0) {
+      $('#data_tbl').append($('<tbody>'));
+    }
     const to_label = function(e) {
       if (e.dashed)
         return '不採用';

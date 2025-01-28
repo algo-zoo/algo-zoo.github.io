@@ -38,6 +38,5 @@ tags = ['graph', 'shortest path']
         <th>（暫定）最短経路の頂点iの一つ前の頂点 prev[i]</th>
       </tr>
     </thead>
-    <tbody></tbody>
   </table>
 </div>

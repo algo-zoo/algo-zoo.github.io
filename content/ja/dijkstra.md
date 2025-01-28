@@ -53,7 +53,6 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
         <th>（暫定）最短経路における頂点iの一つ前の頂点 prev[i]</th>
       </tr>
     </thead>
-    <tbody></tbody>
   </table>
   <div>注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能</div>
 </div>
