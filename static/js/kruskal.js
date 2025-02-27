@@ -96,10 +96,6 @@ window.mouseReleased = graph.mouseReleased.bind(graph);
 window.matrix_change = graph.matrix_change.bind(graph);
 
 $(document).ready(function() {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('#add').click(() => graph.change_mode());
   $('#search').click(() => graph.onestep());
   $('#goal').click(() => graph.kruskal());

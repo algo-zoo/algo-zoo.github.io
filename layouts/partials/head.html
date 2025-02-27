@@ -53,7 +53,15 @@
   {{ if (in .Params.cdn "katex") }}
   <link rel="stylesheet" href="{{ .Site.Params.katex.css_cdn }}" integrity="{{ .Site.Params.katex_css_cdn_sri }}" crossorigin="anonymous">
   <script defer src="{{ .Site.Params.katex.cdn }}" integrity="{{ .Site.Params.katex.sri }}" crossorigin="anonymous"></script>
-  <script defer src="{{ .Site.Params.katex.render_cdn }}" integrity="{{ .Site.Params.katex.render_sri }}" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+  <script defer src="{{ .Site.Params.katex.render_cdn }}" integrity="{{ .Site.Params.katex.render_sri }}" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [{left: '$', right: '$', display: false}],
+        throwOnError : false
+      });
+    });
+  </script>
   {{ end }}
   {{ if (in .Params.cdn "d3") }}
   <script src="{{ .Site.Params.d3.cdn }}" integrity="{{ .Site.Params.d3.sri }}" crossorigin="anonymous"></script>

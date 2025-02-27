@@ -1,4 +1,4 @@
-import { color_code } from './color-code.js'
+import { dark, white, red, light_gray } from './ColorCode.js'
 
 var cv = { // constant values
   w: -1,
@@ -113,7 +113,7 @@ const drawBox = function(i, j) {
   const offset = cv.box_size / 2;
   const x = offset + cv.box_size * j;
   const y = offset + cv.box_size * i;
-  fill(state.maze[i][j] == '#' ? color_code.dark : color_code.white);
+  fill(state.maze[i][j] == '#' ? dark : white);
   rect(x, y, cv.box_size, cv.box_size);
 }
 
@@ -125,7 +125,7 @@ const drawHeader = function(i, j) {
   
 
   const header = '(' + j + ', ' + i + ')';
-  fill(color_code.red);
+  fill(red);
   textSize(cv.label_size);
   textAlign(LEFT, BASELINE);
   text(header, x, y);
@@ -164,15 +164,11 @@ const drawMaze = function() {
 window.draw = function() {
   $('#prev').prop('disabled', state.current_depth == -1 || state.current_depth == 0);
   $('#next').prop('disabled', state.current_depth == -1 || state.current_depth == state.max_depth);
-  background(color_code.light_gray);
+  background(light_gray);
   drawMaze();
 }
 
 $(document).ready(function() {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('#maze-load').click(function() {
     setMaze();
     draw();
