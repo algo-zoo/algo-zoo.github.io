@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shortest Path on Algo Zoo</title><link>https://algo-zoo.com/tags/shortest-path/</link><description>Recent content in Shortest Path on Algo Zoo</description><generator>Hugo</generator><language>en</language><atom:link href="https://algo-zoo.com/tags/shortest-path/index.xml" rel="self" type="application/rss+xml"/><item><title>ダイクストラ法</title><link>https://algo-zoo.com/ja/dijkstra/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/dijkstra/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
 &lt;ul>
 &lt;li>入力: 辺の重みが非負である重み付きグラフ $G = (V, E, w)$ と探索開始頂点 $s$&lt;/li>
-&lt;li>出力: 開始頂点 $s$ から辿れる拡張点 $v$ について，経路長が最短の $s$-$v$ ウォーク&lt;/li>
+&lt;li>出力: 開始頂点 $s$ から辿れる各頂点 $v$ について，経路長が最短の $s$-$v$ ウォーク&lt;/li>
 &lt;/ul>
 &lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
 &lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>

@@ -1,5 +1,5 @@
 import { color_code } from './color-code.js'
-import { UnionFind } from './union-find.js'
+import { UnionFind } from './UnionFind.js'
 import { UndirectedGraph } from './graph.js'
 
 class Kruskal extends UndirectedGraph {
@@ -12,11 +12,11 @@ class Kruskal extends UndirectedGraph {
     if (this.queue.length == 0)
       return;
     const e = this.queue.shift();
-    if (this.uf.is_same(e.from, e.to)) {
+    if (UnionFind.isSame(this.uf, e.from, e.to)) {
       e.dashed = true;
     } else {
       this.mst.push(e);
-      this.uf.unite(e.from, e.to);
+      UnionFind.unite(this.uf, e.from, e.to);
       e.color = color_code.red;
     }
     if (call_refresh)
@@ -36,7 +36,7 @@ class Kruskal extends UndirectedGraph {
     }
 
     this.queue = this.E.get_edges().sort((e, f) => e.weight - f.weight);
-    this.uf = new UnionFind(this.queue.length);
+    this.uf = UnionFind.create(this.queue.length);
     this.mst = [];
   }
 

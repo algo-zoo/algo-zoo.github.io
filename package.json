@@ -1,1 +1,29 @@
-themes/blist-hugo-theme/package.json
+{
+  "name": "algo-zoo",
+  "version": "0.0.0",
+  "description": "Algo-zoo is a webpage for algorithm and data structure visualizers",
+  "main": "index.js",
+  "repository": "https://github.com/algo-zoo/algo-zoo.github.io",
+  "author": "Yosuke Fukuda",
+  "license": "MIT",
+  "scripts": {
+    "start": "hugo server --disableFastRender",
+    "build": "NODE_ENV=production sh build.sh"
+  },
+  "devDependencies": {
+    "@rescript/core": "^1.6.1",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0 ",
+    "postcss-import": "^16.0.0",
+    "rescript": "^11.1.4",
+    "tailwindcss": "^3.4.1"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
+}

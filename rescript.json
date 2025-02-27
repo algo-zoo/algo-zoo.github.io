@@ -1,0 +1,10 @@
+{
+  "name": "algo-zoo",
+  "sources": "static/js",
+  "package-specs": [
+    {
+      "module": "esmodule",
+      "in-source": true
+    }
+  ]
+}
