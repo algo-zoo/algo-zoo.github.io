@@ -1,8 +1,8 @@
 module UnionFind = {
   type t = {
     n: int,
-    mutable parents: array<option<int>>,
-    mutable groupSizes: array<int>
+    parents: array<option<int>>,
+    groupSizes: array<int>
   }
 
   let create = (n: int): t => {
@@ -16,9 +16,11 @@ module UnionFind = {
   let rec root = (uf: t, i: int): int =>
     switch uf.parents[i] {
     | None => i
-    | Some(p) => let r = root(uf, p)
-                 uf.parents[i] = Some(r)
-                 r
+    | Some(p) => {
+        let r = root(uf, p);
+        uf.parents[i] = Some(r);
+        r
+      }
     }
 
   let isSame = (uf: t, i: int, j: int): bool =>
