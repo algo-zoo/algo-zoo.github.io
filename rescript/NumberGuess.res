@@ -39,8 +39,7 @@ let setTarget = (v: int): unit =>
 
 let setRandomTarget = (): unit => {
   let (b, e) = getRange()
-  let range = e - b
-  let randomOffset = int_of_float (RescriptCore.Math.floor (RescriptCore.Math.random() *. float_of_int(range)))
+  let randomOffset = int_of_float (RescriptCore.Math.floor (RescriptCore.Math.random() *. float_of_int(e - b)))
   setTarget(b + randomOffset + 1)
 }
 
@@ -53,18 +52,19 @@ let makeColorBar = (x: int, y: int): Jq.t => {
     let style = "width: calc(" ++ RescriptCore.Float.toString(r) ++ "% - 1px)"
     Jq.make("<div class='" ++ color ++ "' style='" ++ style ++ "'>&nbsp;</div>")
   }
-  let grayBar1 = colorBar("gray-bar", barB)
-  let blueBar = colorBar("blue-bar", barWidth)
-  let grayBar2 = colorBar("gray-bar", 100.0 -. (barB +. barWidth))
-  Jq.make("<div class='bar'></div>")->Jq.append([ grayBar1, blueBar, grayBar2 ])
+  Jq.make("<div class='bar'></div>")->Jq.append([
+    colorBar("gray-bar", barB),
+    colorBar("blue-bar", barWidth),
+    colorBar("gray-bar", 100.0 -. (barB +. barWidth))
+  ])
 }
 
 let makeBar = (text: string, x: int, y: int): Jq.t => {
   let textTag = Jq.make("<div class='header-left'></div>")->Jq.text(text)
   let rangeText = "【探索範囲=" ++ string_of_int(x+1) ++ "~" ++ string_of_int(y) ++ ", 幅=" ++ string_of_int(y - x) ++ "】"
   let rangeTag = Jq.make("<div class='header-right'></div>")->Jq.text(rangeText)
-  let colorBarElem = makeColorBar(x, y)
-  Jq.make("<div></div>")->Jq.append([ textTag, rangeTag, colorBarElem ])
+  let colorBar = makeColorBar(x, y)
+  Jq.make("<div></div>")->Jq.append([ textTag, rangeTag, colorBar])
 }
 
 let makeRow = (a: string, b: [#text(string) | #jq(Jq.t)]): Jq.t => {
