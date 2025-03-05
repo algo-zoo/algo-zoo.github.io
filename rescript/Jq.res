@@ -1,0 +1,15 @@
+type t
+@val external make: string => t = "$"
+@val external document: t = "document"
+@val external domMake: t => t = "$"
+@send external getValue: (t, unit) => string = "val"
+@send external setValue: (t, string) => t = "val"
+@send external appendText: (t, string) => t = "append"
+@send external append: (t, array<t>) => t = "append"
+@send external appendTo: (t, t) => t = "appendTo"
+@send external css: (t, string, string) => t = "css"
+@send external on: (t, string, (unit => unit)) => t = "on"
+@send external empty: t => t = "empty"
+@send external text: (t, string) => t = "text"
+@send external ready: (t, (unit => unit)) => t = "ready"
+

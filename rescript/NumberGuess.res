@@ -1,26 +1,5 @@
-module Jq = {
-  type t
-  @val external make: string => t = "$"
-  @val external document: t = "document"
-  @val external domMake: t => t = "$"
-  @send external getValue: (t, unit) => string = "val"
-  @send external setValue: (t, string) => t = "val"
-  @send external appendText: (t, string) => t = "append"
-  @send external append: (t, array<t>) => t = "append"
-  @send external appendTo: (t, t) => t = "appendTo"
-  @send external css: (t, string, string) => t = "css"
-  @send external on: (t, string, (unit => unit)) => t = "on"
-  @send external empty: t => t = "empty"
-  @send external text: (t, string) => t = "text"
-  @send external ready: (t, (unit => unit)) => t = "ready"
-}
-
-module Window = {
-  external alert: string => unit = "alert"
-}
-
 let parseIntWithDefault = (s: string): int =>
-  switch RescriptCore.Int.fromString(s) {
+  switch Int.fromString(s) {
   | Some(i) => i
   | None => 0
   }
@@ -39,7 +18,7 @@ let setTarget = (v: int): unit =>
 
 let setRandomTarget = (): unit => {
   let (b, e) = getRange()
-  let randomOffset = int_of_float (RescriptCore.Math.floor (RescriptCore.Math.random() *. float_of_int(e - b)))
+  let randomOffset = int_of_float (Math.floor (Math.random() *. float_of_int(e - b)))
   setTarget(b + randomOffset + 1)
 }
 
@@ -49,7 +28,7 @@ let makeColorBar = (x: int, y: int): Jq.t => {
   let barE = (float_of_int(y - b)) /. (float_of_int(e - b)) *. 100.0
   let barWidth = barE -. barB
   let colorBar = (color: string, r: float): Jq.t => {
-    let style = "width: calc(" ++ RescriptCore.Float.toString(r) ++ "% - 1px)"
+    let style = "width: calc(" ++ Float.toString(r) ++ "% - 1px)"
     Jq.make("<div class='" ++ color ++ "' style='" ++ style ++ "'>&nbsp;</div>")
   }
   Jq.make("<div class='bar'></div>")->Jq.append([
@@ -80,9 +59,9 @@ let makeRow = (a: string, b: [#text(string) | #jq(Jq.t)]): Jq.t => {
 let binarySearch = (): unit => {
   let (b, e) = getRange()
   let target = getTarget()
-  if (e < b) {
+  if e < b {
     Window.alert("エラー: 始点は終点以下の値を指定してください")
-  } else if (target < b || target > e) {
+  } else if target < b || target > e {
     Window.alert("エラー: 答えの数値は探索範囲内を指定してください")
   } else {
     let tbody = Jq.make("#chat")->Jq.empty->Jq.append([
@@ -91,11 +70,11 @@ let binarySearch = (): unit => {
     let initText = "🤡（…… 答えの数は " ++ string_of_int(target) ++ " だ！ ……）"
     let _ = makeRow("初期状態", #jq(makeBar(initText, b, e)))->Jq.appendTo(tbody)
     let rec loop = (level: int, b: int, e: int): int =>
-      if (e - b >= 2) {
+      if e - b >= 2 {
         let mid = (b + e) / 2
         let headText = string_of_int(level) ++ "回目"
         let baseText = "🤔「" ++ string_of_int(mid) ++ "以下か？」 ⇒ "
-        if (target <= mid) {
+        if target <= mid {
           let text = baseText ++ "🤡「Yes」"
           let _ = makeRow(headText, #jq(makeBar(text, b, mid)))->Jq.appendTo(tbody)
           loop(level + 1, b, mid)
