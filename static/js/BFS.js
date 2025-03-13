@@ -39,7 +39,7 @@ class BFS extends DirectedGraph {
   }
 
   bfs() {
-    while (this.queue.size > 0)
+    while (this.queue.length > 0)
       this.onestep(false);
     this.refresh();
   }
