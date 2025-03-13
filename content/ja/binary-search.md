@@ -6,7 +6,7 @@ tags = ['binary search']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/binary-search.css']
-    js = ['/js/binary-search.js']
+    js = ['/js/BinarySearch.js']
 +++
 
 ## 問題
