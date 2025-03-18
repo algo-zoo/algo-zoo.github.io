@@ -25,7 +25,7 @@ defaultContentLanguage = 'en'
 [params]
   favicon = '/favicon.png'
   hideMeta = true
-  copyright = '<a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a>'
+  copyright = '<a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>'
   [params.flowbite]
     cdn = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js'
     sri = 'sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA=='
