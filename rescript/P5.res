@@ -8,6 +8,7 @@ type t
 @val external createCanvas: (int, int) => t = "createCanvas"
 @val external ellipse: (int, int, int, int) => unit = "ellipse"
 @val external endShape: int => unit = "endShape"
+@val external endShapeNull: unit => unit = "endShape"
 @val external line: (int, int, int, int) => unit = "line"
 @val external noLoop: unit => unit = "noLoop"
 @val external rect: (int, int, int, int) => unit = "rect"

@@ -1,12 +1,12 @@
 let grayScale = (v: int): (int, int, int) => {
-  Console.assert_(!(0 <= v && v <= 255), "Scale error")
+  Console.assert_(0 <= v && v <= 255, "Scale error")
   (v, v, v)
 }
 
 let hsv = (h: int, s: int, v: int): (int, int, int) => {
-  Console.assert_(!(0 <= h && h <= 360), "Scale error")
-  Console.assert_(!(0 <= s && s <= 100), "Scale error")
-  Console.assert_(!(0 <= v && v <= 100), "Scale error")
+  Console.assert_(0 <= h && h <= 360, "Scale error")
+  Console.assert_(0 <= s && s <= 100, "Scale error")
+  Console.assert_(0 <= v && v <= 100, "Scale error")
 
   let normalize = x => int_of_float(Math.round(x *. 255.0))
   let hf = float_of_int(h)
