@@ -94,22 +94,23 @@ let reader: (string, fileType, drawFunc) => unit = %raw(`
   }
 `)
 
+let calcDist = (x1: int, y1: int, x2: int, y2: int): int => {
+  let p1 = Math.pow(float_of_int(x2 - x1), ~exp=2.0)
+  let p2 = Math.pow(float_of_int(y2 - y1), ~exp=2.0)
+  int_of_float(Math.sqrt(p1 +. p2))
+}
+
 let transform: (context, cornerPoints) => unit = %raw(`
   function (ctx, corners) {
     const [x1, y1, x2, y2, x3, y3, x4, y4] = corners;
-    const widthTop = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-    const widthBottom = Math.sqrt(Math.pow(x3 - x4, 2) + Math.pow(y3 - y4, 2));
-    const dstWidth = Math.max(widthTop, widthBottom);
+    const widthTop = calcDist(x1, y1, x2, y2);
+    const widthBottom = calcDist(x3, y3, x4, y4);
+    const tarWidth = Math.max(widthTop, widthBottom);
   
-    const heightLeft = Math.sqrt(Math.pow(x4 - x1, 2) + Math.pow(y4 - y1, 2));
-    const heightRight = Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2));
-    const dstHeight = Math.max(heightLeft, heightRight);
+    const heightLeft = calcDist(x1, y1, x4, y4);
+    const heightRight = calcDist(x2, y2, x3, y3);
+    const tarHeight = Math.max(heightLeft, heightRight);
   
-    // const canvas = document.createElement("canvas");
-    // canvas.width = img.width;
-    // canvas.height = img.height;
-    // const ctx = canvas.getContext("2d");
-    // drawImage(ctx, img);
     const canvas = ctx.canvas;
 
     const fxCanvas = fx.canvas();
@@ -117,11 +118,11 @@ let transform: (context, cornerPoints) => unit = %raw(`
     fxCanvas.draw(texture)
       .perspective(
         [x1, y1, x2, y2, x3, y3, x4, y4],
-        [0, 0, dstWidth, 0, dstWidth, dstHeight, 0, dstHeight]
+        [0, 0, tarWidth, 0, tarWidth, tarHeight, 0, tarHeight]
       )
       .update();
 
-    const cropped = cropCanvas(fxCanvas, dstWidth, dstHeight);
+    const cropped = cropCanvas(fxCanvas, tarWidth, tarHeight);
     const ctx2 = cropped.getContext("2d");
     canvas.width = cropped.width;
     canvas.height = cropped.height;
