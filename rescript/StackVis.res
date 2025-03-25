@@ -2,6 +2,14 @@ let boxSize = 2 * int_of_float(Math.sqrt(2.0) *. Int.toFloat(DrawUtil.nodeRadius
 
 type code = Push(int)| Pop
 
+type stateType = {
+  index: ref<int>
+}
+
+let state:stateType = {
+  index: ref(0)
+}
+
 let drawBox = (x: int, y: int):unit => {
   P5.strokeWeight(DrawUtil.strokeWeight)
   P5.fillColor(ColorCode.light_blue)
@@ -51,14 +59,8 @@ let loadProgram = (): array<code> => {
   }))
 }
 
-let run = () => {
+let getStackState = (i: int) => {
   let program = loadProgram()
-  program->Array.forEach(code => {
-    Console.log(switch code {
-    | Push(n) => "Push:" ++ string_of_int(n)
-    | Pop     => "Pop"
-    })
-  })
   let runStack = (end:int): array<int> => {
     let arr = []
     let rec rs = (i:int): array<int> => {
@@ -75,27 +77,58 @@ let run = () => {
     }
     rs(0)
   }
-  let stack = runStack(program->Array.length)
-  drawStack(stack)
+  Console.assert_(0 <= i && i <= program->Array.length, "Range error")
+  runStack(i)
 }
 
 let draw = () => {
   P5.backgroundGray(200)
-  // drawStack(["A", "B", "C", "D", "E"])
-  run()
+  let stack = getStackState(state.index.contents)
+  drawStack(stack)
 }
 
-let setup = () => {
+let createCanvas = () => {
   let canvasHeight = 1000
   let canvasWidth = 1000
   P5.createCanvas(canvasWidth, canvasHeight)->P5.parent("canvas-hole")
   P5.noLoop()
 }
 
+let initializeStack = () => {
+  let textbox = Jq.make("#program")
+  textbox->Jq.setValue([
+    "push(4)",
+    "push(2)",
+    "push(9)",
+    "pop()",
+    "push(1)",
+    "pop()",
+    "push(9)",
+    "push(7)",
+    "push(6)",
+  ]->Array.join("\n"))->ignore
+  state.index := 0
+}
+
+let setup = () => {
+  createCanvas()
+  initializeStack()
+}
+
+let prev = () => {
+  state.index := state.index.contents - 1
+}
+
+let next = () => {
+  state.index := state.index.contents + 1
+}
+
 Jq.domMake(Jq.document)->Jq.ready(() => {
   [
-    ("#run", () => { run(); P5.redraw() }),
-  ]->Array.forEach(((id, f)) => Jq.make(id)->Jq.on("click", f)->ignore)
+    // ("#run", () => { P5.redraw() }),
+    ("#prev", prev),
+    ("#next", next),
+  ]->Array.forEach(((id, f)) => Jq.make(id)->Jq.on("click", () => { f(); P5.redraw() })->ignore)
 })->ignore
 
 Window.window["setup"] = setup

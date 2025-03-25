@@ -1,9 +1,11 @@
-let grayScale = (v: int): (int, int, int) => {
+type color = (int, int, int)
+
+let grayScale = (v: int): color => {
   Console.assert_(0 <= v && v <= 255, "Scale error")
   (v, v, v)
 }
 
-let hsv = (h: int, s: int, v: int): (int, int, int) => {
+let hsv = (h: int, s: int, v: int): color => {
   Console.assert_(0 <= h && h <= 360, "Scale error")
   Console.assert_(0 <= s && s <= 100, "Scale error")
   Console.assert_(0 <= v && v <= 100, "Scale error")
