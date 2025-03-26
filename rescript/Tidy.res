@@ -236,32 +236,48 @@ let drawOutput: drawFunc = (c: canvas) => {
 
 let invokeDraw = (id: string, f: drawFunc) => {
   switch state.canvas.contents {
-  | Some(c) =>
-    c
-    ->duplicateCanvas
-    ->f
-    ->setCanvas(id)
+  | Some(c) => c->duplicateCanvas->f->setCanvas(id)
   | None => ()
   }
 }
 
 let invokeDrawInput = () => invokeDraw("#inputCanvas", drawInput)
+
 let invokeDrawOutput = () => invokeDraw("#outputCanvas", drawOutput)
+
+let setCanvas = (state: stateType, c: canvas) => {
+  state.canvas := Some(c)
+  invokeDrawInput()
+}
+
+let setCorners = (state: stateType, corners: cornerPoints) => {
+  state.corners := corners
+  invokeDrawInput()
+  invokeDrawOutput()
+}
+
+let setCursor = (state: stateType, pt: point) => {
+  state.cursor := pt
+  invokeDrawInput()
+}
+
+let setEditPointIndex = (state: stateType, optIdx: option<int>) => {
+  state.editPointIndex := optIdx
+  invokeDrawInput()
+}
 
 let loadImage = (files:array<fileType>) => {
   let file = files->Array.getUnsafe(0)
   initializeCanvas(file, (c: canvas) => {
     let (w, h) = c->getSize
     let (ux, uy) = (w / 10, h / 10)
-    state.canvas := Some(c)
-    state.corners := (
+    state->setCanvas(c)
+    state->setCorners((
       (3*ux, uy),
       (7*ux, uy),
       (8*ux, 8*uy),
       (ux, 8*uy)
-    )
-    invokeDrawInput()
-    invokeDrawOutput()
+    ))
   })
 }
 
@@ -281,9 +297,7 @@ let invokeLoadImage = %raw(`function(e) { loadImage(e.target.files) }`)
 let mousemove = (pt: point) => {
   if state->isEditMode {
     switch scalePoint(pt) {
-    | Some(newPt) =>
-      state.cursor := newPt
-      invokeDrawInput()
+    | Some(newPt) => state->setCursor(newPt)
     | None => ()
     }
   }
@@ -303,23 +317,21 @@ let click = (pt: point) => {
   switch scalePoint(pt) {
   | Some(newPt) =>
     if !(state->isEditMode) {
-      state.editPointIndex := Some(getNearestCornerPointIndex(newPt))
+      state->setEditPointIndex(Some(getNearestCornerPointIndex(newPt)))
     } else {
       switch state.editPointIndex.contents {
       | Some(i) =>
         let (pt1, pt2, pt3, pt4) = state.corners.contents
-        state.corners := switch i {
-        | 0 => (newPt, pt2, pt3, pt4)
-        | 1 => (pt1, newPt, pt3, pt4)
-        | 2 => (pt1, pt2, newPt, pt4)
-        | _ => (pt1, pt2, pt3, newPt)
-        }
-        state.editPointIndex := None
-        invokeDrawOutput()
+        state->setEditPointIndex(None)
+        state->setCorners(switch i {
+          | 0 => (newPt, pt2, pt3, pt4)
+          | 1 => (pt1, newPt, pt3, pt4)
+          | 2 => (pt1, pt2, newPt, pt4)
+          | _ => (pt1, pt2, pt3, newPt)
+        })
       | None => ()
       }
     }
-    invokeDrawInput()
   | None => ()
   }
 }
