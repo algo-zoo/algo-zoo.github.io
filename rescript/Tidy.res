@@ -213,7 +213,19 @@ let drawInput: drawFunc = (c: canvas) => {
       c
     }
   }
-  let (pt1, pt2, pt3, pt4) = state.corners.contents
+  let (cpt1, cpt2, cpt3, cpt4) = state.corners.contents
+  let (pt1, pt2, pt3, pt4) = if state->isEditMode {
+    let pt = state.cursor.contents
+    let i = Option.getExn(state.editPointIndex.contents)
+    switch i {
+    | 0 => (pt, cpt2, cpt3, cpt4)
+    | 1 => (cpt1, pt, cpt3, cpt4)
+    | 2 => (cpt1, cpt2, pt, cpt4)
+    | _ => (cpt1, cpt2, cpt3, pt)
+    }
+  } else {
+    (cpt1, cpt2, cpt3, cpt4)
+  }
 
   c
   ->strokeWidth(10)
@@ -316,21 +328,19 @@ let getNearestCornerPointIndex = (pt: point): int => {
 let click = (pt: point) => {
   switch scalePoint(pt) {
   | Some(newPt) =>
+    state->setCursor(newPt)
     if !(state->isEditMode) {
       state->setEditPointIndex(Some(getNearestCornerPointIndex(newPt)))
     } else {
-      switch state.editPointIndex.contents {
-      | Some(i) =>
-        let (pt1, pt2, pt3, pt4) = state.corners.contents
-        state->setEditPointIndex(None)
-        state->setCorners(switch i {
-          | 0 => (newPt, pt2, pt3, pt4)
-          | 1 => (pt1, newPt, pt3, pt4)
-          | 2 => (pt1, pt2, newPt, pt4)
-          | _ => (pt1, pt2, pt3, newPt)
-        })
-      | None => ()
-      }
+      let i = Option.getExn(state.editPointIndex.contents)
+      let (pt1, pt2, pt3, pt4) = state.corners.contents
+      state->setEditPointIndex(None)
+      state->setCorners(switch i {
+        | 0 => (newPt, pt2, pt3, pt4)
+        | 1 => (pt1, newPt, pt3, pt4)
+        | 2 => (pt1, pt2, newPt, pt4)
+        | _ => (pt1, pt2, pt3, newPt)
+      })
     }
   | None => ()
   }
@@ -339,7 +349,7 @@ let click = (pt: point) => {
 let invokeClick = %raw(`function (e) { click([ e.offsetX, e.offsetY ]) }`)
 
 Jq.domMake(Jq.document)->Jq.ready(() => {
-  Jq.make("#load")->Jq.on("change", invokeLoadImage)->ignore
-  Jq.make("#inputCanvas")->Jq.mousemove(invokeMousemove)->ignore
-  Jq.make("#inputCanvas")->Jq.click(invokeClick)->ignore
-})->ignore
+  Jq.make("#load")->Jq.on("change", invokeLoadImage)
+  Jq.make("#inputCanvas")->Jq.mousemove(invokeMousemove)
+  Jq.make("#inputCanvas")->Jq.click(invokeClick)
+})

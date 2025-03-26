@@ -128,8 +128,8 @@ Jq.domMake(Jq.document)->Jq.ready(() => {
     // ("#run", () => { P5.redraw() }),
     ("#prev", prev),
     ("#next", next),
-  ]->Array.forEach(((id, f)) => Jq.make(id)->Jq.on("click", () => { f(); P5.redraw() })->ignore)
-})->ignore
+  ]->Array.forEach(((id, f)) => Jq.make(id)->Jq.on("click", () => { f(); P5.redraw() }))
+})
 
 Window.window["setup"] = setup
 Window.window["draw"] = draw

@@ -92,7 +92,7 @@ let binarySearch = (): unit => {
 }
 
 Jq.domMake(Jq.document)->Jq.ready(() => {
-  let _ = Jq.make("#random")->Jq.on("click", setRandomTarget)
-  let _ = Jq.make("#binary")->Jq.on("click", binarySearch)
-  let _ = setRandomTarget()
-})->ignore
+  Jq.make("#random")->Jq.on("click", setRandomTarget)
+  Jq.make("#binary")->Jq.on("click", binarySearch)
+  setRandomTarget()
+})
