@@ -348,8 +348,30 @@ let click = (pt: point) => {
 
 let invokeClick = %raw(`function (e) { click([ e.offsetX, e.offsetY ]) }`)
 
+let saveCanvas: canvas => unit = %raw(`
+  function (canvas) {
+    const link = document.createElement("a");
+    link.download = "download.jpg";
+    link.href = canvas.toDataURL("image/jpg");
+    link.click();
+  }
+`)
+
+let save = () => {
+  Console.log("Save")
+  switch state.canvas.contents {
+  | Some(c) =>
+    c
+    ->duplicateCanvas
+    ->drawOutput
+    ->saveCanvas
+  | None => ()
+  }
+}
+
 Jq.domMake(Jq.document)->Jq.ready(() => {
   Jq.make("#load")->Jq.on("change", invokeLoadImage)
   Jq.make("#inputCanvas")->Jq.mousemove(invokeMousemove)
-  Jq.make("#inputCanvas")->Jq.click(invokeClick)
+  Jq.make("#inputCanvas")->Jq.on("click", invokeClick)
+  Jq.make("#save")->Jq.on("click", save)
 })

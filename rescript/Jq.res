@@ -13,4 +13,3 @@ type t
 @send external text: (t, string) => t = "text"
 @send external ready: (t, (unit => unit)) => unit = "ready"
 @send external mousemove: (t, (unit => unit)) => unit = "mousemove"
-@send external click: (t, (unit => unit)) => unit = "click"
