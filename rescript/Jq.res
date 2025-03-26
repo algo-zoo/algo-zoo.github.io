@@ -12,4 +12,5 @@ type t
 @send external empty: t => t = "empty"
 @send external text: (t, string) => t = "text"
 @send external ready: (t, (unit => unit)) => t = "ready"
-
+@send external mousemove: (t, (unit => unit)) => t = "mousemove"
+@send external click: (t, (unit => unit)) => t = "click"
