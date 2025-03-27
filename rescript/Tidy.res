@@ -57,6 +57,14 @@ let getColorCode: ColorCode.color => string = %raw(`
   }
 `)
 
+let setLineDash: (canvas, array<int>) => canvas = %raw(`
+  function (canvas, arr) {
+    const ctx = canvas.getContext("2d");
+    ctx.setLineDash(arr);
+    return canvas;
+  }
+`)
+
 let strokeColor: (canvas, ColorCode.color) => canvas = %raw(`
   function (canvas, color) {
     const ctx = canvas.getContext("2d");
@@ -242,24 +250,19 @@ let transform: (canvas, cornerPoints) => canvas = %raw(`
 let drawCheckerBoard: drawFunc = (c: canvas) => {
   let (w, h) = c->getSize
   let sz = c->scaleDrawSize(12)
-  let rec f = (c: canvas, y: int, x: int, flag: bool) => {
-    if x > w {
+  let rec f = (c: canvas, x: int, y: int, flag: bool) => {
+    if y > h {
       c
+    } else if x > w {
+      c->f(0, y+sz, !flag)
     } else {
       c
       ->fillColor(if flag { ColorCode.light_gray } else { ColorCode.white })
       ->drawRect((x, y), (sz, sz))
-      ->f(y, x+sz, !flag)
+      ->f(x+sz, y, !flag)
     }
   }
-  let rec g = (c: canvas, y: int, flag: bool) => {
-    if y > h {
-      c
-    } else {
-      c->f(y, 0, flag)->g(y+sz, !flag)
-    }
-  }
-  c->g(0, true)
+  c->f(0, 0, true)
 }
 
 let drawImage: drawFunc = (c: canvas) => {
@@ -279,18 +282,20 @@ let drawInput: drawFunc = (c: canvas) => {
   let drawMarker = (c: canvas, pt: point, ~baseColor=ColorCode.black) => {
     let (x, y) = pt
     let f = (c: canvas, color: ColorCode.color, sz: int) => {
-      c->fillColor(color)->drawRect((x-sz/2, y-sz/2), (sz, sz))
+      let t = c->scaleDrawSize(sz)
+      c->fillColor(color)->drawRect((x-t/2, y-t/2), (t, t))
     }
     c
-    ->f(baseColor, c->scaleDrawSize(15))
-    ->f(ColorCode.white, c->scaleDrawSize(10))
-    ->f(baseColor, c->scaleDrawSize(5))
+    ->f(baseColor, 16)
+    ->f(ColorCode.white, 12)
+    ->f(baseColor, 8)
   }
   let drawEdittingCross = (c: canvas) => {
     if state->isEditMode {
       let (w, h) = c->getSize
       let (x, y) = state.cursor.contents
       c
+      ->setLineDash([ c->scaleDrawSize(10) ])
       ->strokeColor(ColorCode.black)
       ->drawLine((x, 0), (x, h))
       ->drawLine((0, y), (w, y))
@@ -317,7 +322,7 @@ let drawInput: drawFunc = (c: canvas) => {
   c
   ->drawCheckerBoard
   ->drawImage
-  ->strokeWidth(c->scaleDrawSize(5))
+  ->strokeWidth(c->scaleDrawSize(6))
   ->strokeColor(ColorCode.red)
   ->drawLine(pt1, pt2)
   ->drawLine(pt2, pt3)
