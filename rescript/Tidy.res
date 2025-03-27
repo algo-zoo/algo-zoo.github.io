@@ -96,7 +96,7 @@ let getRectSize: string => size = %raw(`
   }
 `)
 
-let setCanvas: (canvas, string) => unit = %raw(`
+let setCanvasById: (canvas, string) => unit = %raw(`
   function (src_canv, id) {
     const tar_canv = $(id)[0];
     const tar_ctx = tar_canv.getContext("2d");
@@ -136,6 +136,26 @@ let duplicateCanvas: canvas => canvas = %raw(`
     return newCanvas;
   }
 `)
+
+let rotateCanvas: (canvas, float) => canvas = %raw(`
+  function (canvas, angle) {
+    const rcanvas = document.createElement("canvas");
+    const rctx = rcanvas.getContext("2d");
+    rcanvas.width = canvas.height;
+    rcanvas.height = canvas.width;
+    rctx.save();
+    rctx.translate(rcanvas.width / 2, rcanvas.height / 2);
+    rctx.rotate(angle);
+    rctx.drawImage(canvas, -canvas.width/2, -canvas.height/2);
+    rctx.restore();
+    return rcanvas;
+  }
+`)
+
+let rotateCanvasCW = (c: canvas) => c->rotateCanvas(Math.acos(-1.0) /. 2.0)
+
+let rotateCanvasCCW = (c: canvas) => c->rotateCanvas(-. Math.acos(-1.0) /. 2.0)
+
 // ==== Canvas Utility ====
 
 let state:stateType = {
@@ -221,11 +241,14 @@ let drawInput: drawFunc = (c: canvas) => {
     | 0 => (pt, cpt2, cpt3, cpt4)
     | 1 => (cpt1, pt, cpt3, cpt4)
     | 2 => (cpt1, cpt2, pt, cpt4)
-    | _ => (cpt1, cpt2, cpt3, pt)
+    | 3 => (cpt1, cpt2, cpt3, pt)
+    | _ => assert false
     }
   } else {
     (cpt1, cpt2, cpt3, cpt4)
   }
+
+  let (w, h) = c->getSize
 
   c
   ->strokeWidth(10)
@@ -239,16 +262,17 @@ let drawInput: drawFunc = (c: canvas) => {
   ->drawMarker(pt3)
   ->drawMarker(pt4)
   ->drawEdittingCross
+  ->drawLine((0, 0), (w, h))
+  ->drawMarker((w/2, h/2))
 }
 
 let drawOutput: drawFunc = (c: canvas) => {
-  c
-  ->transform(state.corners.contents)
+  c->transform(state.corners.contents)
 }
 
 let invokeDraw = (id: string, f: drawFunc) => {
   switch state.canvas.contents {
-  | Some(c) => c->duplicateCanvas->f->setCanvas(id)
+  | Some(c) => c->duplicateCanvas->f->setCanvasById(id)
   | None => ()
   }
 }
@@ -263,6 +287,7 @@ let setCanvas = (state: stateType, c: canvas) => {
 }
 
 let setCorners = (state: stateType, corners: cornerPoints) => {
+  let (pt1, pt2, pt3, pt4) = corners
   state.corners := corners
   invokeDrawInput()
   invokeDrawOutput()
@@ -293,25 +318,21 @@ let loadImage = (files:array<fileType>) => {
   })
 }
 
-let scalePoint = (pt: point): option<point> => {
-  switch state.canvas.contents {
-   | Some(c) =>
-     let (x, y) = pt
-     let (cw, ch) = c->getSize
-     let (rw, rh) = getRectSize("#inputCanvas")
-     Some((x * cw / rw, y * ch / rh))
-   | None => None
-  }
+let scalePoint = (c: canvas, pt: point): point => {
+  let (x, y) = pt
+  let (cw, ch) = c->getSize
+  let (rw, rh) = getRectSize("#inputCanvas")
+  (x * cw / rw, y * ch / rh)
 }
 
 let invokeLoadImage = %raw(`function(e) { loadImage(e.target.files) }`)
 
 let mousemove = (pt: point) => {
   if state->isEditMode {
-    switch scalePoint(pt) {
-    | Some(newPt) => state->setCursor(newPt)
-    | None => ()
-    }
+    state.canvas.contents
+    ->Option.getExn
+    ->scalePoint(pt)
+    ->(pt => state->setCursor(pt))
   }
 }
 
@@ -326,20 +347,22 @@ let getNearestCornerPointIndex = (pt: point): int => {
 }
 
 let click = (pt: point) => {
-  switch scalePoint(pt) {
-  | Some(newPt) =>
+  switch state.canvas.contents {
+  | Some(c) =>
+    let newPt = c->scalePoint(pt)
     state->setCursor(newPt)
     if !(state->isEditMode) {
       state->setEditPointIndex(Some(getNearestCornerPointIndex(newPt)))
     } else {
-      let i = Option.getExn(state.editPointIndex.contents)
+      let i = state.editPointIndex.contents->Option.getExn
       let (pt1, pt2, pt3, pt4) = state.corners.contents
       state->setEditPointIndex(None)
       state->setCorners(switch i {
-        | 0 => (newPt, pt2, pt3, pt4)
-        | 1 => (pt1, newPt, pt3, pt4)
-        | 2 => (pt1, pt2, newPt, pt4)
-        | _ => (pt1, pt2, pt3, newPt)
+      | 0 => (newPt, pt2, pt3, pt4)
+      | 1 => (pt1, newPt, pt3, pt4)
+      | 2 => (pt1, pt2, newPt, pt4)
+      | 3 => (pt1, pt2, pt3, newPt)
+      | _ => assert false
       })
     }
   | None => ()
@@ -357,8 +380,51 @@ let saveCanvas: canvas => unit = %raw(`
   }
 `)
 
+
+let rotatePoint = (pt: point, center: point, flag: [#CW | #CCW]): point => {
+  let shift = (pt: point, shift: point) => {
+    let (x, y) = pt
+    let (dx, dy) = shift
+    (x+dx, y+dy)
+  }
+  let rotate = (pt: point) => {
+    let (x, y) = pt
+    switch flag {
+    | #CW  => (-y, x)
+    | #CCW => (y, -x)
+    }
+  }
+  let (cx, cy) = center
+  pt
+  ->shift((-cx, -cy))
+  ->rotate
+  ->shift((cx, cy))
+}
+
+let rotate = (flag: [#CW | #CCW]) => {
+  switch state.canvas.contents {
+  | Some(c) =>
+    let rotator = switch flag {
+    | #CW => rotateCanvasCW
+    | #CCW => rotateCanvasCCW
+    }
+    state->setCanvas(c->rotator)
+
+    let (pt1, pt2, pt3, pt4) = state.corners.contents
+    let (w, h) = c->getSize
+    let center = (w/2, h/2)
+    let (rpt1, rpt2, rpt3, rpt4) = (
+      pt1->rotatePoint(center, flag),
+      pt2->rotatePoint(center, flag),
+      pt3->rotatePoint(center, flag),
+      pt4->rotatePoint(center, flag)
+    )
+    state->setCorners((rpt1, rpt2, rpt3, rpt4))
+  | None => ()
+  }
+}
+
 let save = () => {
-  Console.log("Save")
   switch state.canvas.contents {
   | Some(c) =>
     c
@@ -373,5 +439,7 @@ Jq.domMake(Jq.document)->Jq.ready(() => {
   Jq.make("#load")->Jq.on("change", invokeLoadImage)
   Jq.make("#inputCanvas")->Jq.mousemove(invokeMousemove)
   Jq.make("#inputCanvas")->Jq.on("click", invokeClick)
+  Jq.make("#cw")->Jq.on("click", () => rotate(#CW))
+  Jq.make("#ccw")->Jq.on("click", () => rotate(#CCW))
   Jq.make("#save")->Jq.on("click", save)
 })
