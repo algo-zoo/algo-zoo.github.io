@@ -1,6 +1,5 @@
 type fileType
 type canvas
-type image
 type drawFunc = canvas => canvas
 
 type point = (int, int)
@@ -10,6 +9,7 @@ type cornerPoints = (point, point, point, point)
 
 type stateType = {
   canvas: ref<option<canvas>>,
+  image: ref<canvas>,
   cursor: ref<point>,
   corners: ref<cornerPoints>,
   editPointIndex: ref<option<int>>
@@ -106,6 +106,16 @@ let setCanvasById: (canvas, string) => unit = %raw(`
   }
 `)
 
+let createCanvas: size => canvas = %raw(`
+  function (sz) {
+    const [w, h] = sz;
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    return canvas;
+  }
+`)
+
 let initializeCanvas: (fileType, canvas => unit) => unit = %raw(`
   function (file, cont) {
     const reader = new FileReader();
@@ -115,12 +125,16 @@ let initializeCanvas: (fileType, canvas => unit) => unit = %raw(`
       const img = new Image();
       img.src = data;
       img.onload = function () {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = img.width;
-        canvas.height = img.height;
+        // const canvas = document.createElement("canvas");
+        // const sz = Math.max(img.width, img.height);
+        // canvas.width = sz;
+        // canvas.height = sz;
+        // initializeImage(img);
+        // cont(canvas);
+        const img_canvas = createCanvas([ img.width, img.height ]);
+        const ctx = img_canvas.getContext("2d");
         ctx.drawImage(img, 0, 0);
-        cont(canvas);
+        cont(img_canvas);
       }
     }
   }
@@ -155,11 +169,11 @@ let rotateCanvas: (canvas, float) => canvas = %raw(`
 let rotateCanvasCW = (c: canvas) => c->rotateCanvas(Math.acos(-1.0) /. 2.0)
 
 let rotateCanvasCCW = (c: canvas) => c->rotateCanvas(-. Math.acos(-1.0) /. 2.0)
-
 // ==== Canvas Utility ====
 
 let state:stateType = {
   canvas: ref(None),
+  image: ref(createCanvas((0, 0))),
   cursor: ref((-1, -1)),
   corners: ref(((0, 0), (0, 0), (0, 0), (0, 0))),
   editPointIndex: ref(None)
@@ -170,6 +184,22 @@ let isEditMode = (state:stateType): bool => {
   | Some(_) => true
   | None => false
   }
+}
+
+let scaleDrawSize = (c: canvas, sz: int): int => {
+  let (w, h) = c->getSize
+  let (rw, rh) = getRectSize("#inputCanvas")
+  let canvasSize = Math.max(float_of_int(w), float_of_int(h))
+  let rectSize = Math.max(float_of_int(rw), float_of_int(rh))
+  let scaled = float_of_int(sz) *. Math.max(1.0, canvasSize /. rectSize)
+  int_of_float(scaled)
+}
+
+let scalePoint = (c: canvas, pt: point): point => {
+  let (x, y) = pt
+  let (cw, ch) = c->getSize
+  let (rw, rh) = getRectSize("#inputCanvas")
+  (x * cw / rw, y * ch / rh)
 }
 
 let calcDist = (pt1: point, pt2: point): int => {
@@ -209,6 +239,42 @@ let transform: (canvas, cornerPoints) => canvas = %raw(`
   }
 `)
 
+let drawCheckerBoard: drawFunc = (c: canvas) => {
+  let (w, h) = c->getSize
+  let sz = c->scaleDrawSize(15)
+  let rec f = (c: canvas, y: int, x: int, flag: bool) => {
+    if x > w {
+      c
+    } else {
+      c
+      ->fillColor(if flag { ColorCode.light_gray } else { ColorCode.white })
+      ->drawRect((x, y), (sz, sz))
+      ->f(y, x+sz, !flag)
+    }
+  }
+  let rec g = (c: canvas, y: int, flag: bool) => {
+    if y > h {
+      c
+    } else {
+      c->f(y, 0, flag)->g(y+sz, !flag)
+    }
+  }
+  c->g(0, true)
+}
+
+let drawImage: drawFunc = (c: canvas) => {
+  let rawDrawImage: (canvas, canvas) => canvas = %raw(`
+    function (canvas, img) {
+      const ctx = canvas.getContext("2d");
+      const sz = Math.max(img.width, img.height);
+      ctx.drawImage(img, (sz-img.width)/2, (sz-img.height)/2);
+      return canvas;
+    }
+  `)
+  c
+  ->rawDrawImage(state.image.contents)
+}
+
 let drawInput: drawFunc = (c: canvas) => {
   let drawMarker = (c: canvas, pt: point, ~baseColor=ColorCode.black) => {
     let (x, y) = pt
@@ -216,9 +282,9 @@ let drawInput: drawFunc = (c: canvas) => {
       c->fillColor(color)->drawRect((x-sz/2, y-sz/2), (sz, sz))
     }
     c
-    ->f(baseColor, 30)
-    ->f(ColorCode.white, 20)
-    ->f(baseColor, 10)
+    ->f(baseColor, c->scaleDrawSize(15))
+    ->f(ColorCode.white, c->scaleDrawSize(10))
+    ->f(baseColor, c->scaleDrawSize(5))
   }
   let drawEdittingCross = (c: canvas) => {
     if state->isEditMode {
@@ -248,10 +314,10 @@ let drawInput: drawFunc = (c: canvas) => {
     (cpt1, cpt2, cpt3, cpt4)
   }
 
-  let (w, h) = c->getSize
-
   c
-  ->strokeWidth(10)
+  ->drawCheckerBoard
+  ->drawImage
+  ->strokeWidth(c->scaleDrawSize(5))
   ->strokeColor(ColorCode.red)
   ->drawLine(pt1, pt2)
   ->drawLine(pt2, pt3)
@@ -262,12 +328,12 @@ let drawInput: drawFunc = (c: canvas) => {
   ->drawMarker(pt3)
   ->drawMarker(pt4)
   ->drawEdittingCross
-  ->drawLine((0, 0), (w, h))
-  ->drawMarker((w/2, h/2))
 }
 
 let drawOutput: drawFunc = (c: canvas) => {
-  c->transform(state.corners.contents)
+  c
+  ->drawImage
+  ->transform(state.corners.contents)
 }
 
 let invokeDraw = (id: string, f: drawFunc) => {
@@ -281,13 +347,11 @@ let invokeDrawInput = () => invokeDraw("#inputCanvas", drawInput)
 
 let invokeDrawOutput = () => invokeDraw("#outputCanvas", drawOutput)
 
-let setCanvas = (state: stateType, c: canvas) => {
-  state.canvas := Some(c)
-  invokeDrawInput()
+let setImage = (state: stateType, img: canvas) => {
+  state.image := img
 }
 
 let setCorners = (state: stateType, corners: cornerPoints) => {
-  let (pt1, pt2, pt3, pt4) = corners
   state.corners := corners
   invokeDrawInput()
   invokeDrawOutput()
@@ -305,10 +369,14 @@ let setEditPointIndex = (state: stateType, optIdx: option<int>) => {
 
 let loadImage = (files:array<fileType>) => {
   let file = files->Array.getUnsafe(0)
-  initializeCanvas(file, (c: canvas) => {
-    let (w, h) = c->getSize
+  initializeCanvas(file, (img: canvas) => {
+    let (w, h) = img->getSize
+    let sz = if w < h { h } else { w }
+
+    state.canvas := Some(createCanvas((sz, sz)))
+    state->setImage(img)
+
     let (ux, uy) = (w / 10, h / 10)
-    state->setCanvas(c)
     state->setCorners((
       (3*ux, uy),
       (7*ux, uy),
@@ -316,13 +384,6 @@ let loadImage = (files:array<fileType>) => {
       (ux, 8*uy)
     ))
   })
-}
-
-let scalePoint = (c: canvas, pt: point): point => {
-  let (x, y) = pt
-  let (cw, ch) = c->getSize
-  let (rw, rh) = getRectSize("#inputCanvas")
-  (x * cw / rw, y * ch / rh)
 }
 
 let invokeLoadImage = %raw(`function(e) { loadImage(e.target.files) }`)
@@ -374,6 +435,7 @@ let invokeClick = %raw(`function (e) { click([ e.offsetX, e.offsetY ]) }`)
 let saveCanvas: canvas => unit = %raw(`
   function (canvas) {
     const link = document.createElement("a");
+    int_of_float(fv)
     link.download = "download.jpg";
     link.href = canvas.toDataURL("image/jpg");
     link.click();
@@ -408,18 +470,17 @@ let rotate = (flag: [#CW | #CCW]) => {
     | #CW => rotateCanvasCW
     | #CCW => rotateCanvasCCW
     }
-    state->setCanvas(c->rotator)
+    state->setImage(state.image.contents->rotator)
 
     let (pt1, pt2, pt3, pt4) = state.corners.contents
     let (w, h) = c->getSize
     let center = (w/2, h/2)
-    let (rpt1, rpt2, rpt3, rpt4) = (
+    state->setCorners((
       pt1->rotatePoint(center, flag),
       pt2->rotatePoint(center, flag),
       pt3->rotatePoint(center, flag),
       pt4->rotatePoint(center, flag)
-    )
-    state->setCorners((rpt1, rpt2, rpt3, rpt4))
+    ))
   | None => ()
   }
 }
