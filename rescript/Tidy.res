@@ -241,7 +241,7 @@ let transform: (canvas, cornerPoints) => canvas = %raw(`
 
 let drawCheckerBoard: drawFunc = (c: canvas) => {
   let (w, h) = c->getSize
-  let sz = c->scaleDrawSize(15)
+  let sz = c->scaleDrawSize(12)
   let rec f = (c: canvas, y: int, x: int, flag: bool) => {
     if x > w {
       c
@@ -435,7 +435,6 @@ let invokeClick = %raw(`function (e) { click([ e.offsetX, e.offsetY ]) }`)
 let saveCanvas: canvas => unit = %raw(`
   function (canvas) {
     const link = document.createElement("a");
-    int_of_float(fv)
     link.download = "download.jpg";
     link.href = canvas.toDataURL("image/jpg");
     link.click();
