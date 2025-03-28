@@ -336,32 +336,10 @@ let drawInput: drawFunc = (c: canvas) => {
 }
 
 let drawOutput: drawFunc = (c: canvas) => {
-  let rescale: drawFunc = %raw(`
-    function (canvas) {
-      const w = canvas.width;
-      const h = canvas.height;
-      const a = w < h ? w : h*Math.sqrt(2);
-      const b = w < h ? w*Math.sqrt(2) : h;
-      const newCanvas = createCanvas([ a, b ]);
-      const ctx = newCanvas.getContext("2d");
-      ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, a, b);
-      return newCanvas;
-    }
-  `)
-  let setRatioLabel: drawFunc = (c: canvas) => {
-    let (w, h) = c->getSize
-    let f = %raw(`function (w, h) {
-      $("#ratio").text("(" + w + ", " + h + ")");
-    }`)
-    f(w, h)->ignore
-    c
-  }
   c
   ->drawCheckerBoard
   ->drawImage
   ->transform(state.corners.contents)
-  ->rescale
-  ->setRatioLabel
 }
 
 let invokeDraw = (id: string, f: drawFunc) => {
