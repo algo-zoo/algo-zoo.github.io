@@ -46,6 +46,7 @@ let black       = grayScale(0)
 let dark        = grayScale(30)
 let gray        = grayScale(50)
 let light_gray  = grayScale(80)
+let pale        = grayScale(180)
 let white       = grayScale(255)
 
 let red         = hsv(18, 80, 100)

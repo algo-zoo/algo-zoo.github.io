@@ -257,7 +257,7 @@ let drawCheckerBoard: drawFunc = (c: canvas) => {
       c->f(0, y+sz, !flag)
     } else {
       c
-      ->fillColor(if flag { ColorCode.light_gray } else { ColorCode.white })
+      ->fillColor(if flag { ColorCode.pale } else { ColorCode.white })
       ->drawRect((x, y), (sz, sz))
       ->f(x+sz, y, !flag)
     }
@@ -336,9 +336,32 @@ let drawInput: drawFunc = (c: canvas) => {
 }
 
 let drawOutput: drawFunc = (c: canvas) => {
+  let rescale: drawFunc = %raw(`
+    function (canvas) {
+      const w = canvas.width;
+      const h = canvas.height;
+      const a = w < h ? w : h*Math.sqrt(2);
+      const b = w < h ? w*Math.sqrt(2) : h;
+      const newCanvas = createCanvas([ a, b ]);
+      const ctx = newCanvas.getContext("2d");
+      ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height, 0, 0, a, b);
+      return newCanvas;
+    }
+  `)
+  let setRatioLabel: drawFunc = (c: canvas) => {
+    let (w, h) = c->getSize
+    let f = %raw(`function (w, h) {
+      $("#ratio").text("(" + w + ", " + h + ")");
+    }`)
+    f(w, h)->ignore
+    c
+  }
   c
+  ->drawCheckerBoard
   ->drawImage
   ->transform(state.corners.contents)
+  ->rescale
+  ->setRatioLabel
 }
 
 let invokeDraw = (id: string, f: drawFunc) => {
@@ -391,7 +414,7 @@ let loadImage = (files:array<fileType>) => {
   })
 }
 
-let invokeLoadImage = %raw(`function(e) { loadImage(e.target.files) }`)
+let invokeLoadImage = %raw(`e => loadImage(e.target.files)`)
 
 let mousemove = (pt: point) => {
   if state->isEditMode {
@@ -402,7 +425,7 @@ let mousemove = (pt: point) => {
   }
 }
 
-let invokeMousemove = %raw(`function (e) { mousemove([ e.offsetX, e.offsetY ]) }`)
+let invokeMousemove = %raw(`e => mousemove([ e.offsetX, e.offsetY ])`)
 
 let getNearestCornerPointIndex = (pt: point): int => {
   let (pt1, pt2, pt3, pt4) = state.corners.contents
@@ -435,7 +458,7 @@ let click = (pt: point) => {
   }
 }
 
-let invokeClick = %raw(`function (e) { click([ e.offsetX, e.offsetY ]) }`)
+let invokeClick = %raw(`e => click([ e.offsetX, e.offsetY ])`)
 
 let saveCanvas: canvas => unit = %raw(`
   function (canvas) {
@@ -500,6 +523,15 @@ let save = () => {
   }
 }
 
+let invokeDragOver = %raw(`e => e.preventDefault()`)
+
+let invokeDrop = %raw(`
+  function (e) {
+    e.preventDefault();
+    loadImage(e.originalEvent.dataTransfer.files);
+  }
+`)
+
 Jq.domMake(Jq.document)->Jq.ready(() => {
   Jq.make("#load")->Jq.on("change", invokeLoadImage)
   Jq.make("#inputCanvas")->Jq.mousemove(invokeMousemove)
@@ -507,4 +539,6 @@ Jq.domMake(Jq.document)->Jq.ready(() => {
   Jq.make("#cw")->Jq.on("click", () => rotate(#CW))
   Jq.make("#ccw")->Jq.on("click", () => rotate(#CCW))
   Jq.make("#save")->Jq.on("click", save)
+  Jq.domMake(Jq.document)->Jq.on("dragover", invokeDragOver)
+  Jq.domMake(Jq.document)->Jq.on("drop", invokeDrop)
 })
