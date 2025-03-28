@@ -250,19 +250,20 @@ let transform: (canvas, cornerPoints) => canvas = %raw(`
 let drawCheckerBoard: drawFunc = (c: canvas) => {
   let (w, h) = c->getSize
   let sz = c->scaleDrawSize(12)
-  let rec f = (c: canvas, x: int, y: int, flag: bool) => {
-    if y > h {
+  let rec f = (c: canvas, i: int, j: int) => {
+    let (x, y) = (i*sz, j*sz)
+    if y >= h {
       c
-    } else if x > w {
-      c->f(0, y+sz, !flag)
+    } else if x >= w {
+      c->f(0, j+1)
     } else {
       c
-      ->fillColor(if flag { ColorCode.pale } else { ColorCode.white })
+      ->fillColor(if mod(i+j, 2) == 0 { ColorCode.pale } else { ColorCode.white })
       ->drawRect((x, y), (sz, sz))
-      ->f(x+sz, y, !flag)
+      ->f(i+1, j)
     }
   }
-  c->f(0, 0, true)
+  c->f(0, 0)
 }
 
 let drawImage: drawFunc = (c: canvas) => {
