@@ -291,6 +291,33 @@ let drawInput: drawFunc = (c: canvas) => {
     ->f(ColorCode.white, 12)
     ->f(baseColor, 8)
   }
+  let drawFrame: drawFunc = (c: canvas) => {
+    let (cpt1, cpt2, cpt3, cpt4) = state.corners.contents
+    let (pt1, pt2, pt3, pt4) = if state->isEditMode {
+      let pt = state.cursor.contents
+      let i = Option.getExn(state.editPointIndex.contents)
+      switch i {
+      | 0 => (pt, cpt2, cpt3, cpt4)
+      | 1 => (cpt1, pt, cpt3, cpt4)
+      | 2 => (cpt1, cpt2, pt, cpt4)
+      | 3 => (cpt1, cpt2, cpt3, pt)
+      | _ => assert false
+      }
+    } else {
+      (cpt1, cpt2, cpt3, cpt4)
+    }
+    c
+    ->strokeWidth(c->scaleDrawSize(6))
+    ->strokeColor(ColorCode.red)
+    ->drawLine(pt1, pt2)
+    ->drawLine(pt2, pt3)
+    ->drawLine(pt3, pt4)
+    ->drawLine(pt4, pt1)
+    ->drawMarker(pt1)
+    ->drawMarker(pt2)
+    ->drawMarker(pt3)
+    ->drawMarker(pt4)
+  }
   let drawEdittingCross = (c: canvas) => {
     if state->isEditMode {
       let (w, h) = c->getSize
@@ -305,20 +332,6 @@ let drawInput: drawFunc = (c: canvas) => {
       c
     }
   }
-  let (cpt1, cpt2, cpt3, cpt4) = state.corners.contents
-  let (pt1, pt2, pt3, pt4) = if state->isEditMode {
-    let pt = state.cursor.contents
-    let i = Option.getExn(state.editPointIndex.contents)
-    switch i {
-    | 0 => (pt, cpt2, cpt3, cpt4)
-    | 1 => (cpt1, pt, cpt3, cpt4)
-    | 2 => (cpt1, cpt2, pt, cpt4)
-    | 3 => (cpt1, cpt2, cpt3, pt)
-    | _ => assert false
-    }
-  } else {
-    (cpt1, cpt2, cpt3, cpt4)
-  }
 
   // let drawCentroid: drawFunc = (c: canvas) => {
   //   let ((x1, y1), (x2, y2), (x3, y3), (x4, y4)) = state.corners.contents
@@ -329,21 +342,36 @@ let drawInput: drawFunc = (c: canvas) => {
   //   )
   // }
 
+  let drawTest: drawFunc = (c: canvas) => {
+    let (pt1, pt2, pt3, pt4) = state.corners.contents
+    let arr: array<point> = [pt1, pt2, pt3, pt4]
+    let hull = ConvexHull.hull(arr)
+    let (hpt1, hpt2, hpt3, hpt4) = (
+      hull->Array.getUnsafe(0),
+      hull->Array.getUnsafe(1),
+      hull->Array.getUnsafe(2),
+      hull->Array.getUnsafe(3)
+    )
+    c
+    ->strokeWidth(c->scaleDrawSize(6))
+    ->strokeColor(ColorCode.blue)
+    ->drawLine(hpt1, hpt2)
+    ->drawLine(hpt2, hpt3)
+    ->drawLine(hpt3, hpt4)
+    ->drawLine(hpt4, hpt1)
+    ->drawMarker(hpt1, ~baseColor=ColorCode.red)
+    ->drawMarker(hpt2, ~baseColor=ColorCode.blue)
+    ->drawMarker(hpt3, ~baseColor=ColorCode.yellow)
+    ->drawMarker(hpt4, ~baseColor=ColorCode.black)
+  }
+
   c
   ->drawCheckerBoard
   ->drawImage
-  ->strokeWidth(c->scaleDrawSize(6))
-  ->strokeColor(ColorCode.red)
-  ->drawLine(pt1, pt2)
-  ->drawLine(pt2, pt3)
-  ->drawLine(pt3, pt4)
-  ->drawLine(pt4, pt1)
-  ->drawMarker(pt1)
-  ->drawMarker(pt2)
-  ->drawMarker(pt3)
-  ->drawMarker(pt4)
+  ->drawFrame
   ->drawEdittingCross
   // ->drawCentroid
+  ->drawTest
 }
 
 let drawOutput: drawFunc = (c: canvas) => {

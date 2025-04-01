@@ -17,7 +17,7 @@ let ccw = (p: fpoint, q: fpoint, r: fpoint) => {
   cross(pq, qr) > 0.0
 }
 
-let convexHull = (pts: array<point>): array<point> => {
+let hull = (pts: array<point>): array<point> => {
   let fpts: array<fpoint> = pts->Array.map(v => {
     let (p, q) = v
     (float_of_int(p), float_of_int(q))
@@ -34,7 +34,7 @@ let convexHull = (pts: array<point>): array<point> => {
 
   let calcNext = (currentIdx: int): int => {
     let rec loop = (i: int, candidateIdx: int): int => {
-      if i > n {
+      if i >= n {
         candidateIdx
       } else {
         let next = if ccw(
@@ -58,7 +58,7 @@ let convexHull = (pts: array<point>): array<point> => {
     let hull: array<point> = []
     let rec loop = (currentIdx: int): unit => {
       let (x, y) = fpts->Array.getUnsafe(currentIdx)
-      hull.push((int_of_float(x), int_of_float(y)))
+      hull->Array.push((int_of_float(x), int_of_float(y)))
       let nextIdx = calcNext(currentIdx)
       if nextIdx == 0 {
         ()
