@@ -400,8 +400,19 @@ let setEditPointIndex = (state: stateType, optIdx: option<int>) => {
   invokeDrawInput()
 }
 
+let getBasename: fileType => string = %raw(`
+  function (file) {
+    const last = file.name.lastIndexOf(".");
+    return last == -1 ? file.name : file.name.substring(0, last);
+  }
+`)
+
+let setSaveName: string => unit = %raw(`name => $("#file_name").val(name)`)
+
 let loadImage = (files:array<fileType>) => {
   let file = files->Array.getUnsafe(0)
+  let basename = getBasename(file)
+  setSaveName("corrected_" ++ basename)
   initializeCanvas(file, (img: canvas) => {
     let (w, h) = img->getSize
     let sz = if w < h { h } else { w }
@@ -460,7 +471,7 @@ let invokeClick = %raw(`e => click([ e.offsetX, e.offsetY ])`)
 let saveCanvas: canvas => unit = %raw(`
   function (canvas) {
     const link = document.createElement("a");
-    link.download = "download.jpg";
+    link.download = $("#file_name").val() + ".jpg"
     link.href = canvas.toDataURL("image/jpg");
     link.click();
   }
