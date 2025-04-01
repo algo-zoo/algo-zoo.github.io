@@ -5,6 +5,7 @@ categories = ['visualizer']
 tags = ['stack']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
+    css = ['/css/graph.css']
     js = ['/js/StackVis.js']
 +++
 

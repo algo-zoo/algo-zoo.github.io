@@ -17,5 +17,3 @@ tags = ['graph']
 
 {{< adjacent-matrix-graph >}}
 
-<button class="alg-btn" id="hoge">Hoge</button>
-

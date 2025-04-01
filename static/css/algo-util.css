@@ -98,3 +98,31 @@
   outline-offset: 0;
 }
 
+.alg-help-text {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.alg-help-text.dark {
+  color: #d1d5db;
+}
+
+.alg-upload-input {
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #f9fafb;
+  outline: none;
+}
+
+.alg-upload-btn.dark {
+  color: #9ca3af;
+  background-color: #374151;
+  border-color: #4b5563;
+}
+

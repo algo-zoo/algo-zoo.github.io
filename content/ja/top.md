@@ -43,6 +43,8 @@ draft = false
     * **TODO:** $\varepsilon\textrm{-}N~$法 (イプシロン・エヌ法)
     * **TODO:** $\varepsilon\textrm{-}\delta~$法 (イプシロン・デルタ法)
 -->
+* その他
+    * [画像の台形補正ツール](tidy)
 * （ アプリ開発用 ）
     * [convex hull](convex-hull-vis)
     * [concave hull](concave-hull-vis)
