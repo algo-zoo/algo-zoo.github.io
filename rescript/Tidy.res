@@ -333,45 +333,11 @@ let drawInput: drawFunc = (c: canvas) => {
     }
   }
 
-  // let drawCentroid: drawFunc = (c: canvas) => {
-  //   let ((x1, y1), (x2, y2), (x3, y3), (x4, y4)) = state.corners.contents
-  //   c
-  //   ->drawMarker(
-  //     ((x1+x2+x3+x4)/4, (y1+y2+y3+y4)/4),
-  //     ~baseColor=ColorCode.blue
-  //   )
-  // }
-
-  let drawTest: drawFunc = (c: canvas) => {
-    let (pt1, pt2, pt3, pt4) = state.corners.contents
-    let arr: array<point> = [pt1, pt2, pt3, pt4]
-    let hull = ConvexHull.hull(arr)
-    let (hpt1, hpt2, hpt3, hpt4) = (
-      hull->Array.getUnsafe(0),
-      hull->Array.getUnsafe(1),
-      hull->Array.getUnsafe(2),
-      hull->Array.getUnsafe(3)
-    )
-    c
-    ->strokeWidth(c->scaleDrawSize(6))
-    ->strokeColor(ColorCode.blue)
-    ->drawLine(hpt1, hpt2)
-    ->drawLine(hpt2, hpt3)
-    ->drawLine(hpt3, hpt4)
-    ->drawLine(hpt4, hpt1)
-    ->drawMarker(hpt1, ~baseColor=ColorCode.red)
-    ->drawMarker(hpt2, ~baseColor=ColorCode.blue)
-    ->drawMarker(hpt3, ~baseColor=ColorCode.yellow)
-    ->drawMarker(hpt4, ~baseColor=ColorCode.black)
-  }
-
   c
   ->drawCheckerBoard
   ->drawImage
   ->drawFrame
   ->drawEdittingCross
-  // ->drawCentroid
-  ->drawTest
 }
 
 let drawOutput: drawFunc = (c: canvas) => {
@@ -392,15 +358,6 @@ let invokeDrawInput = () => invokeDraw("#inputCanvas", drawInput)
 
 let invokeDrawOutput = () => invokeDraw("#outputCanvas", drawOutput)
 
-// let getNearestCornerPoint = (corners: cornerPoints, pt: point): point => {
-//   let (pt1, pt2, pt3, pt4) = corners
-//   let arr: array<point> = [ pt1, pt2, pt3, pt4 ]
-//   let dists: array<int> = arr->Array.map((pti: point) => calcDist(pt, pti))
-//   let min: int = dists->Array.toSorted(Int.compare)->Array.getUnsafe(0)
-//   let minIdx = dists->Array.indexOf(min)
-//   arr->Array.getUnsafe(minIdx)
-// }
-
 let getNearestCornerPointIndex = (pt: point): int => {
   let (pt1, pt2, pt3, pt4) = state.corners.contents
   let arr: array<point> = [ pt1, pt2, pt3, pt4 ]
@@ -414,15 +371,21 @@ let setImage = (state: stateType, img: canvas) => {
 }
 
 let setCorners = (state: stateType, corners: cornerPoints) => {
-  state.corners := corners
-  // let c = state.canvas.contents->Option.getExn
-  // let (w, h) = c->getSize
-  // state.corners := (
-  //   corners->getNearestCornerPoint((0, 0)),
-  //   corners->getNearestCornerPoint((w, 0)),
-  //   corners->getNearestCornerPoint((w, h)),
-  //   corners->getNearestCornerPoint((0, h))
-  // )
+  let (pt1, pt2, pt3, pt4) = corners
+
+  // Make the frame a convex hull, re-ordering the points
+  let hull = ConvexHull.hull([pt1, pt2, pt3, pt4])
+  if hull->Array.length == 4  {
+    state.corners := (
+      hull->Array.getUnsafe(0), // Upper left
+      hull->Array.getUnsafe(1), // Upper right
+      hull->Array.getUnsafe(2), // Bottom right
+      hull->Array.getUnsafe(3)  // Bottom left
+    )
+  } else { // If we cannot take a convex hull (i.e., when some points form a line)
+    state.corners := corners
+  }
+
   invokeDrawInput()
   invokeDrawOutput()
 }

@@ -24,11 +24,9 @@ let hull = (pts: array<point>): array<point> => {
   })->Array.toSorted((pt1, pt2) => {
     let (x1, y1) = pt1
     let (x2, y2) = pt2
-    if (x1 == x2) {
-      y1 -. y2
-    } else {
-      x1 -. x2
-    }
+    // Points closer to the upper left point (0, 0)
+    // will appear earlier in the resulting array
+    (x1 +. y1) -. (x2 +. y2)
   }) 
   let n = fpts->Array.length
 
