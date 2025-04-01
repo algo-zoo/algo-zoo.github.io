@@ -11,7 +11,11 @@ tags = ['tool']
 
 ## 概要
 
-* **TODO**
+* 本アプリはアップロードされた画像を台形補正するツールです。
+* 使用方法:
+  1. アップロードボタンより、画像（JPG画像もしくはPNG画像）をアップロードする。
+  2. アップロードされた画像と、台形補正用の４つのマーカーが表示されるので、４つのマーカーをマウスクリック・移動により適切な位置に移動させる。
+  3. 適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンを画像を保存する。
 
 ## 台形補正
 
@@ -19,7 +23,7 @@ tags = ['tool']
 
 <div class="container">
   <input class="alg-upload-input" aria-describedby="load_help" id="load" type="file" accept=".jpg, .jpeg, .png">
-  <p class="alg-help-text" id="load_help">JPG画像またはPNG画像をアップロードt</p>
+  <p class="alg-help-text" id="load_help">JPG画像またはPNG画像をアップロード</p>
 
   <canvas id="inputCanvas"></canvas>
   <div id="rotate-button-container">
