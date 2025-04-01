@@ -420,12 +420,12 @@ let loadImage = (files:array<fileType>) => {
     state.canvas := Some(createCanvas((sz, sz)))
     state->setImage(img)
 
-    let (ux, uy) = (w / 10, h / 10)
+    let u = sz / 8
     state->setCorners((
-      (3*ux, uy),
-      (7*ux, uy),
-      (8*ux, 8*uy),
-      (ux, 8*uy)
+      (2*u, 2*u),
+      (6*u, 2*u),
+      (u, 6*u),
+      (7*u, 6*u)
     ))
   })
 }
