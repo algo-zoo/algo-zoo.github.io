@@ -250,20 +250,20 @@ let transform: (canvas, cornerPoints) => canvas = %raw(`
 let drawCheckerBoard: drawFunc = (c: canvas) => {
   let (w, h) = c->getSize
   let sz = c->scaleDrawSize(12)
-  let rec f = (c: canvas, i: int, j: int) => {
+  let rec loop = (c: canvas, i: int, j: int) => {
     let (x, y) = (i*sz, j*sz)
     if y >= h {
       c
     } else if x >= w {
-      c->f(0, j+1)
+      c->loop(0, j+1)
     } else {
       c
       ->fillColor(if mod(i+j, 2) == 0 { ColorCode.pale } else { ColorCode.white })
       ->drawRect((x, y), (sz, sz))
-      ->f(i+1, j)
+      ->loop(i+1, j)
     }
   }
-  c->f(0, 0)
+  c->loop(0, 0)
 }
 
 let drawImage: drawFunc = (c: canvas) => {
@@ -320,14 +320,14 @@ let drawInput: drawFunc = (c: canvas) => {
     (cpt1, cpt2, cpt3, cpt4)
   }
 
-  let drawCentroid: drawFunc = (c: canvas) => {
-    let ((x1, y1), (x2, y2), (x3, y3), (x4, y4)) = state.corners.contents
-    c
-    ->drawMarker(
-      ((x1+x2+x3+x4)/4, (y1+y2+y3+y4)/4),
-      ~baseColor=ColorCode.blue
-    )
-  }
+  // let drawCentroid: drawFunc = (c: canvas) => {
+  //   let ((x1, y1), (x2, y2), (x3, y3), (x4, y4)) = state.corners.contents
+  //   c
+  //   ->drawMarker(
+  //     ((x1+x2+x3+x4)/4, (y1+y2+y3+y4)/4),
+  //     ~baseColor=ColorCode.blue
+  //   )
+  // }
 
   c
   ->drawCheckerBoard
@@ -343,7 +343,7 @@ let drawInput: drawFunc = (c: canvas) => {
   ->drawMarker(pt3)
   ->drawMarker(pt4)
   ->drawEdittingCross
-  ->drawCentroid
+  // ->drawCentroid
 }
 
 let drawOutput: drawFunc = (c: canvas) => {
