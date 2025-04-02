@@ -258,7 +258,7 @@ let drawCheckerBoard: drawFunc = (c: canvas) => {
       c->loop(0, j+1)
     } else {
       c
-      ->fillColor(if mod(i+j, 2) == 0 { ColorCode.pale } else { ColorCode.white })
+      ->fillColor(if mod(i+j, 2) == 0 { ColorCode.lightGray } else { ColorCode.white })
       ->drawRect((x, y), (sz, sz))
       ->loop(i+1, j)
     }

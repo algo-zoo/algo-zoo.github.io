@@ -44,9 +44,8 @@ let hsv = (h: int, s: int, v: int): color => {
 
 let black       = grayScale(0)
 let dark        = grayScale(30)
-let gray        = grayScale(80)
-let lightGray   = grayScale(120)
-let pale        = grayScale(180)
+let gray        = grayScale(120)
+let lightGray   = grayScale(180)
 let white       = grayScale(255)
 
 let red         = hsv(18, 80, 100)
