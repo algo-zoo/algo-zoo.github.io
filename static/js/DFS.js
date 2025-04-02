@@ -23,6 +23,7 @@ class DFS extends DirectedGraph {
       return;
     u.order = this.S.size;
     this.S.add(u);
+    console.log('Current Node:', u);
     for (const edge of this.E.get_edges().reverse()) {
       if (edge.weight == 0)
         continue;
@@ -30,10 +31,11 @@ class DFS extends DirectedGraph {
       const f = this.V.get(edge.from);
       if (f == u) {
         const t = this.V.get(edge.to);
-        if (!this.S.has(t))
+        if (!this.S.has(t) && !this.stack.includes(t))
           this.stack.push(t);
       }
     }
+    console.log('STACK:', this.stack);
     if (call_refresh)
       this.refresh();
   }

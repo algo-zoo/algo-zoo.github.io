@@ -88,7 +88,7 @@ let drawElement = (v: int, i:int) => {
     } else if state.left.contents <= i && i <= state.right.contents {
       ColorCode.blue
     } else {
-      ColorCode.gray
+      ColorCode.lightGray
     }
   )
   P5.rect(x, y, boxSize, boxSize)

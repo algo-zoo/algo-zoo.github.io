@@ -12,7 +12,7 @@ let state:stateType = {
 
 let drawBox = (x: int, y: int):unit => {
   P5.strokeWeight(DrawUtil.strokeWeight)
-  P5.fillColor(ColorCode.light_blue)
+  P5.fillColor(ColorCode.lightBlue)
   P5.rect(x-boxSize/2, y-boxSize/2, boxSize, boxSize)
 }
 
