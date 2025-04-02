@@ -1,5 +1,5 @@
 %%raw(`
-import { black. gray, lightGray, red, white, yellow } from './ColorCode.js'
+import { black, gray, lightGray, red, white, yellow } from './ColorCode.js'
 import { calc_dist, calc_edge_point } from './DrawUtil.js'
 
 const text_size = 24;

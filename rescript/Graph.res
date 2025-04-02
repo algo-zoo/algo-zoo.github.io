@@ -1,5 +1,5 @@
 %%raw(`
-import { black, gray, lightGray, orange, white} from './ColorCode.js'
+import { black, pale, lightGray, orange, white} from './ColorCode.js'
 import { calc_dist, calc_edge_point, rotation } from './DrawUtil.js'
 
 const text_size = 24;
@@ -295,7 +295,7 @@ export class Graph {
   }
 
   draw() {
-    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? gray : lightGray);
+    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? lightGray : pale);
     this.V.draw();
     this.E.draw();
     if (this.mode == Graph.add_mode || this.mode == Graph.edit_mode) {
