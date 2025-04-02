@@ -47,6 +47,8 @@ defaultContentLanguage = 'en'
   [params.fplot]
     cdn = 'https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.25.1/function-plot.min.js'
     sri = 'sha512-fsvE52IC5bx7NhuaGLoNE+Sq3EKFQ+fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg=='
+  [params.glfx]
+    cdn = 'https://cdn.jsdelivr.net/npm/glfx@0.0.4/glfx.min.js'
 
 [markup.goldmark.renderer]
   unsafe = true
