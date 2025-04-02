@@ -294,7 +294,7 @@ export class Graph {
   }
 
   draw() {
-    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? color_code.gray: color_code.light_gray);
+    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? color_code.gray : color_code.light_gray);
     this.V.draw();
     this.E.draw();
     if (this.mode == Graph.add_mode || this.mode == Graph.edit_mode) {
@@ -397,40 +397,6 @@ export class DirectedGraph extends Graph {
         ["G", "I", 9],
         ["H", "I", 10]
       ].map((v) => this.E.add.apply(this.E, v));
-    } else if (id == 3) {
-      [
-        ["A", 480, 90],
-        ["B", 212, 250],
-        ["C", 480, 250],
-        ["D", 777, 250],
-        ["E", 148, 420],
-        ["F", 265, 420],
-        ["G", 411, 420],
-        ["H", 559, 420],
-        ["I", 727, 420],
-        ["J", 850, 420],
-        ["K", 315, 580],
-        ["L", 445, 580],
-        ["M", 523, 580],
-        ["N", 635, 580],
-        ["O", 850, 580]
-      ].map((v) => this.V.add.apply(this.V, v));
-      [
-        ["A", "B", 1],
-        ["A", "C", 1],
-        ["A", "D", 1],
-        ["B", "E", 1],
-        ["B", "F", 1],
-        ["C", "G", 1],
-        ["C", "H", 1],
-        ["D", "I", 1],
-        ["D", "J", 1],
-        ["G", "K", 1],
-        ["G", "L", 1],
-        ["H", "M", 1],
-        ["H", "N", 1],
-        ["J", "O", 1]
-      ].map((v) => this.E.add.apply(this.E, v));
     }
     this.refresh();
   }
@@ -513,40 +479,6 @@ export class UndirectedGraph extends Graph {
         ["G", "H", 14],
         ["G", "I", 9],
         ["H", "I", 10]
-      ].map((v) => this.E.add.apply(this.E, v));
-    } else if (id == 3) {
-      [
-        ["A", 480, 90],
-        ["B", 212, 250],
-        ["C", 480, 250],
-        ["D", 777, 250],
-        ["E", 148, 420],
-        ["F", 265, 420],
-        ["G", 411, 420],
-        ["H", 559, 420],
-        ["I", 727, 420],
-        ["J", 850, 420],
-        ["K", 315, 580],
-        ["L", 445, 580],
-        ["M", 523, 580],
-        ["N", 635, 580],
-        ["O", 850, 580]
-      ].map((v) => this.V.add.apply(this.V, v));
-      [
-        ["A", "B", 1],
-        ["A", "C", 1],
-        ["A", "D", 1],
-        ["B", "E", 1],
-        ["B", "F", 1],
-        ["C", "G", 1],
-        ["C", "H", 1],
-        ["D", "I", 1],
-        ["D", "J", 1],
-        ["G", "K", 1],
-        ["G", "L", 1],
-        ["H", "M", 1],
-        ["H", "N", 1],
-        ["J", "O", 1]
       ].map((v) => this.E.add.apply(this.E, v));
     }
     this.refresh();
