@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, blue, red, white} from './ColorCode.js'
 
 const box_size = 150;
 const text_size = 60;
@@ -35,14 +35,14 @@ class CompleteBinaryTree {
     rect(x, y, box_size, box_size);
     if (v != DUMMY) {
       textAlign(CENTER, CENTER);
-      fill.apply(null, color_code.black);
+      fill.apply(null, black);
       text(v, x+box_size/2, y+box_size/2)
     }
   }
 
   drawIndex(x, y, idx_value) {
     textAlign(CENTER, CENTER);
-    fill.apply(null, color_code.black);
+    fill.apply(null, black);
     text(idx_value, x+box_size/2, y+box_size*1.5)
   }
 
@@ -52,7 +52,7 @@ class CompleteBinaryTree {
       const x = i*box_size + x_offset;
       const y_offset = 0.5 * box_size;
       const y = box_size + y_offset;
-      this.drawElement(x, y, this.arr[i], color_code.blue);
+      this.drawElement(x, y, this.arr[i], blue);
       this.drawIndex(x, y, i);
     }
   }
@@ -62,7 +62,7 @@ class CompleteBinaryTree {
     fill.apply(null, color);
     ellipse(x, y, box_size, box_size);
     textAlign(CENTER, CENTER);
-    fill.apply(null, color_code.black);
+    fill.apply(null, black);
     text(v, x, y)
   }
 
@@ -116,7 +116,7 @@ class CompleteBinaryTree {
     if (tree && tree.value != DUMMY) {
       this.drawTreeRec(tree.left);
       this.drawTreeRec(tree.right);
-      this.drawNode(tree.x, tree.y, tree.value, color_code.white);
+      this.drawNode(tree.x, tree.y, tree.value, white);
     }
   }
 
@@ -186,7 +186,7 @@ export class Heap {
 
   drawLabel(label) {
     textAlign(LEFT);
-    fill.apply(null, color_code.red);
+    fill.apply(null, red);
     text(label, box_size, box_size);
   }
 

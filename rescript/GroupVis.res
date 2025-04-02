@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black. gray, lightGray, red, white, yellow } from './ColorCode.js'
 import { calc_dist, calc_edge_point } from './DrawUtil.js'
 
 const text_size = 24;
@@ -26,7 +26,7 @@ class V {
   draw_node(node) {
     const node_d = this.node_r * 2;
     strokeWeight(2);
-    stroke.apply(null, color_code.black);
+    stroke.apply(null, black);
     fill.apply(null, node.color);
     ellipse(node.x, node.y, node_d, node_d);
 
@@ -36,7 +36,7 @@ class V {
     text(node.label, node.x, node.y);
   }
 
-  make(label, x, y, color=color_code.white) {
+  make(label, x, y, color=white) {
     return {
       label: label,
       x: x,
@@ -137,7 +137,7 @@ class E {
       from: this.V.get_index(from_label),
       to: this.V.get_index(to_label),
       weight: w,
-      color: color_code.black
+      color: black
     }
   }
 
@@ -223,18 +223,18 @@ class Graph {
   }
 
   draw() {
-    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? color_code.gray : color_code.light_gray);
+    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? gray : lightGray);
     this.V.draw();
     this.E.draw();
     if (this.mode == Graph.add_mode || this.mode == Graph.edit_mode) {
       strokeWeight(2);
-      stroke.apply(null, color_code.black);
+      stroke.apply(null, black);
       line(mouseX, 0, mouseX, canvas_h);
       line(0, mouseY, canvas_w, mouseY);
       const label = this.mode == Graph.add_mode
                   ? $('#node_label').val()
                   : this.editing_node.label;
-      this.V.draw_node(this.V.make(label, mouseX, mouseY, color_code.red));
+      this.V.draw_node(this.V.make(label, mouseX, mouseY, red));
     }
 
     const r = this.V.node_r * 1.4;
@@ -274,14 +274,14 @@ class Graph {
       }
     }
 
-    // stroke.apply(null, color_code.yellow);
+    // stroke.apply(null, yellow);
     // strokeWeight(4);
     // for (const [x, y] of points) {
     //   circle(x, y, 2);
     // }
 
     const hull_points = hull(points);
-    stroke.apply(null, color_code.red);
+    stroke.apply(null, red);
     for (let i = 0; i < hull_points.length; i++) {
       const [px, py] = hull_points[i];
       const [qx, qy] = hull_points[(i+1)%hull_points.length];

@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, blue, red, white, yellow } from './ColorCode.js'
 import { DirectedGraph } from './Graph.js'
 
 class Dijkstra extends DirectedGraph {
@@ -46,10 +46,10 @@ class Dijkstra extends DirectedGraph {
     this.V.nodes.forEach(function (node) {
       node.dist = Infinity;
       node.prev = null;
-      node.color = color_code.white;
+      node.color = white;
     });
     this.E.edges.forEach(function (edge) {
-      edge.color = color_code.black;
+      edge.color = black;
     });
 
     if (this.V.get_size() > 0) {
@@ -114,14 +114,14 @@ class Dijkstra extends DirectedGraph {
   set_color() {
     this.V.nodes.forEach(function (node) {
       if (this.S.has(node))
-        node.color = color_code.red;
+        node.color = red;
       else if (node == this.V.get($('#start').val()))
-        node.color = color_code.blue;
+        node.color = blue;
       else
-        node.color = color_code.white;
+        node.color = white;
     }.bind(this));
     this.E.edges.forEach(function (edge) {
-      edge.color = this.S.has(this.V.get(edge.from)) ? color_code.red : color_code.black;
+      edge.color = this.S.has(this.V.get(edge.from)) ? red : black;
     }.bind(this));
   
     if (this.path_mode) {
@@ -130,8 +130,8 @@ class Dijkstra extends DirectedGraph {
         const p = node.prev;
         const e = this.E.get(p, node);
         if (e)
-          e.color = color_code.yellow;
-        node.color = color_code.yellow;
+          e.color = yellow;
+        node.color = yellow;
         node = p;
       } while (node);
     }

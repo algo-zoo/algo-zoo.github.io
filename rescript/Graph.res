@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, gray, lightGray, orange, white} from './ColorCode.js'
 import { calc_dist, calc_edge_point, rotation } from './DrawUtil.js'
 
 const text_size = 24;
@@ -17,7 +17,7 @@ class V {
 
     const node_d = this.node_r * 2;
     strokeWeight(2);
-    stroke.apply(null, color_code.black);
+    stroke.apply(null, black);
     fill.apply(null, node.color);
     ellipse(node.x, node.y, node_d, node_d);
 
@@ -27,7 +27,7 @@ class V {
     text(node.label, node.x, node.y);
   }
 
-  make(label, x, y, color=color_code.white) {
+  make(label, x, y, color=white) {
     return {
       label: label,
       x: x,
@@ -111,7 +111,7 @@ class E {
   draw_label(label, x, y) {
     textAlign(CENTER, CENTER);
     fill(0);
-    stroke.apply(null, color_code.white);
+    stroke.apply(null, white);
     strokeWeight(5);
     textSize(text_size);
 
@@ -179,7 +179,7 @@ class E {
       from: this.V.get_index(from_label),
       to: this.V.get_index(to_label),
       weight: w,
-      color: color_code.black,
+      color: black,
       dashed: false
     }
   }
@@ -295,19 +295,19 @@ export class Graph {
   }
 
   draw() {
-    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? color_code.gray : color_code.light_gray);
+    background(this.mode == Graph.add_mode || this.mode == Graph.edit_mode ? gray : lightGray);
     this.V.draw();
     this.E.draw();
     if (this.mode == Graph.add_mode || this.mode == Graph.edit_mode) {
       strokeWeight(2);
-      stroke.apply(null, color_code.black);
+      stroke.apply(null, black);
       drawingContext.setLineDash([10, 10]);
       line(mouseX, 0, mouseX, canvas_h);
       line(0, mouseY, canvas_w, mouseY);
       const label = this.mode == Graph.add_mode
                   ? $('#node_label').val()
                   : this.editing_node.label;
-      this.V.draw_node(this.V.make(label, mouseX, mouseY, color_code.orange));
+      this.V.draw_node(this.V.make(label, mouseX, mouseY, orange));
     }
   }
 

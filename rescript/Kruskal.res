@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, red } from './ColorCode.js'
 import { UnionFind } from './UnionFind.js'
 import { UndirectedGraph } from './Graph.js'
 
@@ -18,7 +18,7 @@ class Kruskal extends UndirectedGraph {
     } else {
       this.mst.push(e);
       UnionFind.unite(this.uf, e.from, e.to);
-      e.color = color_code.red;
+      e.color = red;
     }
     if (call_refresh)
       this.refresh();
@@ -33,7 +33,7 @@ class Kruskal extends UndirectedGraph {
   initialize() {
     for (const e of this.E.get_edges()) {
       e.dashed = false;
-      e.color = color_code.black;
+      e.color = black;
     }
 
     this.queue = this.E.get_edges().sort((e, f) => e.weight - f.weight);
@@ -59,7 +59,7 @@ class Kruskal extends UndirectedGraph {
     const to_label = function(e) {
       if (e.dashed)
         return '不採用';
-      else if (e.color == color_code.red)
+      else if (e.color == red)
         return '採用'; 
       return '';
     }

@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, blue, yellow} from './ColorCode.js'
 
 class MergeSort {
   constructor() {
@@ -31,7 +31,7 @@ class MergeSort {
     fill.apply(null, color);
     rect(x, y, this.box_size, this.box_size);
     textAlign(CENTER, CENTER);
-    fill.apply(null, color_code.black);
+    fill.apply(null, black);
     text(v, x+this.box_size/2, y+this.box_size/2)
   }
   
@@ -53,12 +53,12 @@ class MergeSort {
       const [l2, x3, x4] = this.devide(data, level_offset, level+1, mid, right);
       for (let i = 0; i < data_left.length; i++) {
         const x = x1 + i*this.box_size + (x2-x1)/4;
-        this.drawElement(x, y, data_left[i], color_code.blue);
+        this.drawElement(x, y, data_left[i], blue);
         this.drawIndex(x, y, left+i);
       }
       for (let i = 0; i < data_right.length; i++) {
         const x = x3 + i*this.box_size + (x4-x3)/4;
-        this.drawElement(x, y, data_right[i], color_code.blue);
+        this.drawElement(x, y, data_right[i], blue);
         this.drawIndex(x, y, mid+i);
       }
       return [max(l1, l2), x1, x4];
@@ -79,12 +79,12 @@ class MergeSort {
       const [x3, x4] = this.merge(data, max_level, level_offset, level+1, mid, right);
       for (let i = 0; i < data_left.length; i++) {
         const x = x1 + i*this.box_size + (x2-x1)/4;
-        this.drawElement(x, y, data_left[i], color_code.yellow);
+        this.drawElement(x, y, data_left[i], yellow);
         this.drawIndex(x, y, left+i);
       }
       for (let i = 0; i < data_right.length; i++) {
         const x = x3 + i*this.box_size + (x4-x3)/4;
-        this.drawElement(x, y, data_right[i], color_code.yellow);
+        this.drawElement(x, y, data_right[i], yellow);
         this.drawIndex(x, y, mid+i);
       }
       return [x1, x4];
@@ -101,11 +101,11 @@ class MergeSort {
   }
   
   drawMergeSort(data) {
-    this.drawArray(data, 0, color_code.blue);
+    this.drawArray(data, 0, blue);
     var [l1, _, _] = this.devide(data, 1, 0, 0, data.length);
     const max_level = 2*l1;
     this.merge(data, max_level, l1, 0, 0, data.length);
-    this.drawArray(sort(data), max_level+1, color_code.yellow);
+    this.drawArray(sort(data), max_level+1, yellow);
   }
   
   initializeRandomArray() {

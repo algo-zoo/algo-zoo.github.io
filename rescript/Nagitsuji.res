@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, blue, red, yellow} from './ColorCode.js'
 
 const cv = { // constant values
   w: 2270,
@@ -1322,14 +1322,14 @@ function is_shortest_path() {
 function set_color() {
   nodes.forEach(function (node) {
     if (node.done)
-      node.color = color_code.red;
+      node.color = red;
     else if (node == nodes[$('#start').val()])
-      node.color = color_code.blue;
+      node.color = blue;
     else
       node.color = [255, 255, 255];
   });
   edges.forEach(function (edge) {
-    edge.color = edge.done ? color_code.red : color_code.black;
+    edge.color = edge.done ? red : black;
   });
 
   if (state.mode == path_mode) {
@@ -1338,8 +1338,8 @@ function set_color() {
       const p = node.prev;
       const e = get_edge(p, node); 
       if (e)
-        e.color = color_code.yellow;
-      node.color = color_code.yellow;
+        e.color = yellow;
+      node.color = yellow;
       node = p;
     } while (node);
   }

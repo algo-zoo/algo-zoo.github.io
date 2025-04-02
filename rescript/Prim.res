@@ -1,5 +1,5 @@
 %%raw(`
-import { color_code } from './color-code.js'
+import { black, blue, red, white, yellow} from './ColorCode.js'
 import { UndirectedGraph } from './Graph.js'
 
 class Prim extends UndirectedGraph {
@@ -28,13 +28,13 @@ class Prim extends UndirectedGraph {
   
       const min_e = candidates.reduce((x, y) => x.weight < y.weight ? x : y);
       const [u, v] = [this.V.get(min_e.from), this.V.get(min_e.to)];
-      u.color = color_code.red;
-      v.color = color_code.red;
+      u.color = red;
+      v.color = red;
       this.prim_nodes.add(u);
       this.prim_nodes.add(v);
       this.mst.push(min_e);
   
-      min_e.color = color_code.red;
+      min_e.color = red;
     }
     if (call_refresh)
       this.refresh();
@@ -61,10 +61,10 @@ class Prim extends UndirectedGraph {
   initialize() {
     for (const e of this.E.get_edges()) {
       e.dashed = false;
-      e.color = color_code.black;
+      e.color = black;
     }
     for (const v of this.V.get_nodes()) {
-      v.color = color_code.white;
+      v.color = white;
     }
     this.mst = [];
   
@@ -72,7 +72,7 @@ class Prim extends UndirectedGraph {
     const start_idx = $('#start').val() ? $('#start').val() : 0;
     const v = this.V.get(start_idx);
     if (v) {
-      v.color = color_code.red;
+      v.color = red;
       this.prim_nodes.add(v);
     }
 
@@ -102,7 +102,7 @@ class Prim extends UndirectedGraph {
     const to_label = function(e) {
       if (e.dashed)
         return '不採用';
-      else if (e.color == color_code.red)
+      else if (e.color == red)
         return '採用'; 
       return '';
     }
@@ -173,7 +173,7 @@ class Prim extends UndirectedGraph {
     }, this);
 
     // ==== DEBUG OUTPUT ====
-    // stroke.apply(null, color_code.blue);
+    // stroke.apply(null, blue);
     // strokeWeight(4);
     // for (const [x, y] of points) {
     //   circle(x, y, 2);
@@ -181,7 +181,7 @@ class Prim extends UndirectedGraph {
     // ==== DEBUG OUTPUT ====
 
     const hull_points = hull(points);
-    stroke.apply(null, color_code.yellow);
+    stroke.apply(null, yellow);
     for (let i = 0; i < hull_points.length; i++) {
       const [px, py] = hull_points[i];
       const [qx, qy] = hull_points[(i+1)%hull_points.length];
