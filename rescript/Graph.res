@@ -1,6 +1,6 @@
 %%raw(`
 import { color_code } from './color-code.js'
-import { calc_dist, calc_edge_point, rotation } from './draw-util.js'
+import { calc_dist, calc_edge_point, rotation } from './DrawUtil.js'
 
 const text_size = 24;
 const canvas_w = 1000;

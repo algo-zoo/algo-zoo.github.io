@@ -1,5 +1,5 @@
 %%raw(`
-import { dark, white, red, light_gray } from './ColorCode.js'
+import { dark, white, red, lightGray } from './ColorCode.js'
 
 var cv = { // constant values
   w: -1,
