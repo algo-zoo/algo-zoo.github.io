@@ -77,20 +77,20 @@ class BFS extends DirectedGraph {
   set_color() {
     this.V.nodes.forEach(function (node) {
       if (this.S.has(node))
-        node.color = color_code.red;
+        node.color = red;
       else if (this.queue.includes(node))
-        node.color = color_code.yellow;
+        node.color = yellow;
       else if (node == this.V.get($('#start').val()))
-        node.color = color_code.blue;
+        node.color = blue;
       else
-        node.color = color_code.white;
+        node.color = white;
     }.bind(this));
   }
 
   draw_search_order() {
     for (const u of this.V.get_nodes()) {
       if (this.S.has(u)) {
-        fill.apply(null, color_code.red);
+        fill.apply(null, red);
         text(u.order, u.x, u.y-2*this.V.node_r);
       }
     }
