@@ -49,6 +49,10 @@ defaultContentLanguage = 'en'
     sri = 'sha512-fsvE52IC5bx7NhuaGLoNE+Sq3EKFQ+fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg=='
   [params.glfx]
     cdn = 'https://cdn.jsdelivr.net/npm/glfx@0.0.4/glfx.min.js'
+    sri = 'sha256-oknN1RAu6cHzlL0sT78GVhv4YwH5k4UBjaXwRoIYnlQ='
+  # [params.turf]
+  #   cdn = 'https://cdn.jsdelivr.net/npm/@turf/turf@7.2.0/turf.min.js'
+  #   sri = 'sha256-1XhsCK5OmIs3qlwm3jKwUewuRoD2AvKpjKO8SzKONDI='
 
 [markup.goldmark.renderer]
   unsafe = true
