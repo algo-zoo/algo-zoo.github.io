@@ -1,5 +1,6 @@
+@val external hull: (array<int>, int) => array<int> = "hull"
+
 %%raw(`
-import { hull } from './concave-hull.js'
 import { red, white } from './ColorCode.js'
 
 // ==== constant value ====
@@ -61,7 +62,9 @@ window.mouseReleased = function() {
 }
 
 function run() {
+  console.log("hoge");
   state.hull = hull(state.points, 100);
+  console.log("foo");
   state.depth = 0;
 }
 
