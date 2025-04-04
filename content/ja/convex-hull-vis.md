@@ -6,7 +6,7 @@ tags = ['convex hull']
 [params]
     cdn = ['jquery', 'p5js']
     css = ['/css/graph.css']
-    js = ['/js/convex-hull-vis.js']
+    js = ['/js/DevConvexHullVis.js']
 +++
 
 ## ビジュアライザ

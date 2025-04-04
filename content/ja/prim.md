@@ -7,7 +7,7 @@ tags = ['graph', 'minimum spanning tree']
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/graph.css']
     globaljs = ['/js/concave-hull.js']
-    js = ['/js/prim.js']
+    js = ['/js/Prim.js']
 +++
 
 ## 問題

@@ -6,7 +6,7 @@ tags = ['graph', 'shortest path']
 [params]
     cdn = ['jquery', 'p5js']
     css = ['/css/nagitsuji.css']
-    js = ['/js/nagitsuji.js']
+    js = ['/js/Nagitsuji.js']
 +++
 
 ## 概要

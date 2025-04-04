@@ -6,7 +6,7 @@ tags = ['heap']
 [params]
     cdn = ['jquery', 'p5js']
     css = ['/css/heap.css']
-    js = ['/js/min-heap.js']
+    js = ['/js/MinHeap.js']
 +++
 
 ## 問題

@@ -6,7 +6,7 @@ tags = ['sort']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/graph.css']
-    js = ['/js/merge-sort.js']
+    js = ['/js/MergeSort.js']
 +++
 
 ## 概要

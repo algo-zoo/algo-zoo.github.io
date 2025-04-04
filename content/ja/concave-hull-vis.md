@@ -7,7 +7,7 @@ tags = ['concave hull']
     cdn = ['jquery', 'p5js']
     css = ['/css/graph.css']
     globaljs = ['/js/concave-hull.js']
-    js = ['/js/concave-hull-vis.js']
+    js = ['/js/DevConcaveHullVis.js']
 +++
 
 ## ビジュアライザ

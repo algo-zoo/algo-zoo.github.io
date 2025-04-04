@@ -6,7 +6,7 @@ tags = ['graph']
 [params]
     cdn = ['jquery', 'p5js']
     css = ['/css/graph.css']
-    js = ['/js/directed-graph-vis.js']
+    js = ['/js/DirectedGraphVis.js']
 +++
 
 ## 概要

@@ -6,7 +6,7 @@ tags = ['heap']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/heap.css']
-    js = ['/js/max-heap.js']
+    js = ['/js/MaxHeap.js']
 +++
 
 ## 問題

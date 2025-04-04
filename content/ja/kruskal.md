@@ -6,7 +6,7 @@ tags = ['graph', 'minimum spanning tree']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/graph.css']
-    js = ['/js/kruskal.js']
+    js = ['/js/Kruskal.js']
 +++
 
 ## 問題

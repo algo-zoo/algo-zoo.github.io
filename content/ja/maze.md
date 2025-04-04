@@ -6,7 +6,7 @@ tags = ['graph', 'shortest path']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/maze.css']
-    js = ['/js/maze.js']
+    js = ['/js/Maze.js']
 +++
 
 ## 問題

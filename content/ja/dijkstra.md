@@ -6,7 +6,7 @@ tags = ['graph', 'shortest path']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/dijkstra.css']
-    js = ['/js/dijkstra.js']
+    js = ['/js/Dijkstra.js']
 +++
 
 ## 問題

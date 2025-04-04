@@ -6,7 +6,7 @@ tags = ['graph']
 [params]
     cdn = ['jquery', 'p5js']
     css = ['/css/graph.css']
-    js = ['/js/undirected-graph-vis.js']
+    js = ['/js/UndirectedGraphVis.js']
 +++
 
 ## 概要
