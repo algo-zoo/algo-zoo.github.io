@@ -6,6 +6,7 @@ type t
 @val external center: int = "CENTER"
 @val external left: int = "LEFT"
 @val external bottom: int = "BOTTOM"
+@val external baseline: int = "BASELINE"
 @val external close: int = "CLOSE"
 @val external createCanvas: (int, int) => t = "createCanvas"
 @val external ellipse: (int, int, int, int) => unit = "ellipse"

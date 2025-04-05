@@ -3,11 +3,11 @@ let boxSize = 2 * int_of_float(Math.sqrt(2.0) *. Int.toFloat(DrawUtil.nodeRadius
 type code = Push(int)| Pop
 
 type stateType = {
-  index: ref<int>
+  index: ref<option<int>>
 }
 
 let state:stateType = {
-  index: ref(0)
+  index: ref(None)
 }
 
 let drawBox = (x: int, y: int):unit => {
@@ -17,6 +17,8 @@ let drawBox = (x: int, y: int):unit => {
 }
 
 let drawLabel = (program: array<code>, i: int) => {
+  let offsetX = boxSize
+  let offsetY = boxSize * 3 / 2
   switch program[i] {
   | Some(c) =>
     let label = switch c {
@@ -24,8 +26,8 @@ let drawLabel = (program: array<code>, i: int) => {
     | Pop     => "pop()"
     }
     P5.textSize(40)
-    P5.textAlign(P5.left, P5.center)
-    P5.text(label, boxSize, boxSize)
+    P5.textAlign(P5.left, P5.baseline)
+    P5.text(label, offsetX, offsetY)
   | None => ()
   }
 }
@@ -73,7 +75,7 @@ let loadProgram = (): array<code> => {
   }))
 }
 
-let getStackState = (program: array<code>, i: int) => {
+let getStackState = (program: array<code>, i: int): array<int> => {
   let runStack = (end:int): array<int> => {
     let arr = []
     let rec rs = (i:int): array<int> => {
@@ -97,26 +99,37 @@ let getStackState = (program: array<code>, i: int) => {
   }
 }
 
+let setDisable: (string, bool) => unit = %raw(`(id, flag) => $(id).prop("disabled", flag)`)
+
+let refreshButtons = () => {
+  switch state.index.contents {
+  | Some(i) =>
+    let n = loadProgram()->Array.length
+    setDisable("#prev", i == -1)
+    setDisable("#next", i+1 == n)
+  | None => ()
+  }
+}
+
 let draw = () => {
   P5.backgroundGray(200)
 
-  let idx = state.index.contents
-  let program = loadProgram()
-  drawLabel(program, idx)
-  let stack = getStackState(program, idx)
-  drawStack(stack)
-  Console.log2(idx, stack)
+  switch state.index.contents {
+  | Some(idx) =>
+    let program = loadProgram()
+    drawLabel(program, idx)
+    let stack = getStackState(program, idx)
+    drawStack(stack)
+    refreshButtons()
+  | None => ()
+  }
 }
 
-let createCanvas = () => {
-  let canvasHeight = boxSize * 5
-  let canvasWidth = 1000
-  P5.createCanvas(canvasWidth, canvasHeight)->P5.parent("canvas-hole")
-  P5.noLoop()
-}
+let setHeight: string => unit = %raw(`id => $(id).height($(id)[0].scrollHeight)`)
 
 let initializeStack = () => {
-  let textbox = Jq.make("#program")
+  let id = "#program"
+  let textbox = Jq.make(id)
   textbox->Jq.setValue([
     "push(4)",
     "push(2)",
@@ -128,25 +141,50 @@ let initializeStack = () => {
     "push(7)",
     "push(6)",
   ]->Array.join("\n"))->ignore
-  state.index := -1
+  setHeight(id)
 }
 
 let setup = () => {
+  P5.createCanvas(0, 0)->P5.parent("canvas-hole")
+  setDisable("#prev", true)
+  setDisable("#next", true)
+
   initializeStack()
+}
+
+let createCanvas = () => {
+  let canvasHeight = boxSize * 5
+  let canvasWidth = 1000
+  P5.createCanvas(canvasWidth, canvasHeight)->P5.parent("canvas-hole")
+  P5.noLoop()
+}
+
+let run = () => {
   createCanvas()
+  state.index := Some(-1)
 }
 
 let prev = () => {
-  state.index := state.index.contents - 1
+  switch state.index.contents {
+  | Some(i) => if 0 <= i {
+    state.index := Some(i - 1)
+  }
+  | None => ()
+  }
 }
 
 let next = () => {
-  state.index := state.index.contents + 1
+  switch state.index.contents {
+  | Some(i) => if i < loadProgram()->Array.length-1 {
+    state.index := Some(i + 1)
+  }
+  | None => ()
+  }
 }
 
 Jq.domMake(Jq.document)->Jq.ready(() => {
   [
-    // ("#run", () => { P5.redraw() }),
+    ("#run", run),
     ("#prev", prev),
     ("#next", next),
   ]->Array.forEach(((id, f)) => Jq.make(id)->Jq.on("click", () => { f(); P5.redraw() }))
