@@ -29,5 +29,12 @@ function rawFill(color_code) {
   fill.apply(null, color_code);
 }
 `)
-
 let fillColor = rawFill
+
+@val external rawStroke: ((int, int, int)) => unit = "rawStroke"
+%%raw(`
+function rawStroke(color_code) {
+  stroke.apply(null, color_code);
+}
+`)
+let strokeColor = rawStroke
