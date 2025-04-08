@@ -165,7 +165,7 @@ const drawMaze = function() {
 window.draw = function() {
   $('#prev').prop('disabled', state.current_depth == -1 || state.current_depth == 0);
   $('#next').prop('disabled', state.current_depth == -1 || state.current_depth == state.max_depth);
-  background(light_gray);
+  background(lightGray);
   drawMaze();
 }
 
