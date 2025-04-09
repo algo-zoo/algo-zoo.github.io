@@ -38,9 +38,11 @@ $\gdef\Ep{E^\prime}$
 {{< adjacent-matrix-graph >}}
 
 <div class="container">
-  <button class="alg-btn" id="search">ワンステップ探索</button>
-  <button class="alg-btn" id="goal">最終状態まで探索</button>
-  <button class="alg-btn" id="reset">リセット</button>
+  <div class="mt-2">
+    <button class="alg-btn" id="search">ワンステップ探索</button>
+    <button class="alg-btn" id="goal">最終状態まで探索</button>
+    <button class="alg-btn" id="reset">リセット</button>
+  </div>
   <table border="1" id="data_tbl">
     <thead>
       <tr>

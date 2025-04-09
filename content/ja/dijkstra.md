@@ -40,10 +40,12 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．な
 {{< adjacent-matrix-graph >}}
 
 <div class="container">
-  <label>探索開始頂点</label><select id="start"></select>
-  <button class="alg-btn" id="search">ワンステップ探索</button>
-  <button class="alg-btn" id="goal">最終状態まで探索</button>
-  <button class="alg-btn" id="reset">リセット</button>
+  <div class="mt-2">
+    <label>探索開始頂点</label><select id="start"></select>
+    <button class="alg-btn" id="search">ワンステップ探索</button>
+    <button class="alg-btn" id="goal">最終状態まで探索</button>
+    <button class="alg-btn" id="reset">リセット</button>
+  </div>
   <table class="border" id="data_tbl">
     <thead>
       <tr>

@@ -20,7 +20,7 @@ tags = ['graph', 'shortest path']
 
 <div id="canvas-hole"></div>
 <div class="container">
-  <div>
+  <div class="mt-2">
     <button class="alg-btn" id="image_load">画像ON/OFF</button>
     <button class="alg-btn" id="graph_draw">グラフON/OFF</button>
   </div>
