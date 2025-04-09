@@ -1,3 +1,8 @@
+let drawStack = (stack: array<string>) => {
+  StackVis.drawLabel("Stack", 1, 0)
+  StackVis.drawStack(stack, 9, ~offsetI=1, ~offsetJ=1)
+}
+
 %%raw(`
 import { blue, red, white, yellow} from './ColorCode.js'
 import { DirectedGraph } from './Graph.js'
@@ -55,8 +60,11 @@ class DFS extends DirectedGraph {
 
     const val = $('#start').val();
     const start_idx = val ? val : 0;
+    const s = this.V.get(start_idx);
     this.stack = [];
-    this.stack.push(this.V.get(start_idx));
+    if (s) {
+      this.stack.push(s);
+    }
   }
 
   setup() {
@@ -102,6 +110,7 @@ class DFS extends DirectedGraph {
     this.set_color();
     super.draw();
     this.draw_search_order();
+    drawStack(this.stack.map(v => v.label))
   }
 
   refresh() {

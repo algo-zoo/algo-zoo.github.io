@@ -1,3 +1,8 @@
+let drawQueue = (queue: array<string>) => {
+  StackVis.drawLabel("Queue", 1, 0)
+  QueueVis.drawQueue(queue, 9, ~offsetI=1, ~offsetJ=1)
+}
+
 %%raw(`
 import { blue, red, white, yellow} from './ColorCode.js'
 import { DirectedGraph } from './Graph.js'
@@ -31,7 +36,7 @@ class BFS extends DirectedGraph {
       const f = this.V.get(edge.from);
       if (f == u) {
         const t = this.V.get(edge.to);
-        if (!this.S.has(t))
+        if (!this.S.has(t) && !this.queue.includes(t))
           this.queue.push(t);
       }
     }
@@ -53,8 +58,11 @@ class BFS extends DirectedGraph {
 
     const val = $('#start').val();
     const start_idx = val ? val : 0;
+    const s = this.V.get(start_idx);
     this.queue = [];
-    this.queue.push(this.V.get(start_idx));
+    if (s) {
+      this.queue.push(s);
+    }
   }
 
   setup() {
@@ -100,6 +108,7 @@ class BFS extends DirectedGraph {
     this.set_color();
     super.draw();
     this.draw_search_order();
+    drawQueue(this.queue.map(v => v.label));
   }
 
   refresh() {

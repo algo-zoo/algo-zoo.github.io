@@ -1,9 +1,8 @@
-let padding = 12
-let boxSize = 2 * int_of_float(Math.sqrt(2.0) *. Int.toFloat(DrawUtil.nodeRadius))
-let halfBoxSize = boxSize / 2
-let quarterBoxSize = boxSize / 4
-
-let cellSize = boxSize + 2*padding
+let padding = StackVis.padding
+let boxSize = StackVis.boxSize
+let halfBoxSize = StackVis.halfBoxSize
+let quarterBoxSize = StackVis.quarterBoxSize
+let cellSize = StackVis.cellSize
 
 type code = EnqueueShow(int) | Enqueue(int) | Dequeue | DequeuePause
 type queueState = (array<int>, option<int>)
@@ -16,39 +15,16 @@ let state:stateType = {
   index: ref(None)
 }
 
-let drawBox = (x: int, y: int, label: string): unit => {
-  P5.strokeWeight(DrawUtil.strokeWeight)
-  P5.strokeColor(ColorCode.black)
-  P5.fillColor(ColorCode.lightBlue)
-  P5.rect(x-boxSize/2, y-boxSize/2, boxSize, boxSize)
-  DrawUtil.drawNode(x, y, label)
-}
-
-let drawBoxByIndex = (label: string, i: int, j: int): unit => {
-  let offsetX = padding + boxSize / 2
-  let offsetY = padding + boxSize / 2
-  let x = offsetX + i * cellSize
-  let y = offsetY + j * cellSize
-  drawBox(x, y, label)
-}
-
-let drawLabel = (program: array<code>, i: int): unit => {
-  let offsetX = 2 * cellSize + padding
-  let offsetY = cellSize / 2
+let drawCodeLabel = (program: array<code>, i: int): unit => {
   switch program[i] {
   | Some(c) =>
-    let label = switch c {
-    | EnqueueShow(n) => "enqueue(" ++ string_of_int(n) ++ ")"
-    | Enqueue(_) => ""
-    | Dequeue => "dequeue()"
-    | DequeuePause => ""
+    let (i, j) = (2, 0)
+    switch c {
+    | EnqueueShow(n) => StackVis.drawLabel("enqueue(" ++ string_of_int(n) ++ ")", i, j)
+    | Enqueue(_) => ()
+    | Dequeue => StackVis.drawLabel("dequeue()", i, j)
+    | DequeuePause => ()
     }
-    P5.textSize(40)
-    P5.strokeWeight(3)
-    P5.strokeColor(ColorCode.black)
-    P5.fillColor(ColorCode.red)
-    P5.textAlign(P5.left, P5.center)
-    P5.text(label, offsetX, offsetY)
   | None => ()
   }
 }
@@ -81,13 +57,12 @@ let drawArrowByIndex = (i: int, j: int) => {
   drawArrow(x, y)
 }
 
-let drawQueue = (arr: array<int>, maxLen: int):unit => {
-  let offsetIdx = 2
+let drawQueue = (arr: array<string>, maxLen: int, ~offsetI=2: int, ~offsetJ=1: int):unit => {
   arr->Array.toReversed->Array.forEachWithIndex((v, i) => {
-    drawBoxByIndex(string_of_int(v), i+offsetIdx, 1)
+    StackVis.drawBoxByIndex(v, i+offsetI, 1)
   })
-  let offsetX = padding + offsetIdx * cellSize + cellSize / 2
-  let offsetY = padding + cellSize
+  let offsetX = padding + offsetI * cellSize + cellSize / 2
+  let offsetY = padding + offsetJ * cellSize
   let sx1 = offsetX - cellSize / 2 - padding
   let sx2 = sx1 + maxLen * cellSize
   let sy1 = offsetY - padding
@@ -186,14 +161,14 @@ let draw = () => {
     let program = loadProgram()
     let len = program->getMaxQueueLength
     let (queue, output) = program->getQueueState(idx)
-    drawLabel(program, idx)
-    drawQueue(queue, len)
+    drawCodeLabel(program, idx)
+    drawQueue(queue->Array.map(string_of_int), len)
     if isCode(program, idx, #enqueue) {
       drawArrowByIndex(1, 1)
-      drawBoxByIndex(string_of_int(output->Option.getExn), 0, 1)
+      StackVis.drawBoxByIndex(string_of_int(output->Option.getExn), 0, 1)
     } else if isCode(program, idx, #dequeue) {
       drawArrowByIndex(len+2, 1)
-      drawBoxByIndex(string_of_int(output->Option.getExn), len+3, 1)
+      StackVis.drawBoxByIndex(string_of_int(output->Option.getExn), len+3, 1)
     }
     refreshButtons()
   | None => ()

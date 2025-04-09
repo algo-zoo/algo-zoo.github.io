@@ -2,7 +2,6 @@ let padding = 12
 let boxSize = 2 * int_of_float(Math.sqrt(2.0) *. Int.toFloat(DrawUtil.nodeRadius))
 let halfBoxSize = boxSize / 2
 let quarterBoxSize = boxSize / 4
-
 let cellSize = boxSize + 2*padding
 
 type code = PushShow(int) | Push(int) | Pop | PopPause
@@ -32,23 +31,27 @@ let drawBoxByIndex = (label: string, i: int, j: int): unit => {
   drawBox(x, y, label)
 }
 
-let drawLabel = (program: array<code>, i: int): unit => {
-  let offsetX = 2 * cellSize + padding
-  let offsetY = cellSize / 2
+let drawLabel = (label: string, i: int, j: int): unit => {
+  let offsetX = i * cellSize + padding
+  let offsetY = j * cellSize + cellSize / 2
+  P5.textSize(40)
+  P5.strokeWeight(3)
+  P5.strokeColor(ColorCode.black)
+  P5.fillColor(ColorCode.red)
+  P5.textAlign(P5.left, P5.center)
+  P5.text(label, offsetX, offsetY)
+}
+
+let drawCodeLabel = (program: array<code>, i: int): unit => {
   switch program[i] {
   | Some(c) =>
-    let label = switch c {
-    | PushShow(n) => "push(" ++ string_of_int(n) ++ ")"
-    | Push(_) => ""
-    | Pop => "pop()"
-    | PopPause => ""
+    let (i, j) = (2, 0)
+    switch c {
+    | PushShow(n) => drawLabel("push(" ++ string_of_int(n) ++ ")", i, j)
+    | Push(_) => ()
+    | Pop => drawLabel("pop()", i, j)
+    | PopPause => ()
     }
-    P5.textSize(40)
-    P5.strokeWeight(3)
-    P5.strokeColor(ColorCode.black)
-    P5.fillColor(ColorCode.red)
-    P5.textAlign(P5.left, P5.center)
-    P5.text(label, offsetX, offsetY)
   | None => ()
   }
 }
@@ -96,13 +99,12 @@ let drawArrowByIndex = (i: int, j: int, ~reverse: bool=false) => {
   drawArrow(x, y, ~reverse=reverse)
 }
 
-let drawStack = (arr: array<int>, maxLen: int):unit => {
-  let offsetIdx = 2
+let drawStack = (arr: array<string>, maxLen: int, ~offsetI=2: int, ~offsetJ=1: int):unit => {
   arr->Array.forEachWithIndex((v, i) => {
-    drawBoxByIndex(string_of_int(v), maxLen-i-1+offsetIdx, 1)
+    drawBoxByIndex(v, maxLen-i-1+offsetI, offsetJ)
   })
-  let offsetX = padding + offsetIdx * cellSize + cellSize / 2
-  let offsetY = padding + cellSize
+  let offsetX = padding + offsetI * cellSize + cellSize / 2
+  let offsetY = padding + offsetJ * cellSize
   let sx1 = offsetX - cellSize / 2 - padding
   let sx2 = sx1 + maxLen * cellSize
   let sy1 = offsetY - padding
@@ -202,8 +204,8 @@ let draw = () => {
     let program = loadProgram()
     let len = program->getMaxStackLength
     let (stack, output) = program->getStackState(idx)
-    drawLabel(program, idx)
-    drawStack(stack, len)
+    drawCodeLabel(program, idx)
+    drawStack(stack->Array.map(string_of_int), len, ~offsetI=2, ~offsetJ=1)
     if isCode(program, idx, #push) {
       drawArrowByIndex(1, 1)
       drawBoxByIndex(string_of_int(output->Option.getExn), 0, 1)

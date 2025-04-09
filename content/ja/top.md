@@ -20,8 +20,8 @@ draft = false
     * [キュー（説明準備中）](queue)
 * 幅優先探索 (BFS) / 深さ優先探索 (DFS)
     * [迷路の幅優先探索による最短経路探索](maze)
-    * [グラフに対する幅優先探索（準備中）](bfs)
-    * [グラフに対する深さ優先探索（準備中）](dfs)
+    * [グラフに対する幅優先探索（説明準備中）](bfs)
+    * [グラフに対する深さ優先探索（説明準備中）](dfs)
 * 最短経路探索
     * [ダイクストラ法](dijkstra)
         * 応用例: <a href="nagitsuji"><ruby>椥辻<rt>なぎつじ</rt></ruby>駅・京都橘大学間の最短経路探索</a>
@@ -37,11 +37,14 @@ draft = false
     * ナップサック問題（作成予定）
 * 極限
     * [オーダー評価](order)
+* 幾何
+    * [凸包（説明準備中）](convex-hull-vis)
+    * [凹包（気が向いたら説明を追加するかも）](concave-hull-vis)
+    * ボロノイ図（気が向いたら作成）
+    * 射影変換・透視投影（気が向いたら作成）
 * その他
     * [画像の台形補正ツール](tidy)
 <!--
 * （ アプリ開発用 ）
-    * [convex hull](convex-hull-vis)
-    * [concave hull](concave-hull-vis)
     * [group vis](group-vis)
 -->
