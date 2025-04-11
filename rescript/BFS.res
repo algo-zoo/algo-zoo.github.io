@@ -15,10 +15,7 @@ class BFS extends DirectedGraph {
   }
 
   next_node() {
-    if (this.queue.length == 0)
-      return null;
-    const u = this.queue.shift();
-    return !this.S.has(u) ? u : this.next_node();
+    return this.queue.length == 0 ? null : this.queue.shift();
   }
 
   onestep(call_refresh=true) {

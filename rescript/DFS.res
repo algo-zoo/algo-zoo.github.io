@@ -15,10 +15,7 @@ class DFS extends DirectedGraph {
   }
 
   next_node() {
-    if (this.stack.length == 0)
-      return null;
-    const u = this.stack.pop();
-    return !this.S.has(u) ? u : this.next_node();
+    return this.stack.length == 0 ? null : this.stack.pop();
   }
 
   onestep(call_refresh=true) {
