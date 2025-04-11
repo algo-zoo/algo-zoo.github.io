@@ -50,11 +50,11 @@ $\gdef\null{\mathrm{null}}$
 1. キュー $Q$ に対し，探索開始頂点 $s$ を enqueue する．また，$i \leftarrow 0$ とし，各頂点 $u \in V$ について $\visited{u} \leftarrow \null$ とする．
 2. キュー $Q$ が空になるまで，以下を繰り返し実行:
     - $Q$ を dequeue して得られる要素を $u$ とする．$\visited{u} \leftarrow i$ を実行．
-    - $u$ に隣接する各頂点 $v$ について$^{\dagger}$，以下を実行:
-        - $\visited{v} = \null$ かつ $v \not\in Q$ ならば，未訪問頂点であり訪問予定でもないので $v$ をキューに enqueue する．
-        - そうでないなら（つまり，$\visited{v} \neq \null$ または $v \in Q$ ならば），訪問済みもしくは訪問予定の頂点であるから，何もしない．
+    - $u$ に隣接する各頂点 $t$ について$^{\dagger}$，以下を実行:
+        - $\visited{t} = \null$ かつ $t \not\in Q$ ならば，未訪問頂点であり訪問予定でもないので $t$ をキューに enqueue する．
+        - そうでないなら（つまり，$\visited{t} \neq \null$ または $t \in Q$ ならば），訪問済みもしくは訪問予定の頂点であるから，何もしない．
     - $i \leftarrow i + 1$ を実行．
-3. この時点で幅優先探索が終了し，$\visited{u}$に結果が格納されている．（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点）
+3. この時点で幅優先探索が終了し，$\svisited$に結果が格納されている．（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点）
 
 #### 手続きの補足
 
