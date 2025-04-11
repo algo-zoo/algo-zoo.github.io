@@ -18,6 +18,22 @@ class BFS extends DirectedGraph {
     return this.queue.length == 0 ? null : this.queue.shift();
   }
 
+  get_adjacent_nodes(u) {
+    const nodes = [];
+    for (const edge of this.E.get_edges()) {
+      if (edge.weight == 0)
+        continue;
+      const f = this.V.get(edge.from);
+      if (f == u) {
+        const t = this.V.get(edge.to);
+        if (!nodes.includes(t))
+          nodes.push(t);
+      }
+    }
+    nodes.sort((a, b) => a.label.localeCompare(b.label));
+    return nodes;
+  }
+
   onestep(call_refresh=true) {
     if (this.queue.size == 0)
       return;
@@ -26,16 +42,9 @@ class BFS extends DirectedGraph {
       return;
     u.order = this.S.size;
     this.S.add(u);
-    for (const edge of this.E.get_edges()) {
-      if (edge.weight == 0)
-        continue;
-
-      const f = this.V.get(edge.from);
-      if (f == u) {
-        const t = this.V.get(edge.to);
-        if (!this.S.has(t) && !this.queue.includes(t))
-          this.queue.push(t);
-      }
+    for (const v of this.get_adjacent_nodes(u)) {
+      if (!this.S.has(v) && !this.queue.includes(v))
+        this.queue.push(v);
     }
     if (call_refresh)
       this.refresh();
