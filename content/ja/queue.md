@@ -10,7 +10,10 @@ tags = ['queue']
 
 ## データ構造
 
-* **TODO**
+* **概要:** 先入れ先出し（FIFO: First In First Out）、後入れ後出し（LILO: Last In Last Out）の出し入れ順序でデータを格納する構造。
+* **操作:**
+  * `enqueue(data)`: 要素 `data` をキューに挿入する操作．
+  * `dequeue()`: キューから，キュー内にある要素の中で最初に挿入された要素を取り出す操作．
 
 ## ビジュアライザ
 

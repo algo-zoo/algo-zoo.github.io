@@ -42,6 +42,5 @@ tags = ['tool']
     <label class="ml-2 mt-1">.jpg</label>
   </div>
   <button class="alg-btn mt-2" id="save">保存</button>
-
 </div>
 
