@@ -32,7 +32,7 @@ $\gdef\weight#1#2{w(#1, #2)}$
 1. $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする．
 2. $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする．
     * $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} > \dist{u} + \weight{u}{t}$ ならば，
-$\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新．なお，ここで $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値とする．
+$\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）．
     * $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す．
 
 ## ビジュアライザ
