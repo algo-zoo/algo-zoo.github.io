@@ -1,6 +1,8 @@
 let drawQueue = (queue: array<string>) => {
   StackVis.drawLabel("Queue", 1, 0)
-  QueueVis.drawQueue(queue, 9, ~offsetI=1, ~offsetJ=1)
+  QueueVis.drawArrowByIndex(0, 1)
+  QueueVis.drawQueue(queue, 8, ~offsetI=1, ~offsetJ=1)
+  QueueVis.drawArrowByIndex(9, 1)
 }
 
 %%raw(`
