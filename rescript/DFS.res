@@ -15,30 +15,45 @@ class DFS extends DirectedGraph {
   }
 
   next_node() {
-    return this.stack.length == 0 ? null : this.stack.pop();
+    if (this.stack.length == 0) {
+      return null
+    } else {
+      const u = this.stack.pop();
+      return this.S.has(u) ? null : u;
+    }
+  }
+
+  get_adjacent_nodes(u) {
+    const nodes = [];
+    for (const edge of this.E.get_edges()) {
+      if (edge.weight == 0)
+        continue;
+      const f = this.V.get(edge.from);
+      if (f == u) {
+        const t = this.V.get(edge.to);
+        if (!nodes.includes(t))
+          nodes.push(t);
+      }
+    }
+    nodes.sort((a, b) => b.label.localeCompare(a.label));
+    return nodes;
   }
 
   onestep(call_refresh=true) {
     if (this.stack.size == 0)
       return;
     const u = this.next_node();
-    if (u == null)
+    if (u == null) {
+      if (call_refresh)
+        this.refresh();
       return;
+    }
     u.order = this.S.size;
     this.S.add(u);
-    console.log('Current Node:', u);
-    for (const edge of this.E.get_edges().reverse()) {
-      if (edge.weight == 0)
-        continue;
-
-      const f = this.V.get(edge.from);
-      if (f == u) {
-        const t = this.V.get(edge.to);
-        if (!this.S.has(t) && !this.stack.includes(t))
-          this.stack.push(t);
-      }
+    for (const v of this.get_adjacent_nodes(u)) {
+      if (!this.S.has(v))
+        this.stack.push(v);
     }
-    console.log('STACK:', this.stack);
     if (call_refresh)
       this.refresh();
   }
