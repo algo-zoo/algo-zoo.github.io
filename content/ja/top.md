@@ -32,8 +32,8 @@ draft = false
     * [クラスカル法](kruskal)
     * [プリム法](prim)
 * ヒープ
-    * [Maxヒープ（説明準備中）](max-heap)
-    * [Minヒープ（説明準備中）](min-heap)
+    * [Maxヒープ](max-heap)
+    * [Minヒープ](min-heap)
 * 動的計画法
     * 部分和問題（作成予定）
     * ナップサック問題（作成予定）
