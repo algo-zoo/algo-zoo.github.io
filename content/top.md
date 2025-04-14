@@ -4,7 +4,7 @@ title = 'Algo Zoo'
 draft = false
 +++
 
-## A webpage for algorithm visualizers
+## A webpage for algorithm and data structure visualizers
 
 **Notice: Most of the contents are currently being translated. Please refer to [the Japanese version](/ja) for the latest contents.**
 
