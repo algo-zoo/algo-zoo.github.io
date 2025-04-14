@@ -1,149 +1,278 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.7.45">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="icon" href="/favicon.png">
-  <title>プリム法 - Algo Zoo</title>
-  <meta name="generator" content="Hugo 0.142.0">
-  <link rel="stylesheet" href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css">
+
+  <title>
+  プリム法 - Algo Zoo
+  </title>
+  <meta name="generator" content="Hugo 0.145.0"><link
+    rel="stylesheet"
+    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
+    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
+  />
   <meta property="og:url" content="https://algo-zoo.com/ja/prim/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="プリム法">
-  <meta property="og:description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$ $\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+  <meta property="og:description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$
+$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
-  <meta property="article:tag" content="Graph">
-  <meta property="article:tag" content="Minimum Spanning Tree">
+    <meta property="article:tag" content="Graph">
+    <meta property="article:tag" content="Minimum Spanning Tree">
+
+  
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="プリム法">
-  <meta name="twitter:description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$ $\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+  <meta name="twitter:description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$
+$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+
+  
   <meta itemprop="name" content="プリム法">
-  <meta itemprop="description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$ $\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
-  <meta itemprop="wordCount" content="99">
+  <meta itemprop="description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$
+$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+  <meta itemprop="wordCount" content="100">
   <meta itemprop="keywords" content="Graph,Minimum Spanning Tree">
-  <meta name="lang" content="ja">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA==" crossorigin="anonymous"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS+2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js" integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ==" crossorigin="anonymous"></script>
+
+  
+  <meta name="lang" content="ja" />
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj&#43;dwA==" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS&#43;2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet" />
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR&#43;8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js" integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6&#43;F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO&#43;&#43;nJMtcpWbINWjMSzQ==" crossorigin="anonymous"></script>
+  
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="" crossorigin="anonymous">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body)"></script>
-  <link rel="stylesheet" href="/css/graph.css">
-  <script src="/js/concave-hull.js"></script>
-  <script type="module" src="/js/prim.js"></script>
-  <link href="/css/algo-util.css" rel="stylesheet">
-</head>
-<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
-  <header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-    <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">Algo Zoo</a> <button class="mobile-menu-button md:hidden"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <line x1="4" y1="8" x2="20" y2="8"></line>
-    <line x1="4" y1="16" x2="20" y2="16"></line></svg></button>
-    <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
-      <li>
-        <a href="/ja/tags">タグ</a>
-      </li>
-      <li class="flex items-center">
-        <svg class="mr-2" width="16" height="16" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="12" cy="12" r="9"></circle>
-        <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-        <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-        <path d="M11.5 3a17 17 0 000 18"></path>
-        <path d="M12.5 3a17 17 0 010 18"></path></svg> <a href="/en/" lang="en">🇺🇸 English</a>
-      </li>
-    </ul>
-  </header>
-  <main class="flex-1">
-    <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
-      <h1 class="text-2xl font-bold mb-2">プリム法</h1>
-      <h2 id="問題">問題</h2>
-      <ul>
-        <li>入力: 連結な重み付き無向グラフ $G = (V, E, w)$</li>
-        <li>出力: $G$ の最小全域木</li>
-      </ul>
-      <h2 id="アルゴリズム">アルゴリズム</h2>
-      <h3 id="使用するデータ構造">使用するデータ構造</h3>
-      <p>$\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$</p>
-      <ul>
-        <li>$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」</li>
-        <li>$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」</li>
-      </ul>
-      <h3 id="手続き">手続き</h3>
-      <ol>
-        <li>$\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化．</li>
-        <li>$\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行:
-          <ul>
-            <li>$\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする．</li>
-            <li>$\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行．</li>
-          </ul>
-        </li>
-      </ol>
-      <h2 id="ビジュアライザ">ビジュアライザ</h2>
-      <div class="container">
-        <div>
-          <label for="setting">グラフの設定（ <span class="relative"><button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">補足説明 ⓘ</button></span></label>
-          <div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-            <div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
-              <label for="setting"><span class="relative">補足説明 ⓘ</span></label>
-            </div>
-            <div class="px-3 py-2">
-              <label for="setting"><span class="relative">「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。</span></label>
-            </div>
-            <div class="px-3 py-2">
-              <label for="setting"><span class="relative">頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。</span></label>
-            </div>
-          </div><label for="setting">）</label> <select class="alg-select mb-1" name="setting" id="graph-select">
-            <option value="0">
-              カスタム
-            </option>
-            <option value="1">
-              サンプル1
-            </option>
-            <option value="2">
-              サンプル2
-            </option>
-          </select> <label>頂点の追加</label> <input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名"> <button class="alg-btn" id="add">追加</button>
-        </div><label>隣接行列</label>
-        <table class="w-full border" id="matrix_tbl"></table>
-        <div>
-          <label>グラフ（ <span class="relative"><button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">補足説明 ⓘ</button></span></label>
-          <div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-            <div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
-              <label><span class="relative">補足説明 ⓘ</span></label>
-            </div>
-            <div class="px-3 py-2">
-              <label><span class="relative">頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。</span></label>
-            </div>
-          </div><label>）</label>
-          <div id="canvas-hole"></div>
-        </div>
-      </div>
-      <div class="container">
-        <label>探索開始頂点</label><select id="start">
-        </select> <button class="alg-btn" id="search">ワンステップ探索</button> <button class="alg-btn" id="goal">最終状態まで探索</button> <button class="alg-btn" id="reset">リセット</button>
-        <table border="1" id="data_tbl">
-          <thead>
-            <tr>
-              <th>辺</th>
-              <th>重み</th>
-              <th>（暫定）最小全域木の辺として採用</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-    </article>
-  </main>
-  <footer class="container p-6 mx-auto flex justify-between items-center">
-    <span class="text-sm font-light"><a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a></span> <span onclick='window.scrollTo({top:0,behavior:"smooth"})' class="p-1 cursor-pointer"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M18 15l-6-6-6 6h12"></path></svg></span>
-  </footer>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o&#43;b1l8&#43;N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r&#43;EFLLCyA==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX&#43;yKMUFHzjaH2&#43;AnM6vp2Xs&#43;gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous"></script>
   <script>
-  const mobileMenuButton=document.querySelector(".mobile-menu-button"),mobileMenu=document.querySelector(".mobile-menu");function toggleMenu(){mobileMenu.classList.toggle("hidden"),mobileMenu.classList.toggle("flex")}mobileMenu&&mobileMenuButton&&mobileMenuButton.addEventListener("click",toggleMenu)
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [{left: '$', right: '$', display: false}],
+        throwOnError : false
+      });
+    });
   </script>
+  
+  
+  
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/graph.css">
+    
+  
+  
+    
+      <script src="/js/concave-hull.js"></script>
+    
+  
+  
+    
+      <script type="module" src="/js/Prim.js"></script>
+    
+  
+  <link href="/css/algo-util.css" rel="stylesheet" />
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+    
+    Algo Zoo
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/ja/tags">タグ</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <circle cx="12" cy="12" r="9" />
+        <line x1="3.6" y1="9" x2="20.4" y2="9" />
+        <line x1="3.6" y1="15" x2="20.4" y2="15" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+      <a href="/en/" lang="en">🇺🇸 English</a>
+      
+      
+      
+      
+    </li>
+    
+    
+
+    
+
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">プリム法</h1>
+    
+
+    
+
+    <h2 id="問題">問題</h2>
+<ul>
+<li>入力: 連結な重み付き無向グラフ $G = (V, E, w)$</li>
+<li>出力: $G$ の最小全域木</li>
+</ul>
+<h2 id="アルゴリズム">アルゴリズム</h2>
+<h3 id="使用するデータ構造">使用するデータ構造</h3>
+<p>$\gdef\Vp{V^\prime}$
+$\gdef\Ep{E^\prime}$</p>
+<ul>
+<li>$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」</li>
+<li>$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」</li>
+</ul>
+<h3 id="手続き">手続き</h3>
+<ol>
+<li>$\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化．</li>
+<li>$\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行:
+<ul>
+<li>$\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする．</li>
+<li>$\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行．</li>
+</ul>
+</li>
+</ol>
+<h2 id="ビジュアライザ">ビジュアライザ</h2>
+<div class="container">
+  <div>
+    <label for="setting">グラフの設定（
+      <span class="relative">
+        <button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+          補足説明 ⓘ
+        </button>
+        <div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+          <div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+            補足説明 ⓘ
+          </div>
+          <div class="px-3 py-2">
+            「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
+          </div>
+          <div class="px-3 py-2">
+            頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
+          </div>
+        </div>
+      </span>
+      ）
+    </label>
+    <select class="alg-select mb-1" name="setting" id="graph-select">
+      <option value="0">カスタム</option>
+      <option value="1">サンプル1</option>
+      <option value="2">サンプル2</option>
+      <option value="3">サンプル3</option>
+    </select>
+    <label>頂点の追加</label>
+    <input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名"></input>
+    <button class="alg-btn" id="add">追加</button>
+  </div>
+  <label>隣接行列</label>
+  <table class="w-full border" id="matrix_tbl">
+  </table>
+  <div>
+    <label>グラフ（ 
+      <span class="relative">
+        <button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+          補足説明 ⓘ
+        </button>
+        <div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+          <div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
+            補足説明 ⓘ
+          </div>
+          <div class="px-3 py-2">
+            頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
+          </div>
+        </div>
+      </span>
+      ）</label>
+    <div id="canvas-hole"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="mt-2">
+    <label>探索開始頂点</label><select id="start"></select>
+    <button class="alg-btn" id="search">ワンステップ探索</button>
+    <button class="alg-btn" id="goal">最終状態まで探索</button>
+    <button class="alg-btn" id="reset">リセット</button>
+  </div>
+  <table border="1" id="data_tbl">
+    <thead>
+      <tr>
+        <th>辺</th>
+        <th>重み</th>
+        <th>（暫定）最小全域木の辺として採用</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+  </article>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    <a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
 </body>
 </html>

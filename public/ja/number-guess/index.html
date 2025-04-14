@@ -1,120 +1,228 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.7.45">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="icon" href="/favicon.png">
-  <title>二分探索による数当て - Algo Zoo</title>
-  <meta name="generator" content="Hugo 0.142.0">
-  <link rel="stylesheet" href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css">
+
+  <title>
+  二分探索による数当て - Algo Zoo
+  </title>
+  <meta name="generator" content="Hugo 0.145.0"><link
+    rel="stylesheet"
+    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
+    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
+  />
   <meta property="og:url" content="https://algo-zoo.com/ja/number-guess/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="二分探索による数当て">
-  <meta property="og:description" content="問題の状況設定 あなたはピエロと数当てゲームをすることになった． ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する． あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする． このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？ 二分探索法による質問方法 手続きのアイディア 候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる． 手続きの一例 $b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す: $\displaystyle m \gets \left\lbrack \frac{a+b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け: Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する． Noの場合： このとき $(m+1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m+1$ で$a$を更新する． この時点で$a + 1 = b$となり探索幅が$1$となって答えが$b$に確定する． ビジュアライザ 始点 終点 答えの数値 自動生成 探索 実行 出典 『アルゴリズム・クイックリファレンス 第2版 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．">
+  <meta property="og:description" content="問題の状況設定 あなたはピエロと数当てゲームをすることになった． ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する． あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする． このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？ 二分探索法による質問方法 手続きのアイディア 候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる． 手続きの一例 $b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す: $\displaystyle m \gets \left\lbrack \frac{a&#43;b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け: Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する． Noの場合： このとき $(m&#43;1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m&#43;1$ で$a$を更新する． この時点で$a &#43; 1 = b$となり探索幅が$1$となって答えが$b$に確定する． ビジュアライザ 始点 終点 答えの数値 自動生成 探索 実行 出典 『アルゴリズム・クイックリファレンス 第2版 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
-  <meta property="article:tag" content="Binary Search">
+    <meta property="article:tag" content="Binary Search">
+
+  
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="二分探索による数当て">
-  <meta name="twitter:description" content="問題の状況設定 あなたはピエロと数当てゲームをすることになった． ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する． あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする． このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？ 二分探索法による質問方法 手続きのアイディア 候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる． 手続きの一例 $b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す: $\displaystyle m \gets \left\lbrack \frac{a+b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け: Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する． Noの場合： このとき $(m+1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m+1$ で$a$を更新する． この時点で$a + 1 = b$となり探索幅が$1$となって答えが$b$に確定する． ビジュアライザ 始点 終点 答えの数値 自動生成 探索 実行 出典 『アルゴリズム・クイックリファレンス 第2版 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．">
+  <meta name="twitter:description" content="問題の状況設定 あなたはピエロと数当てゲームをすることになった． ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する． あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする． このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？ 二分探索法による質問方法 手続きのアイディア 候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる． 手続きの一例 $b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す: $\displaystyle m \gets \left\lbrack \frac{a&#43;b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け: Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する． Noの場合： このとき $(m&#43;1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m&#43;1$ で$a$を更新する． この時点で$a &#43; 1 = b$となり探索幅が$1$となって答えが$b$に確定する． ビジュアライザ 始点 終点 答えの数値 自動生成 探索 実行 出典 『アルゴリズム・クイックリファレンス 第2版 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．">
+
+  
   <meta itemprop="name" content="二分探索による数当て">
-  <meta itemprop="description" content="問題の状況設定 あなたはピエロと数当てゲームをすることになった． ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する． あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする． このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？ 二分探索法による質問方法 手続きのアイディア 候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる． 手続きの一例 $b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す: $\displaystyle m \gets \left\lbrack \frac{a+b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け: Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する． Noの場合： このとき $(m+1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m+1$ で$a$を更新する． この時点で$a + 1 = b$となり探索幅が$1$となって答えが$b$に確定する． ビジュアライザ 始点 終点 答えの数値 自動生成 探索 実行 出典 『アルゴリズム・クイックリファレンス 第2版 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．">
+  <meta itemprop="description" content="問題の状況設定 あなたはピエロと数当てゲームをすることになった． ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する． あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする． このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？ 二分探索法による質問方法 手続きのアイディア 候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる． 手続きの一例 $b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す: $\displaystyle m \gets \left\lbrack \frac{a&#43;b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数） ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け: Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する． Noの場合： このとき $(m&#43;1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m&#43;1$ で$a$を更新する． この時点で$a &#43; 1 = b$となり探索幅が$1$となって答えが$b$に確定する． ビジュアライザ 始点 終点 答えの数値 自動生成 探索 実行 出典 『アルゴリズム・クイックリファレンス 第2版 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．">
   <meta itemprop="wordCount" content="80">
   <meta itemprop="keywords" content="Binary Search">
-  <meta name="lang" content="ja">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA==" crossorigin="anonymous"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS+2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+
+  
+  <meta name="lang" content="ja" />
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj&#43;dwA==" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS&#43;2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet" />
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR&#43;8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+  
+  
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="" crossorigin="anonymous">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body)"></script>
-  <link rel="stylesheet" href="/css/number-guess.css">
-  <script type="module" src="/js/number-guess.js"></script>
-  <link href="/css/algo-util.css" rel="stylesheet">
-</head>
-<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
-  <header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-    <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">Algo Zoo</a> <button class="mobile-menu-button md:hidden"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <line x1="4" y1="8" x2="20" y2="8"></line>
-    <line x1="4" y1="16" x2="20" y2="16"></line></svg></button>
-    <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
-      <li>
-        <a href="/ja/tags">タグ</a>
-      </li>
-      <li class="flex items-center">
-        <svg class="mr-2" width="16" height="16" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="12" cy="12" r="9"></circle>
-        <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-        <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-        <path d="M11.5 3a17 17 0 000 18"></path>
-        <path d="M12.5 3a17 17 0 010 18"></path></svg> <a href="/en/" lang="en">🇺🇸 English</a>
-      </li>
-    </ul>
-  </header>
-  <main class="flex-1">
-    <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
-      <h1 class="text-2xl font-bold mb-2">二分探索による数当て</h1>
-      <h2 id="問題の状況設定">問題の状況設定</h2>
-      <ul>
-        <li>あなたはピエロと数当てゲームをすることになった．</li>
-        <li>ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する．</li>
-        <li>あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする．</li>
-        <li>このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？</li>
-      </ul>
-      <h2 id="二分探索法による質問方法">二分探索法による質問方法</h2>
-      <h3 id="手続きのアイディア">手続きのアイディア</h3>
-      <ul>
-        <li>候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる．</li>
-      </ul>
-      <h3 id="手続きの一例">手続きの一例</h3>
-      <ol>
-        <li>$b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す:</li>
-      </ol>
-      <ul>
-        <li>$\displaystyle m \gets \left\lbrack \frac{a+b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数）</li>
-        <li>ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け:
-          <ul>
-            <li>Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する．</li>
-            <li>Noの場合： このとき $(m+1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m+1$ で$a$を更新する．</li>
-          </ul>
-        </li>
-      </ul>
-      <ol start="2">
-        <li>この時点で$a + 1 = b$となり探索幅が$1$となって答えが$b$に確定する．</li>
-      </ol>
-      <h2 id="ビジュアライザ">ビジュアライザ</h2>
-      <div class="container">
-        <div class="mb-2">
-          <label for="begin" class="block">始点</label> <input class="alg-input" type="number" id="begin" value="1">
-        </div>
-        <div class="mb-2">
-          <label for="end" class="block">終点</label> <input class="alg-input" type="number" id="end" value="100">
-        </div>
-        <div class="mb-2">
-          <label for="target" class="block">答えの数値</label> <input class="alg-input mb-1" type="number" id="target"> <button class="alg-btn" type="button" id="random">自動生成</button>
-        </div>
-        <div>
-          <label for="binary" class="block">探索</label> <button class="alg-btn" type="button" id="binary">実行</button>
-        </div>
-        <table id="chat"></table>
-      </div>
-      <h2 id="出典">出典</h2>
-      <ul>
-        <li>『<a href="https://www.oreilly.co.jp/books/9784873117850/" target="_blank" rel="noopener">アルゴリズム・クイックリファレンス 第2版</a> 』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．
-        </li>
-      </ul>
-    </article>
-  </main>
-  <footer class="container p-6 mx-auto flex justify-between items-center">
-    <span class="text-sm font-light"><a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a></span> <span onclick='window.scrollTo({top:0,behavior:"smooth"})' class="p-1 cursor-pointer"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M18 15l-6-6-6 6h12"></path></svg></span>
-  </footer>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o&#43;b1l8&#43;N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r&#43;EFLLCyA==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX&#43;yKMUFHzjaH2&#43;AnM6vp2Xs&#43;gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous"></script>
   <script>
-  const mobileMenuButton=document.querySelector(".mobile-menu-button"),mobileMenu=document.querySelector(".mobile-menu");function toggleMenu(){mobileMenu.classList.toggle("hidden"),mobileMenu.classList.toggle("flex")}mobileMenu&&mobileMenuButton&&mobileMenuButton.addEventListener("click",toggleMenu)
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [{left: '$', right: '$', display: false}],
+        throwOnError : false
+      });
+    });
   </script>
+  
+  
+  
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/number-guess.css">
+    
+  
+  
+  
+    
+      <script type="module" src="/js/NumberGuess.js"></script>
+    
+  
+  <link href="/css/algo-util.css" rel="stylesheet" />
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+    
+    Algo Zoo
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/ja/tags">タグ</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <circle cx="12" cy="12" r="9" />
+        <line x1="3.6" y1="9" x2="20.4" y2="9" />
+        <line x1="3.6" y1="15" x2="20.4" y2="15" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+      <a href="/en/" lang="en">🇺🇸 English</a>
+      
+      
+      
+      
+    </li>
+    
+    
+
+    
+
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">二分探索による数当て</h1>
+    
+
+    
+
+    <h2 id="問題の状況設定">問題の状況設定</h2>
+<ul>
+<li>あなたはピエロと数当てゲームをすることになった．</li>
+<li>ピエロは，ある整数$a, b$について$a$以上$b$以下の数値のうち，一つを選び，あなたには分からない形でその数値を記録する．</li>
+<li>あなたが，ピエロに対して何回か「YesかNoかで答えられる質問」をすることができたとする．</li>
+<li>このとき二分探索法に基づいた質問方法では何回の質問でその数値を与えることができるか？</li>
+</ul>
+<h2 id="二分探索法による質問方法">二分探索法による質問方法</h2>
+<h3 id="手続きのアイディア">手続きのアイディア</h3>
+<ul>
+<li>候補となる探索範囲を毎回の質問で半分にする質問をする．例えば，探索する範囲のちょうど中間の整数 $m$ について「答えの数値は $m$ 以下ですか？」という質問をして範囲を半減させる．</li>
+</ul>
+<h3 id="手続きの一例">手続きの一例</h3>
+<ol>
+<li>$b - a &gt; 1$である間，すなわち，探索範囲の幅が1より大きい間は以下の処理を繰り返す:</li>
+</ol>
+<ul>
+<li>$\displaystyle m \gets \left\lbrack \frac{a+b}{2} \right\rbrack$ とする（注: $\lbrack x \rbrack$は$x$の小数点以下を切り捨てて整数にする関数）</li>
+<li>ピエロに対して「答えの数値は $m$ 以下ですか？」と質問し，回答に応じて場合分け:
+<ul>
+<li>Yesの場合: このとき $a$ 〜 $m$ に答えがあることが分かるから，$b \gets m$ で$b$を更新する．</li>
+<li>Noの場合： このとき $(m+1)$ 〜 $b$ に答えがあることが分かるから，$a \gets m+1$ で$a$を更新する．</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>この時点で$a + 1 = b$となり探索幅が$1$となって答えが$b$に確定する．</li>
+</ol>
+<h2 id="ビジュアライザ">ビジュアライザ</h2>
+<div class="container">
+  <div class="mb-2">
+    <label for="begin" class="block">始点</label>
+    <input class="alg-input" type="number" id="begin" value="1">
+  </div>
+  <div class="mb-2">
+    <label for="end" class="block">終点</label>
+    <input class="alg-input" type="number" id="end" value="100">
+  </div>
+  <div class="mb-2">
+    <label for="target" class="block">答えの数値</label>
+    <input class="alg-input mb-1" type="number" id="target">
+    <button class="alg-btn" type="button" id="random">自動生成</button>
+  </div>
+  <div>
+    <label for="binary" class="block">探索</label>
+    <button class="alg-btn" type="button" id="binary">実行</button>
+  </div>
+  <table id="chat">
+  </table>
+</div>
+<h2 id="出典">出典</h2>
+<ul>
+<li>『<a href="https://www.oreilly.co.jp/books/9784873117850/" target="_blank" rel="noopener">アルゴリズム・クイックリファレンス 第2版</a>
+』（George T. Heineman, Gary Pollice, Stanley Selkow 著; 黒川 利明, 黒川 洋 訳; オライリー・ジャパン 発行）の第1章「アルゴリズムで考える」の2.4.2節「対数的な振る舞い」に現れる問題例を改変．</li>
+</ul>
+
+  </article>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    <a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
 </body>
 </html>

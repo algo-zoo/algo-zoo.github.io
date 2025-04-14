@@ -7,7 +7,7 @@ tags = ['group']
     cdn = ['jquery', 'p5js']
     css = ['/css/graph.css']
     globaljs = ['/js/concave-hull.js']
-    js = ['/js/group-vis.js']
+    js = ['/js/GroupVis.js']
 +++
 
 ## ビジュアライザ

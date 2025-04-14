@@ -6,7 +6,7 @@ tags = ['graph', 'shortest path']
 [params]
     cdn = ['jquery', 'p5js', 'katex']
     css = ['/css/maze.css']
-    js = ['/js/maze.js']
+    js = ['/js/Maze.js']
 +++
 
 ## 問題
@@ -31,7 +31,7 @@ $\gdef\yp{y^\prime}$
 ### 手続き
 
 1. $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする．
-2. $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行について:
+2. $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行:
   * $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了;
   * $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d+1) \rbrace$ とする．
 3. 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d+1)$として 2. を繰り返す．

@@ -1,162 +1,255 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.7.45">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="icon" href="/favicon.png">
-  <title>Algo Zoo - Algo Zoo</title>
-  <meta name="generator" content="Hugo 0.142.0">
-  <link rel="stylesheet" href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css">
+
+  <title>
+  Algo Zoo - Algo Zoo
+  </title>
+  <meta name="generator" content="Hugo 0.145.0"><link
+    rel="stylesheet"
+    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
+    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
+  />
   <meta property="og:url" content="https://algo-zoo.com/ja/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="Algo Zoo">
-  <meta property="og:description" content="アルゴリズム・ビジュアライザー ウェブページ 二分探索 二分探索法（数当て） 二分探索法（配列の値探索） 整列（ソート） マージソート クイックソート（準備中） グラフ 隣接行列による有向グラフ表示 隣接行列による無向グラフ表示 幅優先探索 (BFS) / 深さ優先探索 (DFS) 迷路の幅優先探索による最短経路探索 グラフに対する幅優先探索（準備中） グラフに対する深さ優先探索（準備中） 最短経路探索 ダイクストラ法 応用例: 椥辻なぎつじ駅・京都橘大学間の最短経路探索 最小全域木 クラスカル法 プリム法 ヒープ Maxヒープ Minヒープ 極限 オーダー評価 （ アプリ開発用 ） convex hull concave hull group vis">
+  <meta property="og:description" content="アルゴリズム &amp; データ構造 ビジュアライザー ウェブページ 二分探索 二分探索法（数当て） 二分探索法（配列の値探索） 整列（ソート） マージソート クイックソート（作成予定） グラフ 隣接行列による有向グラフ表示 隣接行列による無向グラフ表示 キュー / スタック キュー スタック 幅優先探索 (BFS) / 深さ優先探索 (DFS) 迷路の幅優先探索による最短経路探索 グラフに対する幅優先探索 グラフに対する深さ優先探索 最短経路探索 ダイクストラ法 応用例: 椥辻なぎつじ駅・京都橘大学間の最短経路探索 応用例: 乗換案内（作成予定） 最小全域木 クラスカル法 プリム法 ヒープ Maxヒープ Minヒープ 動的計画法 部分和問題（作成予定） ナップサック問題（作成予定） 極限 オーダー評価 幾何 凸包（気が向いたら説明を追加する） 凹包（気が向いたら説明を追加する） その他 画像の台形補正ツール UnionFind（作成予定）">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
+
+  
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Algo Zoo">
-  <meta name="twitter:description" content="アルゴリズム・ビジュアライザー ウェブページ 二分探索 二分探索法（数当て） 二分探索法（配列の値探索） 整列（ソート） マージソート クイックソート（準備中） グラフ 隣接行列による有向グラフ表示 隣接行列による無向グラフ表示 幅優先探索 (BFS) / 深さ優先探索 (DFS) 迷路の幅優先探索による最短経路探索 グラフに対する幅優先探索（準備中） グラフに対する深さ優先探索（準備中） 最短経路探索 ダイクストラ法 応用例: 椥辻なぎつじ駅・京都橘大学間の最短経路探索 最小全域木 クラスカル法 プリム法 ヒープ Maxヒープ Minヒープ 極限 オーダー評価 （ アプリ開発用 ） convex hull concave hull group vis">
+  <meta name="twitter:description" content="アルゴリズム &amp; データ構造 ビジュアライザー ウェブページ 二分探索 二分探索法（数当て） 二分探索法（配列の値探索） 整列（ソート） マージソート クイックソート（作成予定） グラフ 隣接行列による有向グラフ表示 隣接行列による無向グラフ表示 キュー / スタック キュー スタック 幅優先探索 (BFS) / 深さ優先探索 (DFS) 迷路の幅優先探索による最短経路探索 グラフに対する幅優先探索 グラフに対する深さ優先探索 最短経路探索 ダイクストラ法 応用例: 椥辻なぎつじ駅・京都橘大学間の最短経路探索 応用例: 乗換案内（作成予定） 最小全域木 クラスカル法 プリム法 ヒープ Maxヒープ Minヒープ 動的計画法 部分和問題（作成予定） ナップサック問題（作成予定） 極限 オーダー評価 幾何 凸包（気が向いたら説明を追加する） 凹包（気が向いたら説明を追加する） その他 画像の台形補正ツール UnionFind（作成予定）">
+
+  
   <meta itemprop="name" content="Algo Zoo">
-  <meta itemprop="description" content="アルゴリズム・ビジュアライザー ウェブページ 二分探索 二分探索法（数当て） 二分探索法（配列の値探索） 整列（ソート） マージソート クイックソート（準備中） グラフ 隣接行列による有向グラフ表示 隣接行列による無向グラフ表示 幅優先探索 (BFS) / 深さ優先探索 (DFS) 迷路の幅優先探索による最短経路探索 グラフに対する幅優先探索（準備中） グラフに対する深さ優先探索（準備中） 最短経路探索 ダイクストラ法 応用例: 椥辻なぎつじ駅・京都橘大学間の最短経路探索 最小全域木 クラスカル法 プリム法 ヒープ Maxヒープ Minヒープ 極限 オーダー評価 （ アプリ開発用 ） convex hull concave hull group vis">
-  <meta itemprop="wordCount" content="40">
-  <meta name="lang" content="ja">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA==" crossorigin="anonymous"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS+2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet">
-  <link href="/css/algo-util.css" rel="stylesheet">
+  <meta itemprop="description" content="アルゴリズム &amp; データ構造 ビジュアライザー ウェブページ 二分探索 二分探索法（数当て） 二分探索法（配列の値探索） 整列（ソート） マージソート クイックソート（作成予定） グラフ 隣接行列による有向グラフ表示 隣接行列による無向グラフ表示 キュー / スタック キュー スタック 幅優先探索 (BFS) / 深さ優先探索 (DFS) 迷路の幅優先探索による最短経路探索 グラフに対する幅優先探索 グラフに対する深さ優先探索 最短経路探索 ダイクストラ法 応用例: 椥辻なぎつじ駅・京都橘大学間の最短経路探索 応用例: 乗換案内（作成予定） 最小全域木 クラスカル法 プリム法 ヒープ Maxヒープ Minヒープ 動的計画法 部分和問題（作成予定） ナップサック問題（作成予定） 極限 オーダー評価 幾何 凸包（気が向いたら説明を追加する） 凹包（気が向いたら説明を追加する） その他 画像の台形補正ツール UnionFind（作成予定）">
+  <meta itemprop="wordCount" content="50">
+
+  
+  <meta name="lang" content="ja" />
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj&#43;dwA==" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS&#43;2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet" />
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
-<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
-  <header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-    <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">Algo Zoo</a> <button class="mobile-menu-button md:hidden"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <line x1="4" y1="8" x2="20" y2="8"></line>
-    <line x1="4" y1="16" x2="20" y2="16"></line></svg></button>
-    <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
-      <li>
-        <a href="/ja/tags">タグ</a>
-      </li>
-      <li class="flex items-center">
-        <svg class="mr-2" width="16" height="16" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="12" cy="12" r="9"></circle>
-        <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-        <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-        <path d="M11.5 3a17 17 0 000 18"></path>
-        <path d="M12.5 3a17 17 0 010 18"></path></svg> <a href="/en/" lang="en">🇺🇸 English</a>
-      </li>
-    </ul>
-  </header>
-  <main class="flex-1">
-    <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
-      <h1 class="text-2xl font-bold mb-2">Algo Zoo</h1>
-      <h2 id="アルゴリズムビジュアライザー-ウェブページ">アルゴリズム・ビジュアライザー ウェブページ</h2>
-      <ul>
-        <li>二分探索
-          <ul>
-            <li>
-              <a href="number-guess">二分探索法（数当て）</a>
-            </li>
-            <li>
-              <a href="binary-search">二分探索法（配列の値探索）</a>
-            </li>
-          </ul>
-        </li>
-        <li>整列（ソート）
-          <ul>
-            <li>
-              <a href="merge-sort">マージソート</a>
-            </li>
-            <li>クイックソート（準備中）</li>
-          </ul>
-        </li>
-        <li>グラフ
-          <ul>
-            <li>
-              <a href="directed-graph">隣接行列による有向グラフ表示</a>
-            </li>
-            <li>
-              <a href="undirected-graph">隣接行列による無向グラフ表示</a>
-            </li>
-          </ul>
-        </li>
-        <li>幅優先探索 (BFS) / 深さ優先探索 (DFS)
-          <ul>
-            <li>
-              <a href="maze">迷路の幅優先探索による最短経路探索</a>
-            </li>
-            <li>グラフに対する幅優先探索（準備中）</li>
-            <li>グラフに対する深さ優先探索（準備中）</li>
-          </ul>
-        </li>
-        <li>最短経路探索
-          <ul>
-            <li>
-              <a href="dijkstra">ダイクストラ法</a>
-              <ul>
-                <li>応用例: <a href="nagitsuji"><ruby>椥辻<rt>なぎつじ</rt></ruby>駅・京都橘大学間の最短経路探索</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul>
-        <li>最小全域木
-          <ul>
-            <li>
-              <a href="kruskal">クラスカル法</a>
-            </li>
-            <li>
-              <a href="prim">プリム法</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul>
-        <li>ヒープ
-          <ul>
-            <li>
-              <a href="max-heap">Maxヒープ</a>
-            </li>
-            <li>
-              <a href="min-heap">Minヒープ</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul>
-        <li>極限
-          <ul>
-            <li>
-              <a href="order">オーダー評価</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul>
-        <li>（ アプリ開発用 ）
-          <ul>
-            <li>
-              <a href="convex-hull-vis">convex hull</a>
-            </li>
-            <li>
-              <a href="concave-hull-vis">concave hull</a>
-            </li>
-            <li>
-              <a href="group-vis">group vis</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </article>
-  </main>
-  <footer class="container p-6 mx-auto flex justify-between items-center">
-    <span class="text-sm font-light"><a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a></span> <span onclick='window.scrollTo({top:0,behavior:"smooth"})' class="p-1 cursor-pointer"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M18 15l-6-6-6 6h12"></path></svg></span>
-  </footer>
-  <script>
-  const mobileMenuButton=document.querySelector(".mobile-menu-button"),mobileMenu=document.querySelector(".mobile-menu");function toggleMenu(){mobileMenu.classList.toggle("hidden"),mobileMenu.classList.toggle("flex")}mobileMenu&&mobileMenuButton&&mobileMenuButton.addEventListener("click",toggleMenu)
-  </script>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+    
+    Algo Zoo
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/ja/tags">タグ</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <circle cx="12" cy="12" r="9" />
+        <line x1="3.6" y1="9" x2="20.4" y2="9" />
+        <line x1="3.6" y1="15" x2="20.4" y2="15" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+      <a href="/en/" lang="en">🇺🇸 English</a>
+      
+      
+      
+      
+    </li>
+    
+    
+
+    
+
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">Algo Zoo</h1>
+    
+
+    
+
+    <h2 id="アルゴリズム--データ構造-ビジュアライザー-ウェブページ">アルゴリズム &amp; データ構造 ビジュアライザー ウェブページ</h2>
+<ul>
+<li>二分探索
+<ul>
+<li><a href="number-guess">二分探索法（数当て）</a>
+</li>
+<li><a href="binary-search">二分探索法（配列の値探索）</a>
+</li>
+</ul>
+</li>
+<li>整列（ソート）
+<ul>
+<li><a href="merge-sort">マージソート</a>
+</li>
+<li>クイックソート（作成予定）</li>
+</ul>
+</li>
+<li>グラフ
+<ul>
+<li><a href="directed-graph">隣接行列による有向グラフ表示</a>
+</li>
+<li><a href="undirected-graph">隣接行列による無向グラフ表示</a>
+</li>
+</ul>
+</li>
+<li>キュー / スタック
+<ul>
+<li><a href="queue">キュー</a>
+</li>
+<li><a href="stack">スタック</a>
+</li>
+</ul>
+</li>
+<li>幅優先探索 (BFS) / 深さ優先探索 (DFS)
+<ul>
+<li><a href="maze">迷路の幅優先探索による最短経路探索</a>
+</li>
+<li><a href="bfs">グラフに対する幅優先探索</a>
+</li>
+<li><a href="dfs">グラフに対する深さ優先探索</a>
+</li>
+</ul>
+</li>
+<li>最短経路探索
+<ul>
+<li><a href="dijkstra">ダイクストラ法</a>
+
+<ul>
+<li>応用例: <a href="nagitsuji"><ruby>椥辻<rt>なぎつじ</rt></ruby>駅・京都橘大学間の最短経路探索</a></li>
+<li>応用例: 乗換案内（作成予定）</li>
+</ul>
+</li>
+</ul>
+  <!-- * ベルマン・フォード法（気が向いたら作成） -->
+  <!-- * ワーシャル・フロイド法（気が向いたら作成） -->
+</li>
+<li>最小全域木
+<ul>
+<li><a href="kruskal">クラスカル法</a>
+</li>
+<li><a href="prim">プリム法</a>
+</li>
+</ul>
+</li>
+<li>ヒープ
+<ul>
+<li><a href="max-heap">Maxヒープ</a>
+</li>
+<li><a href="min-heap">Minヒープ</a>
+</li>
+</ul>
+</li>
+<li>動的計画法
+<ul>
+<li>部分和問題（作成予定）</li>
+<li>ナップサック問題（作成予定）</li>
+</ul>
+</li>
+<li>極限
+<ul>
+<li><a href="order">オーダー評価</a>
+</li>
+</ul>
+</li>
+<li>幾何
+<ul>
+<li><a href="convex-hull-vis">凸包（気が向いたら説明を追加する）</a>
+</li>
+<li><a href="concave-hull-vis">凹包（気が向いたら説明を追加する）</a>
+</li>
+</ul>
+  <!-- * ボロノイ図（気が向いたら作成） -->
+  <!-- * 射影変換・透視投影（気が向いたら作成） -->
+</li>
+<li>その他
+<ul>
+<li><a href="tidy">画像の台形補正ツール</a>
+</li>
+<li>UnionFind（作成予定）</li>
+</ul>
+</li>
+</ul>
+<!--
+* （ アプリ開発用 ）
+    * [group vis](group-vis)
+-->
+
+  </article>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    <a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
 </body>
 </html>

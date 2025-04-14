@@ -72,10 +72,6 @@ const binarySearch = function() {
 }
 
 $(document).ready(function () {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('#random').on('click', setRandomTarget);
   $('#binary').on('click', binarySearch);
   setRandomTarget();

@@ -1,110 +1,237 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage">
-<head>
-  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.7.45">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="icon" href="/favicon.png">
-  <title>オーダー評価 - Algo Zoo</title>
-  <meta name="generator" content="Hugo 0.142.0">
-  <link rel="stylesheet" href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css">
+
+  <title>
+  オーダー評価 - Algo Zoo
+  </title>
+  <meta name="generator" content="Hugo 0.145.0"><link
+    rel="stylesheet"
+    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
+    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
+  />
   <meta property="og:url" content="https://algo-zoo.com/ja/order/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="オーダー評価">
-  <meta property="og:description" content="概要 オーダー記法の定義 時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$ ビジュアライザ 各種定義 時間計算量関数: $T(x)$ グラフ表示 グラフ非表示 オーダー表現用の関数: $f(x)$ グラフ表示 グラフ非表示 関数 $c \cdot f(x)$ の定数: $c$ グラフ表示 グラフ非表示 定数: $N_0$ グラフ表示 グラフ非表示 関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック 定数$\,c\,$の値を">
+  <meta property="og:description" content="概要 オーダー記法の定義 時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$ ビジュアライザ 各種定義 時間計算量関数: $T(x)$ グラフ表示 グラフ非表示 オーダー表現用の関数: $f(x)$ グラフ表示 グラフ非表示 関数 $c \cdot f(x)$ の定数: $c$ グラフ表示 グラフ非表示 定数: $N_0$ グラフ表示 グラフ非表示 関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック
+定数$\,c\,$の値を">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
-  <meta property="article:tag" content="Limit">
+    <meta property="article:tag" content="Limit">
+
+  
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="オーダー評価">
-  <meta name="twitter:description" content="概要 オーダー記法の定義 時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$ ビジュアライザ 各種定義 時間計算量関数: $T(x)$ グラフ表示 グラフ非表示 オーダー表現用の関数: $f(x)$ グラフ表示 グラフ非表示 関数 $c \cdot f(x)$ の定数: $c$ グラフ表示 グラフ非表示 定数: $N_0$ グラフ表示 グラフ非表示 関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック 定数$\,c\,$の値を">
+  <meta name="twitter:description" content="概要 オーダー記法の定義 時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$ ビジュアライザ 各種定義 時間計算量関数: $T(x)$ グラフ表示 グラフ非表示 オーダー表現用の関数: $f(x)$ グラフ表示 グラフ非表示 関数 $c \cdot f(x)$ の定数: $c$ グラフ表示 グラフ非表示 定数: $N_0$ グラフ表示 グラフ非表示 関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック
+定数$\,c\,$の値を">
+
+  
   <meta itemprop="name" content="オーダー評価">
-  <meta itemprop="description" content="概要 オーダー記法の定義 時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$ ビジュアライザ 各種定義 時間計算量関数: $T(x)$ グラフ表示 グラフ非表示 オーダー表現用の関数: $f(x)$ グラフ表示 グラフ非表示 関数 $c \cdot f(x)$ の定数: $c$ グラフ表示 グラフ非表示 定数: $N_0$ グラフ表示 グラフ非表示 関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック 定数$\,c\,$の値を">
+  <meta itemprop="description" content="概要 オーダー記法の定義 時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$ ビジュアライザ 各種定義 時間計算量関数: $T(x)$ グラフ表示 グラフ非表示 オーダー表現用の関数: $f(x)$ グラフ表示 グラフ非表示 関数 $c \cdot f(x)$ の定数: $c$ グラフ表示 グラフ非表示 定数: $N_0$ グラフ表示 グラフ非表示 関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック
+定数$\,c\,$の値を">
   <meta itemprop="wordCount" content="48">
   <meta itemprop="keywords" content="Limit">
-  <meta name="lang" content="ja">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA==" crossorigin="anonymous"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS+2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js" integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6+F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO++nJMtcpWbINWjMSzQ==" crossorigin="anonymous"></script>
+
+  
+  <meta name="lang" content="ja" />
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj&#43;dwA==" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS&#43;2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet" />
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR&#43;8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.2/p5.min.js" integrity="sha512-1YMgn4j8cIL91s14ByDGmHtBU6&#43;F8bWOMcF47S0cRO3QNm8SKPNexy4s3OCim9fABUtO&#43;&#43;nJMtcpWbINWjMSzQ==" crossorigin="anonymous"></script>
+  
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="" crossorigin="anonymous">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body)"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.25.1/function-plot.min.js" integrity="sha512-fsvE52IC5bx7NhuaGLoNE+Sq3EKFQ+fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg==" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/order.css">
-  <script type="module" src="/js/order.js"></script>
-  <link href="/css/algo-util.css" rel="stylesheet">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o&#43;b1l8&#43;N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r&#43;EFLLCyA==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX&#43;yKMUFHzjaH2&#43;AnM6vp2Xs&#43;gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [{left: '$', right: '$', display: false}],
+        throwOnError : false
+      });
+    });
+  </script>
+  
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.25.1/function-plot.min.js" integrity="sha512-fsvE52IC5bx7NhuaGLoNE&#43;Sq3EKFQ&#43;fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg==" crossorigin="anonymous"></script>
+  
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/order.css">
+    
+  
+  
+  
+    
+      <script type="module" src="/js/Order.js"></script>
+    
+  
+  <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
-<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
-  <header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-    <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">Algo Zoo</a> <button class="mobile-menu-button md:hidden"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <line x1="4" y1="8" x2="20" y2="8"></line>
-    <line x1="4" y1="16" x2="20" y2="16"></line></svg></button>
-    <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+    
+    Algo Zoo
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/ja/tags">タグ</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <circle cx="12" cy="12" r="9" />
+        <line x1="3.6" y1="9" x2="20.4" y2="9" />
+        <line x1="3.6" y1="15" x2="20.4" y2="15" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+      <a href="/en/" lang="en">🇺🇸 English</a>
+      
+      
+      
+      
+    </li>
+    
+    
+
+    
+
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">オーダー評価</h1>
+    
+
+    
+
+    <h2 id="概要">概要</h2>
+<h3 id="オーダー記法の定義">オーダー記法の定義</h3>
+<ul>
+<li>時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$</li>
+</ul>
+<h2 id="ビジュアライザ">ビジュアライザ</h2>
+<div class="container">
+  <label>各種定義</label>
+  <div class="alg-box light-red">
+    <label for="function">時間計算量関数: $T(x)$</label>
+    <input class="alg-input" id="function" type="text" value="3*x + 123" onchange="reload();">
+    <input type="radio" name="function_viz" value="1" checked>グラフ表示</input>
+    <input type="radio" name="function_viz" value="0">グラフ非表示</input>
+  </div>
+  <div class="alg-box light-gray">
+    <label for="order">オーダー表現用の関数: $f(x)$</label>
+    <input class="alg-input" id="order" type="text" value="x" onchange="reload();">
+    <input type="radio" name="order_viz" value="1">グラフ表示</input>
+    <input type="radio" name="order_viz" value="0" checked>グラフ非表示</input>
+  </div>
+  <div class="alg-box light-blue">
+    <label for="const_c">関数 $c \cdot f(x)$ の定数: $c$</label>
+    <input class="alg-input" id="const_c" type="text" value="2" onchange="reload();">
+    <input type="radio" name="c_viz" value="1">グラフ表示</input>
+    <input type="radio" name="c_viz" value="0" checked>グラフ非表示</input>
+  </div>
+  <div class="alg-box zebra">
+    <label for="const_n">定数: $N_0$</label>
+    <input class="alg-input" id="const_n" type="text" value="0" onchange="reload();">
+    <input type="radio" name="n_viz" value="1">グラフ表示</input>
+    <input type="radio" name="n_viz" value="0" checked>グラフ非表示</input>
+  </div>
+<p><label>関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック</label></p>
+  <div class="alg-box">
+    <ul>
       <li>
-        <a href="/ja/tags">タグ</a>
+        定数$\,c\,$の値を <span class="blue-text bold" id="c_view"">????</span> とし，
+        定数$\,N_0\,$の値を <span class="blue-text bold" id="n0_view">????</span> とする．
       </li>
-      <li class="flex items-center">
-        <svg class="mr-2" width="16" height="16" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="12" cy="12" r="9"></circle>
-        <line x1="3.6" y1="9" x2="20.4" y2="9"></line>
-        <line x1="3.6" y1="15" x2="20.4" y2="15"></line>
-        <path d="M11.5 3a17 17 0 000 18"></path>
-        <path d="M12.5 3a17 17 0 010 18"></path></svg> <a href="/en/" lang="en">🇺🇸 English</a>
+      <li>
+        このとき，$N_0\,$以上の任意の$\,N\,$について$\,|T(N)| \leq c \cdot |f(N)|\,$が……
+        「<span class="bold" id="result1">????</span>」
+        <ul>
+          <li>（☝  本当はここの不等式が成り立つかをちゃんと証明しないとダメ）</li>
+        </ul>
+      </li>
+      <li>
+        よって，$T(N) = O(f(N))$が……
+        「<span class="bold" id="result2">????</span>」
       </li>
     </ul>
-  </header>
-  <main class="flex-1">
-    <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
-      <h1 class="text-2xl font-bold mb-2">オーダー評価</h1>
-      <h2 id="概要">概要</h2>
-      <h3 id="オーダー記法の定義">オーダー記法の定義</h3>
-      <ul>
-        <li>時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$</li>
-      </ul>
-      <h2 id="ビジュアライザ">ビジュアライザ</h2>
-      <div class="container">
-        <label>各種定義</label>
-        <div class="alg-box light-red">
-          <label for="function">時間計算量関数: $T(x)$</label> <input class="alg-input" id="function" type="text" value="3*x + 123" onchange="reload()"> <input type="radio" name="function_viz" value="1" checked>グラフ表示 <input type="radio" name="function_viz" value="0">グラフ非表示
-        </div>
-        <div class="alg-box light-gray">
-          <label for="order">オーダー表現用の関数: $f(x)$</label> <input class="alg-input" id="order" type="text" value="x" onchange="reload()"> <input type="radio" name="order_viz" value="1">グラフ表示 <input type="radio" name="order_viz" value="0" checked>グラフ非表示
-        </div>
-        <div class="alg-box light-blue">
-          <label for="const_c">関数 $c \cdot f(x)$ の定数: $c$</label> <input class="alg-input" id="const_c" type="text" value="2" onchange="reload()"> <input type="radio" name="c_viz" value="1">グラフ表示 <input type="radio" name="c_viz" value="0" checked>グラフ非表示
-        </div>
-        <div class="alg-box zebra">
-          <label for="const_n">定数: $N_0$</label> <input class="alg-input" id="const_n" type="text" value="0" onchange="reload()"> <input type="radio" name="n_viz" value="1">グラフ表示 <input type="radio" name="n_viz" value="0" checked>グラフ非表示
-        </div>
-        <p><label>関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック</label></p>
-        <div class="alg-box">
-          <ul>
-            <li>定数$\,c\,$の値を <span class="blue-text bold" id="c_view">????</span> とし， 定数$\,N_0\,$の値を <span class="blue-text bold" id="n0_view">????</span> とする．</li>
-            <li>このとき，$N_0\,$以上の任意の$\,N\,$について$\,|T(N)| \leq c \cdot |f(N)|\,$が…… 「<span class="bold" id="result1">????</span>」
-              <ul>
-                <li>（☝ 本当はここの不等式が成り立つかをちゃんと証明しないとダメ）</li>
-              </ul>
-            </li>
-            <li>よって，$T(N) = O(f(N))$が…… 「<span class="bold" id="result2">????</span>」</li>
-          </ul>
-        </div>
-        <div id="plot">
-          <label for="graph">グラフ</label>
-          <div id="graph"></div>
-        </div>
-      </div>
-    </article>
-  </main>
-  <footer class="container p-6 mx-auto flex justify-between items-center">
-    <span class="text-sm font-light"><a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a></span> <span onclick='window.scrollTo({top:0,behavior:"smooth"})' class="p-1 cursor-pointer"><svg width="30" height="30" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M18 15l-6-6-6 6h12"></path></svg></span>
-  </footer>
-  <script>
-  const mobileMenuButton=document.querySelector(".mobile-menu-button"),mobileMenu=document.querySelector(".mobile-menu");function toggleMenu(){mobileMenu.classList.toggle("hidden"),mobileMenu.classList.toggle("flex")}mobileMenu&&mobileMenuButton&&mobileMenuButton.addEventListener("click",toggleMenu)
-  </script>
+  </div>
+  <div id="plot">
+    <label for="graph">グラフ</label>
+    <div id="graph"></div>
+  </div>
+</div>
+
+  </article>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    <a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
 </body>
 </html>

@@ -6,7 +6,7 @@ tags = ['binary search']
 [params]
     cdn = ['jquery', 'katex']
     css = ['/css/number-guess.css']
-    js = ['/js/number-guess.js']
+    js = ['/js/NumberGuess.js']
 +++
 
 ## 問題の状況設定

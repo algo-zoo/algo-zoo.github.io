@@ -25,7 +25,7 @@ defaultContentLanguage = 'en'
 [params]
   favicon = '/favicon.png'
   hideMeta = true
-  copyright = '<a href="https://lambda.ski">© 2025 - Yosuke Fukuda</a>'
+  copyright = '<a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>'
   [params.flowbite]
     cdn = 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js'
     sri = 'sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj+dwA=='
@@ -47,6 +47,9 @@ defaultContentLanguage = 'en'
   [params.fplot]
     cdn = 'https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.25.1/function-plot.min.js'
     sri = 'sha512-fsvE52IC5bx7NhuaGLoNE+Sq3EKFQ+fcvaJPE5hGemvMwQudqQuNXC4eG/8CjU2a90P88NzYPRl77iOcXerCHg=='
+  [params.glfx]
+    cdn = 'https://cdn.jsdelivr.net/npm/glfx@0.0.4/glfx.js'
+    sri = 'sha256-oknN1RAu6cHzlL0sT78GVhv4YwH5k4UBjaXwRoIYnlQ='
 
 [markup.goldmark.renderer]
   unsafe = true

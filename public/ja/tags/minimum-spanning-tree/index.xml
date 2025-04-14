@@ -1,187 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Minimum Spanning Tree on Algo Zoo</title><link>https://algo-zoo.com/ja/tags/minimum-spanning-tree/</link><description>Recent content in Minimum Spanning Tree on Algo Zoo</description><generator>Hugo</generator><language>ja</language><atom:link href="https://algo-zoo.com/ja/tags/minimum-spanning-tree/index.xml" rel="self" type="application/rss+xml"/><item><title>クラスカル法</title><link>https://algo-zoo.com/ja/kruskal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/kruskal/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
-&lt;ul>
-&lt;li>入力: 連結な重み付き無向グラフ $G = (V, E, w)$&lt;/li>
-&lt;li>出力: $G$ の最小全域木&lt;/li>
-&lt;/ul>
-&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
-&lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>
-&lt;p>$\gdef\Vp{V^\prime}$
-$\gdef\Ep{E^\prime}$&lt;/p>
-&lt;ul>
-&lt;li>$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」&lt;/li>
-&lt;li>$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」&lt;/li>
-&lt;/ul>
-&lt;h3 id="手続き">手続き&lt;/h3>
-&lt;ol>
-&lt;li>$\Vp, \Ep$の初期値はそれぞれ空集合とする．入力のグラフの辺集合 $E$ について，各辺を重みが小さい順にソートする．ソート結果の辺を順に $e_0, e_1, \ldots, e_{|E|-1}$とする．ただし，$|E|$は$E$の要素数を表す．&lt;/li>
-&lt;li>各 $i = 0, 1, \ldots, (|E|-1)$に対して，以下を実行:
-&lt;ul>
-&lt;li>辺 $e_i = (u_i, v_i)$ について，$\Ep$ に $e_i$ を追加することを考えたとき……
-&lt;ul>
-&lt;li>サイクルが形成されるならば，辺 $e_i$ を $\Ep$ に追加せず破棄;&lt;/li>
-&lt;li>サイクルが形成されないなら，$\Vp \gets \Vp \cup \lbrace u_i, v_i \rbrace$ と $\Ep \gets \Ep \cup \lbrace e_i \rbrace$により各集合を更新．&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>この時点で $\Vp = V$ であり，$(V, \Ep)$ が最小全域木となるので終了．&lt;/li>
-&lt;/ol>
-&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
-&lt;div class="container">
- &lt;div>
- &lt;label for="setting">グラフの設定（
- &lt;span class="relative">
- &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
- 補足説明 ⓘ
- &lt;/button>
- &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
- &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
- 補足説明 ⓘ
- &lt;/div>
- &lt;div class="px-3 py-2">
- 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
- &lt;/div>
- &lt;div class="px-3 py-2">
- 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
- &lt;/div>
- &lt;/div>
- &lt;/span>
- ）
- &lt;/label>
- &lt;select class="alg-select mb-1" name="setting" id="graph-select">
- &lt;option value="0">カスタム&lt;/option>
- &lt;option value="1">サンプル1&lt;/option>
- &lt;option value="2">サンプル2&lt;/option>
- &lt;/select>
- &lt;label>頂点の追加&lt;/label>
- &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
- &lt;button class="alg-btn" id="add">追加&lt;/button>
- &lt;/div>
- &lt;label>隣接行列&lt;/label>
- &lt;table class="w-full border" id="matrix_tbl">
- &lt;/table>
- &lt;div>
- &lt;label>グラフ（ 
- &lt;span class="relative">
- &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
- 補足説明 ⓘ
- &lt;/button>
- &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
- &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
- 補足説明 ⓘ
- &lt;/div>
- &lt;div class="px-3 py-2">
- 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
- &lt;/div>
- &lt;/div>
- &lt;/span>
- ）&lt;/label>
- &lt;div id="canvas-hole">&lt;/div>
- &lt;/div>
-&lt;/div>
-
-&lt;div class="container">
- &lt;button class="alg-btn" id="search">ワンステップ探索&lt;/button>
- &lt;button class="alg-btn" id="goal">最終状態まで探索&lt;/button>
- &lt;button class="alg-btn" id="reset">リセット&lt;/button>
- &lt;table border="1" id="data_tbl">
- &lt;thead>
- &lt;tr>
- &lt;th>辺&lt;/th>
- &lt;th>重み&lt;/th>
- &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;/table>
-&lt;/div></description></item><item><title>プリム法</title><link>https://algo-zoo.com/ja/prim/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/prim/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
-&lt;ul>
-&lt;li>入力: 連結な重み付き無向グラフ $G = (V, E, w)$&lt;/li>
-&lt;li>出力: $G$ の最小全域木&lt;/li>
-&lt;/ul>
-&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
-&lt;h3 id="使用するデータ構造">使用するデータ構造&lt;/h3>
-&lt;p>$\gdef\Vp{V^\prime}$
-$\gdef\Ep{E^\prime}$&lt;/p>
-&lt;ul>
-&lt;li>$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」&lt;/li>
-&lt;li>$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」&lt;/li>
-&lt;/ul>
-&lt;h3 id="手続き">手続き&lt;/h3>
-&lt;ol>
-&lt;li>$\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化．&lt;/li>
-&lt;li>$\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行:
-&lt;ul>
-&lt;li>$\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする．&lt;/li>
-&lt;li>$\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行．&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
-&lt;div class="container">
- &lt;div>
- &lt;label for="setting">グラフの設定（
- &lt;span class="relative">
- &lt;button data-popover-target="popover-info" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
- 補足説明 ⓘ
- &lt;/button>
- &lt;div id="popover-info" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
- &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
- 補足説明 ⓘ
- &lt;/div>
- &lt;div class="px-3 py-2">
- 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。
- &lt;/div>
- &lt;div class="px-3 py-2">
- 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。
- &lt;/div>
- &lt;/div>
- &lt;/span>
- ）
- &lt;/label>
- &lt;select class="alg-select mb-1" name="setting" id="graph-select">
- &lt;option value="0">カスタム&lt;/option>
- &lt;option value="1">サンプル1&lt;/option>
- &lt;option value="2">サンプル2&lt;/option>
- &lt;/select>
- &lt;label>頂点の追加&lt;/label>
- &lt;input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名">&lt;/input>
- &lt;button class="alg-btn" id="add">追加&lt;/button>
- &lt;/div>
- &lt;label>隣接行列&lt;/label>
- &lt;table class="w-full border" id="matrix_tbl">
- &lt;/table>
- &lt;div>
- &lt;label>グラフ（ 
- &lt;span class="relative">
- &lt;button data-popover-target="popover-info2" type="button" class="text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
- 補足説明 ⓘ
- &lt;/button>
- &lt;div id="popover-info2" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
- &lt;div class="px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold">
- 補足説明 ⓘ
- &lt;/div>
- &lt;div class="px-3 py-2">
- 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。
- &lt;/div>
- &lt;/div>
- &lt;/span>
- ）&lt;/label>
- &lt;div id="canvas-hole">&lt;/div>
- &lt;/div>
-&lt;/div>
-
-&lt;div class="container">
- &lt;label>探索開始頂点&lt;/label>&lt;select id="start">&lt;/select>
- &lt;button class="alg-btn" id="search">ワンステップ探索&lt;/button>
- &lt;button class="alg-btn" id="goal">最終状態まで探索&lt;/button>
- &lt;button class="alg-btn" id="reset">リセット&lt;/button>
- &lt;table border="1" id="data_tbl">
- &lt;thead>
- &lt;tr>
- &lt;th>辺&lt;/th>
- &lt;th>重み&lt;/th>
- &lt;th>（暫定）最小全域木の辺として採用&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;/table>
-&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Minimum Spanning Tree on Algo Zoo</title>
+    <link>https://algo-zoo.com/ja/tags/minimum-spanning-tree/</link>
+    <description>Recent content in Minimum Spanning Tree on Algo Zoo</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <atom:link href="https://algo-zoo.com/ja/tags/minimum-spanning-tree/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>クラスカル法</title>
+      <link>https://algo-zoo.com/ja/kruskal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/kruskal/</guid>
+      <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;入力: 連結な重み付き無向グラフ $G = (V, E, w)$&lt;/li&gt;&#xA;&lt;li&gt;出力: $G$ の最小全域木&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;アルゴリズム&#34;&gt;アルゴリズム&lt;/h2&gt;&#xA;&lt;h3 id=&#34;使用するデータ構造&#34;&gt;使用するデータ構造&lt;/h3&gt;&#xA;&lt;p&gt;$\gdef\Vp{V^\prime}$&#xA;$\gdef\Ep{E^\prime}$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」&lt;/li&gt;&#xA;&lt;li&gt;$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;手続き&#34;&gt;手続き&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;$\Vp, \Ep$の初期値はそれぞれ空集合とする．入力のグラフの辺集合 $E$ について，各辺を重みが小さい順にソートする．ソート結果の辺を順に $e_0, e_1, \ldots, e_{|E|-1}$とする．ただし，$|E|$は$E$の要素数を表す．&lt;/li&gt;&#xA;&lt;li&gt;各 $i = 0, 1, \ldots, (|E|-1)$に対して，以下を実行:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;辺 $e_i = (u_i, v_i)$ について，$\Ep$ に $e_i$ を追加することを考えたとき……&#xA;&lt;ul&gt;&#xA;&lt;li&gt;サイクルが形成されるならば，辺 $e_i$ を $\Ep$ に追加せず破棄;&lt;/li&gt;&#xA;&lt;li&gt;サイクルが形成されないなら，$\Vp \gets \Vp \cup \lbrace u_i, v_i \rbrace$ と $\Ep \gets \Ep \cup \lbrace e_i \rbrace$により各集合を更新．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;この時点で $\Vp = V$ であり，$(V, \Ep)$ が最小全域木となるので終了．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label for=&#34;setting&#34;&gt;グラフの設定（&#xA;      &lt;span class=&#34;relative&#34;&gt;&#xA;        &lt;button data-popover-target=&#34;popover-info&#34; type=&#34;button&#34; class=&#34;text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300&#34;&gt;&#xA;          補足説明 ⓘ&#xA;        &lt;/button&gt;&#xA;        &lt;div id=&#34;popover-info&#34; role=&#34;tooltip&#34; class=&#34;absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800&#34;&gt;&#xA;          &lt;div class=&#34;px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold&#34;&gt;&#xA;            補足説明 ⓘ&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;px-3 py-2&#34;&gt;&#xA;            「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;px-3 py-2&#34;&gt;&#xA;            頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。&#xA;          &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;      &lt;/span&gt;&#xA;      ）&#xA;    &lt;/label&gt;&#xA;    &lt;select class=&#34;alg-select mb-1&#34; name=&#34;setting&#34; id=&#34;graph-select&#34;&gt;&#xA;      &lt;option value=&#34;0&#34;&gt;カスタム&lt;/option&gt;&#xA;      &lt;option value=&#34;1&#34;&gt;サンプル1&lt;/option&gt;&#xA;      &lt;option value=&#34;2&#34;&gt;サンプル2&lt;/option&gt;&#xA;      &lt;option value=&#34;3&#34;&gt;サンプル3&lt;/option&gt;&#xA;    &lt;/select&gt;&#xA;    &lt;label&gt;頂点の追加&lt;/label&gt;&#xA;    &lt;input class=&#34;alg-input mb-1&#34; id=&#34;node_label&#34; type=&#34;text&#34; placeholder=&#34;頂点名&#34;&gt;&lt;/input&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;add&#34;&gt;追加&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;label&gt;隣接行列&lt;/label&gt;&#xA;  &lt;table class=&#34;w-full border&#34; id=&#34;matrix_tbl&#34;&gt;&#xA;  &lt;/table&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label&gt;グラフ（ &#xA;      &lt;span class=&#34;relative&#34;&gt;&#xA;        &lt;button data-popover-target=&#34;popover-info2&#34; type=&#34;button&#34; class=&#34;text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300&#34;&gt;&#xA;          補足説明 ⓘ&#xA;        &lt;/button&gt;&#xA;        &lt;div id=&#34;popover-info2&#34; role=&#34;tooltip&#34; class=&#34;absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800&#34;&gt;&#xA;          &lt;div class=&#34;px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold&#34;&gt;&#xA;            補足説明 ⓘ&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;px-3 py-2&#34;&gt;&#xA;            頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。&#xA;          &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;      &lt;/span&gt;&#xA;      ）&lt;/label&gt;&#xA;    &lt;div id=&#34;canvas-hole&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div class=&#34;mt-2&#34;&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;search&#34;&gt;ワンステップ探索&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;goal&#34;&gt;最終状態まで探索&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;reset&#34;&gt;リセット&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;table border=&#34;1&#34; id=&#34;data_tbl&#34;&gt;&#xA;    &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;        &lt;th&gt;辺&lt;/th&gt;&#xA;        &lt;th&gt;重み&lt;/th&gt;&#xA;        &lt;th&gt;（暫定）最小全域木の辺として採用&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;    &lt;/thead&gt;&#xA;  &lt;/table&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>プリム法</title>
+      <link>https://algo-zoo.com/ja/prim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/prim/</guid>
+      <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;入力: 連結な重み付き無向グラフ $G = (V, E, w)$&lt;/li&gt;&#xA;&lt;li&gt;出力: $G$ の最小全域木&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;アルゴリズム&#34;&gt;アルゴリズム&lt;/h2&gt;&#xA;&lt;h3 id=&#34;使用するデータ構造&#34;&gt;使用するデータ構造&lt;/h3&gt;&#xA;&lt;p&gt;$\gdef\Vp{V^\prime}$&#xA;$\gdef\Ep{E^\prime}$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」&lt;/li&gt;&#xA;&lt;li&gt;$\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;手続き&#34;&gt;手続き&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;$\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化．&lt;/li&gt;&#xA;&lt;li&gt;$\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする．&lt;/li&gt;&#xA;&lt;li&gt;$\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label for=&#34;setting&#34;&gt;グラフの設定（&#xA;      &lt;span class=&#34;relative&#34;&gt;&#xA;        &lt;button data-popover-target=&#34;popover-info&#34; type=&#34;button&#34; class=&#34;text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300&#34;&gt;&#xA;          補足説明 ⓘ&#xA;        &lt;/button&gt;&#xA;        &lt;div id=&#34;popover-info&#34; role=&#34;tooltip&#34; class=&#34;absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800&#34;&gt;&#xA;          &lt;div class=&#34;px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold&#34;&gt;&#xA;            補足説明 ⓘ&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;px-3 py-2&#34;&gt;&#xA;            「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;px-3 py-2&#34;&gt;&#xA;            頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。&#xA;          &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;      &lt;/span&gt;&#xA;      ）&#xA;    &lt;/label&gt;&#xA;    &lt;select class=&#34;alg-select mb-1&#34; name=&#34;setting&#34; id=&#34;graph-select&#34;&gt;&#xA;      &lt;option value=&#34;0&#34;&gt;カスタム&lt;/option&gt;&#xA;      &lt;option value=&#34;1&#34;&gt;サンプル1&lt;/option&gt;&#xA;      &lt;option value=&#34;2&#34;&gt;サンプル2&lt;/option&gt;&#xA;      &lt;option value=&#34;3&#34;&gt;サンプル3&lt;/option&gt;&#xA;    &lt;/select&gt;&#xA;    &lt;label&gt;頂点の追加&lt;/label&gt;&#xA;    &lt;input class=&#34;alg-input mb-1&#34; id=&#34;node_label&#34; type=&#34;text&#34; placeholder=&#34;頂点名&#34;&gt;&lt;/input&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;add&#34;&gt;追加&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;label&gt;隣接行列&lt;/label&gt;&#xA;  &lt;table class=&#34;w-full border&#34; id=&#34;matrix_tbl&#34;&gt;&#xA;  &lt;/table&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label&gt;グラフ（ &#xA;      &lt;span class=&#34;relative&#34;&gt;&#xA;        &lt;button data-popover-target=&#34;popover-info2&#34; type=&#34;button&#34; class=&#34;text-blue-500 underline hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300&#34;&gt;&#xA;          補足説明 ⓘ&#xA;        &lt;/button&gt;&#xA;        &lt;div id=&#34;popover-info2&#34; role=&#34;tooltip&#34; class=&#34;absolute z-10 invisible inline-block w-64 text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-xs opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800&#34;&gt;&#xA;          &lt;div class=&#34;px-3 py-1 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700 font-semibold&#34;&gt;&#xA;            補足説明 ⓘ&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;px-3 py-2&#34;&gt;&#xA;            頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。&#xA;          &lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;      &lt;/span&gt;&#xA;      ）&lt;/label&gt;&#xA;    &lt;div id=&#34;canvas-hole&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div class=&#34;mt-2&#34;&gt;&#xA;    &lt;label&gt;探索開始頂点&lt;/label&gt;&lt;select id=&#34;start&#34;&gt;&lt;/select&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;search&#34;&gt;ワンステップ探索&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;goal&#34;&gt;最終状態まで探索&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;reset&#34;&gt;リセット&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;table border=&#34;1&#34; id=&#34;data_tbl&#34;&gt;&#xA;    &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;        &lt;th&gt;辺&lt;/th&gt;&#xA;        &lt;th&gt;重み&lt;/th&gt;&#xA;        &lt;th&gt;（暫定）最小全域木の辺として採用&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;    &lt;/thead&gt;&#xA;  &lt;/table&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

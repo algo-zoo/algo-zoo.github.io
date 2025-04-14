@@ -6,7 +6,7 @@ tags = ['limit']
 [params]
     cdn = ['jquery', 'p5js', 'katex', 'fplot']
     css = ['/css/order.css']
-    js = ['/js/order.js']
+    js = ['/js/Order.js']
 +++
 
 ## 概要

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.png">
+
+  <title>
+  画像の台形補正ツール - Algo Zoo
+  </title>
+  <meta name="generator" content="Hugo 0.145.0"><link
+    rel="stylesheet"
+    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
+    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
+  />
+  <meta property="og:url" content="https://algo-zoo.com/ja/tidy/">
+  <meta property="og:site_name" content="Algo Zoo">
+  <meta property="og:title" content="画像の台形補正ツール">
+  <meta property="og:description" content="概要 本アプリはアップロードされた画像を台形補正するツールです。 使用方法: アップロードボタンより、画像（JPG画像もしくはPNG画像）をアップロードする。 アップロードされた画像と、台形補正用の４つのマーカーが表示されるので、４つのマーカーをマウスクリック・移動により適切な位置に移動させる。 適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンを画像を保存する。 台形補正 元画像 JPG画像またはPNG画像をアップロード
+↶ 左回転 右回転 ↷ 変換後の画像 保存時のファイル名 .jpg 保存">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:tag" content="Tool">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="画像の台形補正ツール">
+  <meta name="twitter:description" content="概要 本アプリはアップロードされた画像を台形補正するツールです。 使用方法: アップロードボタンより、画像（JPG画像もしくはPNG画像）をアップロードする。 アップロードされた画像と、台形補正用の４つのマーカーが表示されるので、４つのマーカーをマウスクリック・移動により適切な位置に移動させる。 適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンを画像を保存する。 台形補正 元画像 JPG画像またはPNG画像をアップロード
+↶ 左回転 右回転 ↷ 変換後の画像 保存時のファイル名 .jpg 保存">
+
+  
+  <meta itemprop="name" content="画像の台形補正ツール">
+  <meta itemprop="description" content="概要 本アプリはアップロードされた画像を台形補正するツールです。 使用方法: アップロードボタンより、画像（JPG画像もしくはPNG画像）をアップロードする。 アップロードされた画像と、台形補正用の４つのマーカーが表示されるので、４つのマーカーをマウスクリック・移動により適切な位置に移動させる。 適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンを画像を保存する。 台形補正 元画像 JPG画像またはPNG画像をアップロード
+↶ 左回転 右回転 ↷ 変換後の画像 保存時のファイル名 .jpg 保存">
+  <meta itemprop="wordCount" content="17">
+  <meta itemprop="keywords" content="Tool">
+
+  
+  <meta name="lang" content="ja" />
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj&#43;dwA==" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" integrity="sha512-Lnb4rmvlf0eGfqcEGPKkjoZPXBQFsZu3yl47cwfJxCQp7MlfqIKrS&#43;2eYEimTX8PWh4h5P8JAQbzX78q4gIRDQ==" crossorigin="anonymous" rel="stylesheet" />
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR&#43;8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+  
+  
+  
+  
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/glfx@0.0.4/glfx.js" integrity="sha256-oknN1RAu6cHzlL0sT78GVhv4YwH5k4UBjaXwRoIYnlQ=" crossorigin="anonymous"></script>
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/tidy.css">
+    
+  
+  
+  
+    
+      <script type="module" src="/js/Tidy.js"></script>
+    
+  
+  <link href="/css/algo-util.css" rel="stylesheet" />
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+    
+    Algo Zoo
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/ja/tags">タグ</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <circle cx="12" cy="12" r="9" />
+        <line x1="3.6" y1="9" x2="20.4" y2="9" />
+        <line x1="3.6" y1="15" x2="20.4" y2="15" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+      <a href="/en/" lang="en">🇺🇸 English</a>
+      
+      
+      
+      
+    </li>
+    
+    
+
+    
+
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">画像の台形補正ツール</h1>
+    
+
+    
+
+    <h2 id="概要">概要</h2>
+<ul>
+<li>本アプリはアップロードされた画像を台形補正するツールです。</li>
+<li>使用方法:
+<ol>
+<li>アップロードボタンより、画像（JPG画像もしくはPNG画像）をアップロードする。</li>
+<li>アップロードされた画像と、台形補正用の４つのマーカーが表示されるので、４つのマーカーをマウスクリック・移動により適切な位置に移動させる。</li>
+<li>適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンを画像を保存する。</li>
+</ol>
+</li>
+</ul>
+<h2 id="台形補正">台形補正</h2>
+<h3 id="元画像">元画像</h3>
+<div class="container">
+  <input class="alg-upload-input" aria-describedby="load_help" id="load" type="file" accept=".jpg, .jpeg, .png">
+  <p class="alg-help-text" id="load_help">JPG画像またはPNG画像をアップロード</p>
+<p><canvas id="inputCanvas"></canvas></p>
+  <div id="rotate-button-container">
+    <button class="alg-btn" id="ccw">↶ 左回転</button>
+    <button class="alg-btn" id="cw">右回転 ↷</button>
+  </div>
+</div>
+<h3 id="変換後の画像">変換後の画像</h3>
+<div class="container">
+  <canvas id="outputCanvas"></canvas>
+  <label for="file_name">保存時のファイル名</label>
+  <div class="display: flex">
+    <input class="alg-input" id="file_name" type="text" placeholder="保存時のファイル名"></input>
+    <label class="ml-2 mt-1">.jpg</label>
+  </div>
+  <button class="alg-btn mt-2" id="save">保存</button>
+</div>
+
+  </article>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    <a href="https://github.com/algo-zoo/algo-zoo.github.io">© 2025 - Yosuke Fukuda</a>
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>

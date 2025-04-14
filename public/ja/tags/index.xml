@@ -1,1 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on Algo Zoo</title><link>https://algo-zoo.com/ja/tags/</link><description>Recent content in Tags on Algo Zoo</description><generator>Hugo</generator><language>ja</language><atom:link href="https://algo-zoo.com/ja/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Binary Search</title><link>https://algo-zoo.com/ja/tags/binary-search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/binary-search/</guid><description/></item><item><title>Concave Hull</title><link>https://algo-zoo.com/ja/tags/concave-hull/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/concave-hull/</guid><description/></item><item><title>Convex Hull</title><link>https://algo-zoo.com/ja/tags/convex-hull/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/convex-hull/</guid><description/></item><item><title>Graph</title><link>https://algo-zoo.com/ja/tags/graph/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/graph/</guid><description/></item><item><title>Group</title><link>https://algo-zoo.com/ja/tags/group/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/group/</guid><description/></item><item><title>Heap</title><link>https://algo-zoo.com/ja/tags/heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/heap/</guid><description/></item><item><title>Limit</title><link>https://algo-zoo.com/ja/tags/limit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/limit/</guid><description/></item><item><title>Minimum Spanning Tree</title><link>https://algo-zoo.com/ja/tags/minimum-spanning-tree/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/minimum-spanning-tree/</guid><description/></item><item><title>Shortest Path</title><link>https://algo-zoo.com/ja/tags/shortest-path/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/shortest-path/</guid><description/></item><item><title>Sort</title><link>https://algo-zoo.com/ja/tags/sort/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/tags/sort/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Algo Zoo</title>
+    <link>https://algo-zoo.com/ja/tags/</link>
+    <description>Recent content in Tags on Algo Zoo</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <atom:link href="https://algo-zoo.com/ja/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Binary Search</title>
+      <link>https://algo-zoo.com/ja/tags/binary-search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/binary-search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Concave Hull</title>
+      <link>https://algo-zoo.com/ja/tags/concave-hull/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/concave-hull/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Convex Hull</title>
+      <link>https://algo-zoo.com/ja/tags/convex-hull/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/convex-hull/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Graph</title>
+      <link>https://algo-zoo.com/ja/tags/graph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/graph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Group</title>
+      <link>https://algo-zoo.com/ja/tags/group/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/group/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Heap</title>
+      <link>https://algo-zoo.com/ja/tags/heap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/heap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Limit</title>
+      <link>https://algo-zoo.com/ja/tags/limit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/limit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Minimum Spanning Tree</title>
+      <link>https://algo-zoo.com/ja/tags/minimum-spanning-tree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/minimum-spanning-tree/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Queue</title>
+      <link>https://algo-zoo.com/ja/tags/queue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/queue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shortest Path</title>
+      <link>https://algo-zoo.com/ja/tags/shortest-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/shortest-path/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sort</title>
+      <link>https://algo-zoo.com/ja/tags/sort/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/sort/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stack</title>
+      <link>https://algo-zoo.com/ja/tags/stack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/stack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tool</title>
+      <link>https://algo-zoo.com/ja/tags/tool/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/tags/tool/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+canvas {
+  border: 2px solid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#rotate-button-container {
+  text-align: center;
+}
+

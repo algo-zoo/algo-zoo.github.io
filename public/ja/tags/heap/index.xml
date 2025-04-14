@@ -1,76 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Heap on Algo Zoo</title><link>https://algo-zoo.com/ja/tags/heap/</link><description>Recent content in Heap on Algo Zoo</description><generator>Hugo</generator><language>ja</language><atom:link href="https://algo-zoo.com/ja/tags/heap/index.xml" rel="self" type="application/rss+xml"/><item><title>Maxヒープ</title><link>https://algo-zoo.com/ja/max-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/max-heap/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>TODO: write&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;h2 id="maxヒープの配列表現">Maxヒープの配列表現&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>TODO: write&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
-&lt;h3 id="挿入処理-insert">挿入処理: insert&lt;/h3>
-&lt;ul>
-&lt;li>値 $x$ の挿入は以下の通り実行:
-&lt;ol>
-&lt;li>ヒープの最後尾に $x$ を値として持つ頂点を追加&lt;/li>
-&lt;li>追加した頂点と，その親の頂点との間でヒープ条件が満たされない場合……
-&lt;ul>
-&lt;li>追加した頂点と，その親頂点とを交換&lt;/li>
-&lt;li>ヒープ条件が満たされるまで同様の処理を根の方に向かって行う&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="最大値削除処理-delete">最大値削除処理: delete&lt;/h3>
-&lt;ul>
-&lt;li>最大値を持つ頂点（＝根の頂点）の削除は以下の通り実行:
-&lt;ol>
-&lt;li>根の頂点を削除し，最後尾の頂点を根に一時的に移す&lt;/li>
-&lt;li>移された頂点と，その子の頂点との間でヒープ条件が満たされない場合……
-&lt;ul>
-&lt;li>移された頂点とこの頂点を交換する（注: このとき，子頂点が２つあるならば値が大きい方と交換する）&lt;/li>
-&lt;li>ヒープ条件が満たされるまで同様の処理を葉の方に向かって行う&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
-&lt;div class="container">
- &lt;div>
- &lt;label for="program">コマンド列&lt;/label>&lt;br>
- &lt;textarea class="w-full" id="program">&lt;/textarea>&lt;br>
- &lt;button class="alg-btn" id="run">実行&lt;/button>
- &lt;/div>
- &lt;div>
- &lt;label>Maxヒープの処理&lt;/label>
- &lt;div class="mb-1" id="canvas-hole">&lt;/div>
- &lt;div class="text-center">
- &lt;button class="alg-btn" id="prev">前へ&lt;/button>
- &lt;button class="alg-btn" id="next">次へ&lt;/button>
- &lt;/div>
- &lt;/div>
-&lt;/div></description></item><item><title>Minヒープ</title><link>https://algo-zoo.com/ja/min-heap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/min-heap/</guid><description>&lt;h2 id="問題">問題&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>TODO: write. dual to Max heap&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;h2 id="アルゴリズム">アルゴリズム&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>TODO: write. dual to max heap&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
-&lt;div class="container">
- &lt;div>
- &lt;label for="program">コマンド列&lt;/label>&lt;br>
- &lt;textarea class="w-full" id="program">&lt;/textarea>&lt;br>
- &lt;button class="alg-btn" id="run">実行&lt;/button>
- &lt;/div>
- &lt;div>
- &lt;label>Minヒープの処理&lt;/label>
- &lt;div class="mb-1" id="canvas-hole">&lt;/div>
- &lt;div class="text-center">
- &lt;button class="alg-btn" id="prev">前へ&lt;/button>
- &lt;button class="alg-btn" id="next">次へ&lt;/button>
- &lt;/div>
- &lt;/div>
-&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Heap on Algo Zoo</title>
+    <link>https://algo-zoo.com/ja/tags/heap/</link>
+    <description>Recent content in Heap on Algo Zoo</description>
+    <generator>Hugo</generator>
+    <language>ja</language>
+    <atom:link href="https://algo-zoo.com/ja/tags/heap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maxヒープ</title>
+      <link>https://algo-zoo.com/ja/max-heap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/max-heap/</guid>
+      <description>&lt;h2 id=&#34;データ構造&#34;&gt;データ構造&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;概要:&lt;/strong&gt; 値を管理するための木構造で，データの挿入操作と最大値削除操作が共に高速に（＝ 木の高さを $h$ としたとき，$O(\log{h})$で）行えるデータ構造．&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ヒープ条件:&lt;/strong&gt; Maxヒープ $T$ は，以下の条件を満たす:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$T$ は &lt;strong&gt;ほとんど完全な二分木(almost complete binary tree)&lt;/strong&gt; である．すなわち，$T$ の高さを $h$ としたとき，$T$の葉は左詰めで木を構築しており，$T$ の任意の葉は深さが $h$ か $h-1$ である．&lt;/li&gt;&#xA;&lt;li&gt;$T$の任意の頂点 $u$ について，もしその子頂点 $v$ が存在するならば，$u$ の値はかならず $v$ の値以上である．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;アルゴリズム&#34;&gt;アルゴリズム&lt;/h2&gt;&#xA;&lt;h3 id=&#34;挿入処理-insertv&#34;&gt;挿入処理: &lt;code&gt;insert(v)&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;値 $v$ の挿入は以下の通り実行:&#xA;&lt;ol&gt;&#xA;&lt;li&gt;ヒープの最後尾に $v$ を値として持つ頂点を追加．&lt;/li&gt;&#xA;&lt;li&gt;追加した頂点と，その親の頂点との間でヒープ条件が満たされない場合……&#xA;&lt;ul&gt;&#xA;&lt;li&gt;追加した頂点と，その親頂点とを交換．&lt;/li&gt;&#xA;&lt;li&gt;ヒープ条件が満たされるまで同様の処理を根の方に向かって行う．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;最大値削除処理-delete&#34;&gt;最大値削除処理: &lt;code&gt;delete()&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;最大値を持つ頂点（＝根の頂点）の削除は以下の通り実行:&#xA;&lt;ol&gt;&#xA;&lt;li&gt;根の頂点を削除し，最後尾の頂点を根に一時的に移す．&lt;/li&gt;&#xA;&lt;li&gt;移された頂点と，その子の頂点との間でヒープ条件が満たされない場合……&#xA;&lt;ul&gt;&#xA;&lt;li&gt;移された頂点と子の頂点を交換する（注: このとき，子頂点が２つあるならば値が大きい方と交換する）．&lt;/li&gt;&#xA;&lt;li&gt;ヒープ条件が満たされるまで同様の処理を葉の方に向かって行う．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label for=&#34;program&#34;&gt;コマンド列&lt;/label&gt;&lt;br&gt;&#xA;    &lt;textarea class=&#34;w-full&#34; id=&#34;program&#34;&gt;&lt;/textarea&gt;&lt;br&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;run&#34;&gt;実行&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label&gt;Maxヒープの処理（上部の配列は，二分ヒープの配列表現による配列）&lt;/label&gt;&#xA;    &lt;div class=&#34;mb-1&#34; id=&#34;canvas-hole&#34;&gt;&lt;/div&gt;&#xA;    &lt;div class=&#34;text-center&#34;&gt;&#xA;      &lt;button class=&#34;alg-btn&#34; id=&#34;prev&#34;&gt;前へ&lt;/button&gt;&#xA;      &lt;button class=&#34;alg-btn&#34; id=&#34;next&#34;&gt;次へ&lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Minヒープ</title>
+      <link>https://algo-zoo.com/ja/min-heap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://algo-zoo.com/ja/min-heap/</guid>
+      <description>&lt;h2 id=&#34;データ構造&#34;&gt;データ構造&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;概要:&lt;/strong&gt; 値を管理するための木構造で，データの挿入操作と最小値削除操作が共に高速に（＝ 木の高さを $h$ としたとき，$O(\log{h})$で）行えるデータ構造．&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;ヒープ条件:&lt;/strong&gt; Minヒープ $T$ は，以下の条件を満たす:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$T$ は &lt;strong&gt;ほとんど完全な二分木(almost complete binary tree)&lt;/strong&gt; である．すなわち，$T$ の高さを $h$ としたとき，$T$の葉は左詰めで木を構築しており，$T$ の任意の葉は深さが $h$ か $h-1$ である．&lt;/li&gt;&#xA;&lt;li&gt;$T$の任意の頂点 $u$ について，もしその子頂点 $v$ が存在するならば，$u$ の値はかならず $v$ の値以下である．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;アルゴリズム&#34;&gt;アルゴリズム&lt;/h2&gt;&#xA;&lt;h3 id=&#34;挿入処理-insertv&#34;&gt;挿入処理: &lt;code&gt;insert(v)&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://algo-zoo.com/ja/max-heap&#34;&gt;Maxヒープ&lt;/a&gt;&#xA;の場合とほぼ同様に定める．値の順序判定のみが異なる．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;最小値削除処理-delete&#34;&gt;最小値削除処理: &lt;code&gt;delete()&lt;/code&gt;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://algo-zoo.com/ja/max-heap&#34;&gt;Maxヒープ&lt;/a&gt;&#xA;の場合とほぼ同様に定める．値の順序判定のみが異なる．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label for=&#34;program&#34;&gt;コマンド列&lt;/label&gt;&lt;br&gt;&#xA;    &lt;textarea class=&#34;w-full&#34; id=&#34;program&#34;&gt;&lt;/textarea&gt;&lt;br&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;run&#34;&gt;実行&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label&gt;Minヒープの処理（上部の配列は，二分ヒープの配列表現による配列）&lt;/label&gt;&#xA;    &lt;div class=&#34;mb-1&#34; id=&#34;canvas-hole&#34;&gt;&lt;/div&gt;&#xA;    &lt;div class=&#34;text-center&#34;&gt;&#xA;      &lt;button class=&#34;alg-btn&#34; id=&#34;prev&#34;&gt;前へ&lt;/button&gt;&#xA;      &lt;button class=&#34;alg-btn&#34; id=&#34;next&#34;&gt;次へ&lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

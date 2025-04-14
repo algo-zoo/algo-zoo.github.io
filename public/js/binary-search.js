@@ -166,10 +166,6 @@ window.draw = function() {
 }
 
 $(document).ready(function () {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('#run').click(function() {
     nextState();
     redraw();
