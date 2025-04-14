@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Convex Hull on Algo Zoo</title>
-    <link>http://localhost:1313/tags/convex-hull/</link>
+    <link>https://algo-zoo.com/tags/convex-hull/</link>
     <description>Recent content in Convex Hull on Algo Zoo</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/tags/convex-hull/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://algo-zoo.com/tags/convex-hull/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>凸包ビジュアライザ</title>
-      <link>http://localhost:1313/ja/convex-hull-vis/</link>
+      <link>https://algo-zoo.com/ja/convex-hull-vis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/ja/convex-hull-vis/</guid>
+      <guid>https://algo-zoo.com/ja/convex-hull-vis/</guid>
       <description>&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div id=&#34;canvas-hole&#34;&gt;&lt;/div&gt;&#xA;  &lt;div class=&#34;mt-2&#34;&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;random&#34;&gt;ランダム生成&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;reset&#34;&gt;リセット&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;prev&#34;&gt;前へ&lt;/button&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;next&#34;&gt;次へ&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
