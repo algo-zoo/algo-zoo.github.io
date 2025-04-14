@@ -70,7 +70,7 @@
   <script src="{{ .Site.Params.fplot.cdn }}" integrity="{{ .Site.Params.fplot.sri }}" crossorigin="anonymous"></script>
   {{ end }}
   {{ if (in .Params.cdn "glfx") }}
-  <script src="{{ .Site.Params.glfx.cdn }}" crossorigin="anonymous"></script>
+  <script src="{{ .Site.Params.glfx.cdn }}" integrity="{{ .Site.Params.glfx.sri }}" crossorigin="anonymous"></script>
   {{ end }}
 
   {{ with .Params.css }}
