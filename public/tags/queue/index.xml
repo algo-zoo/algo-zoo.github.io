@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Queue on Algo Zoo</title>
+    <link>http://localhost:1313/tags/queue/</link>
+    <description>Recent content in Queue on Algo Zoo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/tags/queue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>キュー</title>
+      <link>http://localhost:1313/ja/queue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ja/queue/</guid>
+      <description>&lt;h2 id=&#34;データ構造&#34;&gt;データ構造&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;概要:&lt;/strong&gt; 先入れ先出し（FIFO: First In First Out）、後入れ後出し（LILO: Last In Last Out）の出し入れ順序でデータを格納する構造。&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;操作:&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;enqueue(data)&lt;/code&gt;: 要素 &lt;code&gt;data&lt;/code&gt; をキューに挿入する操作．&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dequeue()&lt;/code&gt;: キューから，キュー内にある要素の中で最初に挿入された要素を取り出す操作．&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label for=&#34;program&#34;&gt;コマンド列&lt;/label&gt;&lt;br&gt;&#xA;    &lt;textarea class=&#34;w-full&#34; id=&#34;program&#34;&gt;&lt;/textarea&gt;&lt;br&gt;&#xA;    &lt;button class=&#34;alg-btn&#34; id=&#34;run&#34;&gt;実行&lt;/button&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div&gt;&#xA;    &lt;label&gt;キューの処理&lt;/label&gt;&#xA;    &lt;div class=&#34;mb-1&#34; id=&#34;canvas-hole&#34;&gt;&lt;/div&gt;&#xA;    &lt;div class=&#34;text-center&#34;&gt;&#xA;      &lt;button class=&#34;alg-btn&#34; id=&#34;prev&#34;&gt;前へ&lt;/button&gt;&#xA;      &lt;button class=&#34;alg-btn&#34; id=&#34;next&#34;&gt;次へ&lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

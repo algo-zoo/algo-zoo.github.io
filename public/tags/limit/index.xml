@@ -1,57 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Limit on Algo Zoo</title><link>https://algo-zoo.com/tags/limit/</link><description>Recent content in Limit on Algo Zoo</description><generator>Hugo</generator><language>en</language><atom:link href="https://algo-zoo.com/tags/limit/index.xml" rel="self" type="application/rss+xml"/><item><title>オーダー評価</title><link>https://algo-zoo.com/ja/order/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://algo-zoo.com/ja/order/</guid><description>&lt;h2 id="概要">概要&lt;/h2>
-&lt;h3 id="オーダー記法の定義">オーダー記法の定義&lt;/h3>
-&lt;ul>
-&lt;li>時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$&lt;/li>
-&lt;/ul>
-&lt;h2 id="ビジュアライザ">ビジュアライザ&lt;/h2>
-&lt;div class="container">
- &lt;label>各種定義&lt;/label>
- &lt;div class="alg-box light-red">
- &lt;label for="function">時間計算量関数: $T(x)$&lt;/label>
- &lt;input class="alg-input" id="function" type="text" value="3*x + 123" onchange="reload();">
- &lt;input type="radio" name="function_viz" value="1" checked>グラフ表示&lt;/input>
- &lt;input type="radio" name="function_viz" value="0">グラフ非表示&lt;/input>
- &lt;/div>
- &lt;div class="alg-box light-gray">
- &lt;label for="order">オーダー表現用の関数: $f(x)$&lt;/label>
- &lt;input class="alg-input" id="order" type="text" value="x" onchange="reload();">
- &lt;input type="radio" name="order_viz" value="1">グラフ表示&lt;/input>
- &lt;input type="radio" name="order_viz" value="0" checked>グラフ非表示&lt;/input>
- &lt;/div>
- &lt;div class="alg-box light-blue">
- &lt;label for="const_c">関数 $c \cdot f(x)$ の定数: $c$&lt;/label>
- &lt;input class="alg-input" id="const_c" type="text" value="2" onchange="reload();">
- &lt;input type="radio" name="c_viz" value="1">グラフ表示&lt;/input>
- &lt;input type="radio" name="c_viz" value="0" checked>グラフ非表示&lt;/input>
- &lt;/div>
- &lt;div class="alg-box zebra">
- &lt;label for="const_n">定数: $N_0$&lt;/label>
- &lt;input class="alg-input" id="const_n" type="text" value="0" onchange="reload();">
- &lt;input type="radio" name="n_viz" value="1">グラフ表示&lt;/input>
- &lt;input type="radio" name="n_viz" value="0" checked>グラフ非表示&lt;/input>
- &lt;/div>
-&lt;p>&lt;label>関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック&lt;/label>&lt;/p>
- &lt;div class="alg-box">
- &lt;ul>
- &lt;li>
- 定数$\,c\,$の値を &lt;span class="blue-text bold" id="c_view"">????&lt;/span> とし，
- 定数$\,N_0\,$の値を &lt;span class="blue-text bold" id="n0_view">????&lt;/span> とする．
- &lt;/li>
- &lt;li>
- このとき，$N_0\,$以上の任意の$\,N\,$について$\,|T(N)| \leq c \cdot |f(N)|\,$が……
- 「&lt;span class="bold" id="result1">????&lt;/span>」
- &lt;ul>
- &lt;li>（☝ 本当はここの不等式が成り立つかをちゃんと証明しないとダメ）&lt;/li>
- &lt;/ul>
- &lt;/li>
- &lt;li>
- よって，$T(N) = O(f(N))$が……
- 「&lt;span class="bold" id="result2">????&lt;/span>」
- &lt;/li>
- &lt;/ul>
- &lt;/div>
- &lt;div id="plot">
- &lt;label for="graph">グラフ&lt;/label>
- &lt;div id="graph">&lt;/div>
- &lt;/div>
-&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Limit on Algo Zoo</title>
+    <link>http://localhost:1313/tags/limit/</link>
+    <description>Recent content in Limit on Algo Zoo</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="http://localhost:1313/tags/limit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>オーダー評価</title>
+      <link>http://localhost:1313/ja/order/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ja/order/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;&#xA;&lt;h3 id=&#34;オーダー記法の定義&#34;&gt;オーダー記法の定義&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;時間計算量を表す関数 $T(x)$ のオーダーが関数 $f(x)$ を用いて $T(x) = O(f(x))$ で表せるとは，ある自然数 $N_0$ と正の実数 $c$ があって，$N_0$ 以上の任意の自然数 $N$ について，次が成り立つとき言う: $\displaystyle |T(N)| \leq c \cdot |f(N)|$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ビジュアライザ&#34;&gt;ビジュアライザ&lt;/h2&gt;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;  &lt;label&gt;各種定義&lt;/label&gt;&#xA;  &lt;div class=&#34;alg-box light-red&#34;&gt;&#xA;    &lt;label for=&#34;function&#34;&gt;時間計算量関数: $T(x)$&lt;/label&gt;&#xA;    &lt;input class=&#34;alg-input&#34; id=&#34;function&#34; type=&#34;text&#34; value=&#34;3*x + 123&#34; onchange=&#34;reload();&#34;&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;function_viz&#34; value=&#34;1&#34; checked&gt;グラフ表示&lt;/input&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;function_viz&#34; value=&#34;0&#34;&gt;グラフ非表示&lt;/input&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;alg-box light-gray&#34;&gt;&#xA;    &lt;label for=&#34;order&#34;&gt;オーダー表現用の関数: $f(x)$&lt;/label&gt;&#xA;    &lt;input class=&#34;alg-input&#34; id=&#34;order&#34; type=&#34;text&#34; value=&#34;x&#34; onchange=&#34;reload();&#34;&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;order_viz&#34; value=&#34;1&#34;&gt;グラフ表示&lt;/input&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;order_viz&#34; value=&#34;0&#34; checked&gt;グラフ非表示&lt;/input&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;alg-box light-blue&#34;&gt;&#xA;    &lt;label for=&#34;const_c&#34;&gt;関数 $c \cdot f(x)$ の定数: $c$&lt;/label&gt;&#xA;    &lt;input class=&#34;alg-input&#34; id=&#34;const_c&#34; type=&#34;text&#34; value=&#34;2&#34; onchange=&#34;reload();&#34;&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;c_viz&#34; value=&#34;1&#34;&gt;グラフ表示&lt;/input&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;c_viz&#34; value=&#34;0&#34; checked&gt;グラフ非表示&lt;/input&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;alg-box zebra&#34;&gt;&#xA;    &lt;label for=&#34;const_n&#34;&gt;定数: $N_0$&lt;/label&gt;&#xA;    &lt;input class=&#34;alg-input&#34; id=&#34;const_n&#34; type=&#34;text&#34; value=&#34;0&#34; onchange=&#34;reload();&#34;&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;n_viz&#34; value=&#34;1&#34;&gt;グラフ表示&lt;/input&gt;&#xA;    &lt;input type=&#34;radio&#34; name=&#34;n_viz&#34; value=&#34;0&#34; checked&gt;グラフ非表示&lt;/input&gt;&#xA;  &lt;/div&gt;&#xA;&lt;p&gt;&lt;label&gt;関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック&lt;/label&gt;&lt;/p&gt;&#xA;  &lt;div class=&#34;alg-box&#34;&gt;&#xA;    &lt;ul&gt;&#xA;      &lt;li&gt;&#xA;        定数$\,c\,$の値を &lt;span class=&#34;blue-text bold&#34; id=&#34;c_view&#34;&#34;&gt;????&lt;/span&gt; とし，&#xA;        定数$\,N_0\,$の値を &lt;span class=&#34;blue-text bold&#34; id=&#34;n0_view&#34;&gt;????&lt;/span&gt; とする．&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        このとき，$N_0\,$以上の任意の$\,N\,$について$\,|T(N)| \leq c \cdot |f(N)|\,$が……&#xA;        「&lt;span class=&#34;bold&#34; id=&#34;result1&#34;&gt;????&lt;/span&gt;」&#xA;        &lt;ul&gt;&#xA;          &lt;li&gt;（☝  本当はここの不等式が成り立つかをちゃんと証明しないとダメ）&lt;/li&gt;&#xA;        &lt;/ul&gt;&#xA;      &lt;/li&gt;&#xA;      &lt;li&gt;&#xA;        よって，$T(N) = O(f(N))$が……&#xA;        「&lt;span class=&#34;bold&#34; id=&#34;result2&#34;&gt;????&lt;/span&gt;」&#xA;      &lt;/li&gt;&#xA;    &lt;/ul&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div id=&#34;plot&#34;&gt;&#xA;    &lt;label for=&#34;graph&#34;&gt;グラフ&lt;/label&gt;&#xA;    &lt;div id=&#34;graph&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

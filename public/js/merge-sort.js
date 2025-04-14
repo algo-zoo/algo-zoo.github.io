@@ -135,10 +135,6 @@ window.setup = ms.setup.bind(ms);
 window.draw = ms.draw.bind(ms);
 
 $(document).ready(function () {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('#generate').click(() => ms.initializeRandomArray());
   $('#set').click(function() {
     ms.reset();

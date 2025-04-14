@@ -11,10 +11,6 @@ window.setup = heap.setup.bind(heap);
 window.draw = heap.draw.bind(heap);
 
 $(document).ready(function() {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('#run').click(() => heap.setup());
   $('#prev').click(() => heap.prev());
   $('#next').click(() => heap.next());

@@ -110,10 +110,6 @@ function plot(first = false) {
 }
 
 $(document).ready(function() {
-  renderMathInElement(document.body, {
-      delimiters: [{left: '$', right: '$', display: false}],
-      throwOnError : false
-  });
   $('input[type="radio"]').change(reload);
   $(window).resize(reload);
   reload();
