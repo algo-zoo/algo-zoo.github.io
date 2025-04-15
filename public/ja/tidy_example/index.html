@@ -1,34 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="icon" href="/favicon.png">
 
   <title>
-  Tool - Algo Zoo
+  画像の台形補正ツールの使用例 - Algo Zoo
   </title>
-  <meta name="generator" content="Hugo 0.145.0"><link
-    rel="stylesheet"
-    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
-    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
-  />
-  <link rel="alternate" type="application/rss+xml" href="https://algo-zoo.com/categories/tool/index.xml" title="Algo Zoo" />
-  <meta property="og:url" content="https://algo-zoo.com/categories/tool/">
+  <meta name="generator" content="Hugo 0.145.0">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta property="og:url" content="http://localhost:1313/ja/tidy_example/">
   <meta property="og:site_name" content="Algo Zoo">
-  <meta property="og:title" content="Tool">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="画像の台形補正ツールの使用例">
+  <meta property="og:description" content="台形補正ツール の使用例
+入力となる，台形補正したい画像を用意する． ツールに画像をアップロードし，台形補正を処理するための台形の枠を，四隅を設定する． 四隅を設定すると自動変換されるので，変換後の画像をダウンロードして，補正後の画像を得る．">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:tag" content="Tool">
+    <meta property="article:tag" content="Example">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Tool">
+  <meta name="twitter:title" content="画像の台形補正ツールの使用例">
+  <meta name="twitter:description" content="台形補正ツール の使用例
+入力となる，台形補正したい画像を用意する． ツールに画像をアップロードし，台形補正を処理するための台形の枠を，四隅を設定する． 四隅を設定すると自動変換されるので，変換後の画像をダウンロードして，補正後の画像を得る．">
 
   
-  <meta itemprop="name" content="Tool">
+  <meta itemprop="name" content="画像の台形補正ツールの使用例">
+  <meta itemprop="description" content="台形補正ツール の使用例
+入力となる，台形補正したい画像を用意する． ツールに画像をアップロードし，台形補正を処理するための台形の枠を，四隅を設定する． 四隅を設定すると自動変換されるので，変換後の画像をダウンロードして，補正後の画像を得る．">
+  <meta itemprop="wordCount" content="5">
+  <meta itemprop="keywords" content="Tool,Example">
 
   
-  <meta name="lang" content="en" />
+  <meta name="lang" content="ja" />
   
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js" integrity="sha512-Fx0qfamN0X4phfkgQkEWlTY63R375YIvgGFI1idvxR81h3MeaC63EsVWMbSwDnu0uk87YnvTH11ZVwHxSj&#43;dwA==" crossorigin="anonymous"></script>
@@ -47,7 +53,7 @@
   <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://algo-zoo.com/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/ja/" class="capitalize font-extrabold text-2xl">
     
     Algo Zoo
     
@@ -62,14 +68,12 @@
   <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
 
     
-    <li><a href="/tags">Tags</a></li>
+    <li><a href="/ja/tags">タグ</a></li>
     
 
     
     
     <li class="flex items-center">
-      
-      
       
       
       <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
@@ -81,7 +85,9 @@
         <path d="M11.5 3a17 17 0 0 0 0 18" />
         <path d="M12.5 3a17 17 0 0 1 0 18" />
       </svg>
-      <a href="/ja/" lang="ja">🇯🇵 日本語</a>
+      <a href="/en/" lang="en">🇺🇸 English</a>
+      
+      
       
       
     </li>
@@ -94,36 +100,34 @@
   </ul>
 </header>
 <main class="flex-1">
-
-  <h1 class="container px-6 pt-6 mx-auto text-3xl font-bold">Tool</h1>
-
   
-  <div class="container p-6 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
-    <div class="p-2">
-<a href="https://algo-zoo.com/ja/tidy-example/">
   
-  <div class="my-2 text-xl font-semibold">画像の台形補正ツールの使用例</div>
-  <div></div>
-</a>
 
   
 
-</div>
-<div class="p-2">
-<a href="https://algo-zoo.com/ja/tidy/">
-  
-  <div class="my-2 text-xl font-semibold">画像の台形補正ツール</div>
-  <div></div>
-</a>
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
 
-  
+    <h1 class="text-2xl font-bold mb-2">画像の台形補正ツールの使用例</h1>
+    
 
-</div>
+    
 
-  </div><div class="grid place-items-center mb-8">
-  
-</div>
+    <p><a href="/ja/tidy">台形補正ツール</a>
+の使用例</p>
+<ol>
+<li>入力となる，台形補正したい画像を用意する．</li>
+</ol>
+<p><img src="/image/tachibana.jpg" alt="京都橘大学の看板画像"></p>
+<ol start="2">
+<li>ツールに画像をアップロードし，台形補正を処理するための台形の枠を，四隅を設定する．</li>
+</ol>
+<p><img src="/image/tachibana_edit.jpg" alt="台形補正枠の設定"></p>
+<ol start="3">
+<li>四隅を設定すると自動変換されるので，変換後の画像をダウンロードして，補正後の画像を得る．</li>
+</ol>
+<p><img src="/image/corrected_tachibana.jpg" alt="台形補正後の画像"></p>
 
+  </article>
     </main><footer class="container p-6 mx-auto flex justify-between items-center">
   <span class="text-sm font-light">
     
