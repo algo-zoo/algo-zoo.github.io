@@ -76,6 +76,18 @@
                 href="https://algo-zoo.com/tags/convex-hull/"
                 />
   </url><url>
+    <loc>https://algo-zoo.com/tags/example/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://algo-zoo.com/ja/tags/example/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://algo-zoo.com/tags/example/"
+                />
+  </url><url>
     <loc>https://algo-zoo.com/tags/graph/</loc>
     <xhtml:link
                 rel="alternate"
@@ -269,6 +281,8 @@
     <loc>https://algo-zoo.com/ja/nagitsuji/</loc>
   </url><url>
     <loc>https://algo-zoo.com/ja/tidy/</loc>
+  </url><url>
+    <loc>https://algo-zoo.com/ja/tidy-example/</loc>
   </url><url>
     <loc>https://algo-zoo.com/ja/maze/</loc>
   </url><url>
