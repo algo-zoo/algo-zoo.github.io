@@ -15,6 +15,8 @@ type stateType = {
   editPointIndex: ref<option<int>>
 }
 
+let resizeThreshold = 4000
+
 // ==== Canvas Utility ====
 let drawPoint: (canvas, point) => canvas = %raw(`
   function (canvas, pt) {
@@ -133,15 +135,19 @@ let initializeCanvas: (fileType, canvas => unit) => unit = %raw(`
       const img = new Image();
       img.src = data;
       img.onload = function () {
-        // const canvas = document.createElement("canvas");
-        // const sz = Math.max(img.width, img.height);
-        // canvas.width = sz;
-        // canvas.height = sz;
-        // initializeImage(img);
-        // cont(canvas);
-        const img_canvas = createCanvas([ img.width, img.height ]);
+        var width = img.width;
+        var height = img.height;
+
+        // If the input image is too big
+        if (width >= resizeThreshold || height >= resizeThreshold) { 
+          const scale = Math.min(resizeThreshold / width, resizeThreshold / height);
+          width = Math.floor(width * scale);
+          height = Math.floor(height * scale);
+        }
+
+        const img_canvas = createCanvas([ width, height ]);
         const ctx = img_canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0, width, height);
         cont(img_canvas);
       }
     }
