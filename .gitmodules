@@ -1,0 +1,6 @@
+[submodule "themes/themes/blist-hugo-theme"]
+	path = themes/themes/blist-hugo-theme
+	url = https://github.com/apvarun/blist-hugo-theme.git
+[submodule "themes/blist-hugo-theme"]
+	path = themes/blist-hugo-theme
+	url = https://github.com/apvarun/blist-hugo-theme.git
