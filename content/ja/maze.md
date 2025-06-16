@@ -45,6 +45,7 @@ $\gdef\yp{y^\prime}$
       <option value="0">カスタム</option>
       <option value="1">サンプル1</option>
       <option value="2">サンプル2</option>
+      <option value="3">サンプル3</option>
     </select>
     <label>入力</label>
     <textarea class="w-full" rows="12" id="maze-input"></textarea>

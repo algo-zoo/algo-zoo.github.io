@@ -35,6 +35,14 @@ const load_sample = function(id) {
       '.....##.',
       'S..#....',
     ].join("\n"));
+  } else if (id == 3) {
+    $('#maze-input').val([
+      '...#G',
+      '.#...',
+      '.#.#.',
+      '.#...',
+      'S....',
+    ].join("\n"));
   } else {
     $('#maze-input').val('');
   }
