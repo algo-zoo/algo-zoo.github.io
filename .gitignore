@@ -1,4 +1,5 @@
 .hugo_build.lock
+.parcel-cache
 node_modules/
 resources/
 rescript/*.js
