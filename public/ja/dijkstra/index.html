@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -8,16 +8,13 @@
   <title>
   ダイクストラ法 - Algo Zoo
   </title>
-  <meta name="generator" content="Hugo 0.145.0"><link
-    rel="stylesheet"
-    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
-    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
-  />
-  <meta property="og:url" content="https://algo-zoo.com/ja/dijkstra/">
+  <meta name="generator" content="Hugo 0.147.8">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta property="og:url" content="http://localhost:1313/ja/dijkstra/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="ダイクストラ法">
   <meta property="og:description" content="問題 入力: 辺の重みが非負である重み付きグラフ $G = (V, E, w)$ と探索開始頂点 $s$ 出力: 開始頂点 $s$ から辿れる各頂点 $v$ について，経路長が最短の $s$-$v$ ウォーク アルゴリズム 使用するデータ構造 $\gdef\dist#1{\mathrm{dist}[{#1}]}$ $\gdef\prev#1{\mathrm{prev}[{#1}]}$ $\gdef\null{\mathrm{null}}$ $\gdef\weight#1#2{w(#1, #2)}$
-$S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」 $\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」 手続き $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする． $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする． $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &gt; \dist{u} &#43; \weight{u}{t}$ ならば， $\dist{t} \gets \dist{u} &#43; \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）． $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット ノードi 最短経路が確定 （暫定）最短経路の経路長 dist[i] （暫定）最短経路における頂点iの一つ前の頂点 prev[i] 注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能">
+$S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」 $\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」 手続き $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする． $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする． $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &gt; \dist{u} &#43; \weight{u}{t}$ ならば， $\dist{t} \gets \dist{u} &#43; \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）． $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット ノードi 最短経路が確定 （暫定）最短経路の経路長 dist[i] （暫定）最短経路における頂点iの一つ前の頂点 prev[i] 注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:tag" content="Graph">
@@ -27,13 +24,13 @@ $S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:�
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ダイクストラ法">
   <meta name="twitter:description" content="問題 入力: 辺の重みが非負である重み付きグラフ $G = (V, E, w)$ と探索開始頂点 $s$ 出力: 開始頂点 $s$ から辿れる各頂点 $v$ について，経路長が最短の $s$-$v$ ウォーク アルゴリズム 使用するデータ構造 $\gdef\dist#1{\mathrm{dist}[{#1}]}$ $\gdef\prev#1{\mathrm{prev}[{#1}]}$ $\gdef\null{\mathrm{null}}$ $\gdef\weight#1#2{w(#1, #2)}$
-$S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」 $\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」 手続き $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする． $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする． $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &gt; \dist{u} &#43; \weight{u}{t}$ ならば， $\dist{t} \gets \dist{u} &#43; \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）． $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット ノードi 最短経路が確定 （暫定）最短経路の経路長 dist[i] （暫定）最短経路における頂点iの一つ前の頂点 prev[i] 注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能">
+$S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」 $\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」 手続き $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする． $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする． $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &gt; \dist{u} &#43; \weight{u}{t}$ ならば， $\dist{t} \gets \dist{u} &#43; \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）． $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット ノードi 最短経路が確定 （暫定）最短経路の経路長 dist[i] （暫定）最短経路における頂点iの一つ前の頂点 prev[i] 注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能">
 
   
   <meta itemprop="name" content="ダイクストラ法">
   <meta itemprop="description" content="問題 入力: 辺の重みが非負である重み付きグラフ $G = (V, E, w)$ と探索開始頂点 $s$ 出力: 開始頂点 $s$ から辿れる各頂点 $v$ について，経路長が最短の $s$-$v$ ウォーク アルゴリズム 使用するデータ構造 $\gdef\dist#1{\mathrm{dist}[{#1}]}$ $\gdef\prev#1{\mathrm{prev}[{#1}]}$ $\gdef\null{\mathrm{null}}$ $\gdef\weight#1#2{w(#1, #2)}$
-$S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」 $\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」 手続き $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする． $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする． $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &gt; \dist{u} &#43; \weight{u}{t}$ ならば， $\dist{t} \gets \dist{u} &#43; \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）． $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット ノードi 最短経路が確定 （暫定）最短経路の経路長 dist[i] （暫定）最短経路における頂点iの一つ前の頂点 prev[i] 注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能">
-  <meta itemprop="wordCount" content="140">
+$S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:「開始頂点 $s$ から頂点 $v$ までの（暫定）最短経路の長さ」 $\prev{v}$:「開始頂点 $s$ から頂点 $v$ の（暫定）最短経路で，$v$ の前に位置する頂点」 手続き $S$ の初期値は空集合とする．開始頂点 $s$ について $\dist{s} \gets 0$ で初期化し，$s$ 以外の各頂点 $v$ は $\dist{v} \gets \infty$ で初期化．また，（$s$ も含めた）各頂点 $v$ について $\prev{v} \gets \null$ とする． $v \not\in S$ である頂点の中で $\dist{v}$ の値が最小の頂点を求め，それを $u$ とする． $u$ に隣接する各頂点 $t$ について，次を実行: $\dist{t} &gt; \dist{u} &#43; \weight{u}{t}$ ならば， $\dist{t} \gets \dist{u} &#43; \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注: $\weight{u}{t}$ は辺 $(u, t)$ に定義された重みの値）． $S \gets S \cup \lbrace u \rbrace$とする．$S = V$ ならば終了で，そうでないなら 2. の処理を繰り返す． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット ノードi 最短経路が確定 （暫定）最短経路の経路長 dist[i] （暫定）最短経路における頂点iの一つ前の頂点 prev[i] 注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能">
+  <meta itemprop="wordCount" content="141">
   <meta itemprop="keywords" content="Graph,Shortest Path">
 
   
@@ -80,7 +77,7 @@ $S$:「すでに最短経路が確定している頂点の集合」 $\dist{v}$:�
   <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/ja/" class="capitalize font-extrabold text-2xl">
     
     Algo Zoo
     
@@ -193,6 +190,7 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注
       <option value="1">サンプル1</option>
       <option value="2">サンプル2</option>
       <option value="3">サンプル3</option>
+      <option value="4">サンプル4</option>
     </select>
     <label>頂点の追加</label>
     <input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名"></input>
@@ -240,8 +238,7 @@ $\dist{t} \gets \dist{u} + \weight{u}{t}$ と $\prev{t} \gets u$ の更新（注
   </table>
   <div>注意: グラフ上の，経路が確定した頂点にマウスをかざすと具体的な最短経路を表示可能</div>
 </div>
-
-  </article>
+</article>
     </main><footer class="container p-6 mx-auto flex justify-between items-center">
   <span class="text-sm font-light">
     

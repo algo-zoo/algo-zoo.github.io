@@ -12,7 +12,7 @@
       <link>https://algo-zoo.com/ja/tidy-example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://algo-zoo.com/ja/tidy-example/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://algo-zoo.com/ja/tidy&#34;&gt;台形補正ツール&lt;/a&gt;&#xA;の使用例&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;入力となる，台形補正したい画像を用意する．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://algo-zoo.com/image/tachibana.jpg&#34; alt=&#34;京都橘大学の看板画像&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;ツールに画像をアップロードし，台形補正のための枠を，四隅の点を適切に移動させることで設定．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://algo-zoo.com/image/tachibana_edit.jpg&#34; alt=&#34;台形補正枠の設定&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;変換後の画像をダウンロードして，補正後の画像を得る．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://algo-zoo.com/image/corrected_tachibana.jpg&#34; alt=&#34;台形補正後の画像&#34;&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://algo-zoo.com/ja/tidy&#34;&gt;台形補正ツール&lt;/a&gt;の使用例&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;入力となる，台形補正したい画像を用意する．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://algo-zoo.com/image/tachibana.jpg&#34; alt=&#34;京都橘大学の看板画像&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;ツールに画像をアップロードし，台形補正のための枠を，四隅の点を適切に移動させることで設定．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://algo-zoo.com/image/tachibana_edit.jpg&#34; alt=&#34;台形補正枠の設定&#34;&gt;&lt;/p&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;変換後の画像をダウンロードして，補正後の画像を得る．&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://algo-zoo.com/image/corrected_tachibana.jpg&#34; alt=&#34;台形補正後の画像&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

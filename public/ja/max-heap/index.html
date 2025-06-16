@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -8,12 +8,9 @@
   <title>
   Maxヒープ - Algo Zoo
   </title>
-  <meta name="generator" content="Hugo 0.145.0"><link
-    rel="stylesheet"
-    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
-    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
-  />
-  <meta property="og:url" content="https://algo-zoo.com/ja/max-heap/">
+  <meta name="generator" content="Hugo 0.147.8">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta property="og:url" content="http://localhost:1313/ja/max-heap/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="Maxヒープ">
   <meta property="og:description" content="データ構造 概要: 値を管理するための木構造で，データの挿入操作と最大値削除操作が共に高速に（＝ 木の高さを $h$ としたとき，$O(\log{h})$で）行えるデータ構造． ヒープ条件: Maxヒープ $T$ は，以下の条件を満たす: $T$ は ほとんど完全な二分木(almost complete binary tree) である．すなわち，$T$ の高さを $h$ としたとき，$T$の葉は左詰めで木を構築しており，$T$ の任意の葉は深さが $h$ か $h-1$ である． $T$の任意の頂点 $u$ について，もしその子頂点 $v$ が存在するならば，$u$ の値はかならず $v$ の値以上である． アルゴリズム 挿入処理: insert(v) 値 $v$ の挿入は以下の通り実行: ヒープの最後尾に $v$ を値として持つ頂点を追加． 追加した頂点と，その親の頂点との間でヒープ条件が満たされない場合…… 追加した頂点と，その親頂点とを交換． ヒープ条件が満たされるまで同様の処理を根の方に向かって行う． 最大値削除処理: delete() 最大値を持つ頂点（＝根の頂点）の削除は以下の通り実行: 根の頂点を削除し，最後尾の頂点を根に一時的に移す． 移された頂点と，その子の頂点との間でヒープ条件が満たされない場合…… 移された頂点と子の頂点を交換する（注: このとき，子頂点が２つあるならば値が大きい方と交換する）． ヒープ条件が満たされるまで同様の処理を葉の方に向かって行う． ビジュアライザ コマンド列
@@ -79,7 +76,7 @@
   <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/ja/" class="capitalize font-extrabold text-2xl">
     
     Algo Zoo
     
@@ -193,8 +190,7 @@
     </div>
   </div>
 </div>
-
-  </article>
+</article>
     </main><footer class="container p-6 mx-auto flex justify-between items-center">
   <span class="text-sm font-light">
     

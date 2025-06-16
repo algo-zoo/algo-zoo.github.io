@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -8,16 +8,13 @@
   <title>
   プリム法 - Algo Zoo
   </title>
-  <meta name="generator" content="Hugo 0.145.0"><link
-    rel="stylesheet"
-    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
-    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
-  />
-  <meta property="og:url" content="https://algo-zoo.com/ja/prim/">
+  <meta name="generator" content="Hugo 0.147.8">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta property="og:url" content="http://localhost:1313/ja/prim/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="プリム法">
   <meta property="og:description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$
-$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:tag" content="Graph">
@@ -27,13 +24,13 @@ $\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="プリム法">
   <meta name="twitter:description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$
-$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
 
   
   <meta itemprop="name" content="プリム法">
   <meta itemprop="description" content="問題 入力: 連結な重み付き無向グラフ $G = (V, E, w)$ 出力: $G$ の最小全域木 アルゴリズム 使用するデータ構造 $\gdef\Vp{V^\prime}$ $\gdef\Ep{E^\prime}$
-$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
-  <meta itemprop="wordCount" content="100">
+$\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 $\Ep$: 「（最小全域木を作る過程で）確定した辺の集合」 手続き $\Ep$ の初期値は空集合とする．入力グラフの頂点集合 $V$ から，一つ要素を適当に決め $v_0$ とする．$\Vp \gets \lbrace v_0 \rbrace$で初期化． $\Vp$ に含まれる頂点 $u$ と，$\Vp$ に含まれない頂点 $v$ を結ぶ辺 $(u, v)$ の中で，重みが最小な辺を選び，それを $(s, t)$ とする．次を順に実行: $\Vp \gets \Vp \cup \lbrace s, t \rbrace$ とし，$\Ep \gets \Ep \cup \lbrace (s, t) \rbrace$ とする． $\Vp = V$ ならば $(V, \Ep)$が最小全域木となるので終了．$\Vp \neq V$ならば 2. を繰り返し実行． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット 辺 重み （暫定）最小全域木の辺として採用">
+  <meta itemprop="wordCount" content="101">
   <meta itemprop="keywords" content="Graph,Minimum Spanning Tree">
 
   
@@ -84,7 +81,7 @@ $\Vp$: 「（最小全域木を作る過程で）確定した頂点の集合」 
   <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/ja/" class="capitalize font-extrabold text-2xl">
     
     Algo Zoo
     
@@ -193,6 +190,7 @@ $\gdef\Ep{E^\prime}$</p>
       <option value="1">サンプル1</option>
       <option value="2">サンプル2</option>
       <option value="3">サンプル3</option>
+      <option value="4">サンプル4</option>
     </select>
     <label>頂点の追加</label>
     <input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名"></input>
@@ -238,8 +236,7 @@ $\gdef\Ep{E^\prime}$</p>
     </thead>
   </table>
 </div>
-
-  </article>
+</article>
     </main><footer class="container p-6 mx-auto flex justify-between items-center">
   <span class="text-sm font-light">
     

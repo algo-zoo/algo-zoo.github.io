@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -8,16 +8,13 @@
   <title>
   迷路の最短経路探索 - Algo Zoo
   </title>
-  <meta name="generator" content="Hugo 0.145.0"><link
-    rel="stylesheet"
-    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
-    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
-  />
-  <meta property="og:url" content="https://algo-zoo.com/ja/maze/">
+  <meta name="generator" content="Hugo 0.147.8">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta property="og:url" content="http://localhost:1313/ja/maze/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="迷路の最短経路探索">
   <meta property="og:description" content="問題 $\gdef\map{\mathrm{map}}$ $\gdef\sdist{\mathrm{dist}}$ $\gdef\dist#1#2{\sdist[#1][#2]}$ $\gdef\xp{x^\prime}$ $\gdef\yp{y^\prime}$
-入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$． 備考: スタートからゴールまでの経路が一つは存在することを仮定する． 出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長． アルゴリズム 使用するデータ構造 $\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」 $d$:「（暫定）最短経路長を記録するための変数」 手続き $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする． $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行: $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了; $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d&#43;1) \rbrace$ とする． 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d&#43;1)$として 2. を繰り返す． ビジュアライザ 迷路の設定 カスタム サンプル1 サンプル2 入力 設定 迷路の最短経路探索 前へ 次へ">
+入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$． 備考: スタートからゴールまでの経路が一つは存在することを仮定する． 出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長． アルゴリズム 使用するデータ構造 $\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」 $d$:「（暫定）最短経路長を記録するための変数」 手続き $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする． $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行: $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了; $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d&#43;1) \rbrace$ とする． 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d&#43;1)$として 2. を繰り返す． ビジュアライザ 迷路の設定 カスタム サンプル1 サンプル2 サンプル3 入力 設定 迷路の最短経路探索 前へ 次へ">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:tag" content="Graph">
@@ -27,13 +24,13 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="迷路の最短経路探索">
   <meta name="twitter:description" content="問題 $\gdef\map{\mathrm{map}}$ $\gdef\sdist{\mathrm{dist}}$ $\gdef\dist#1#2{\sdist[#1][#2]}$ $\gdef\xp{x^\prime}$ $\gdef\yp{y^\prime}$
-入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$． 備考: スタートからゴールまでの経路が一つは存在することを仮定する． 出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長． アルゴリズム 使用するデータ構造 $\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」 $d$:「（暫定）最短経路長を記録するための変数」 手続き $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする． $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行: $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了; $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d&#43;1) \rbrace$ とする． 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d&#43;1)$として 2. を繰り返す． ビジュアライザ 迷路の設定 カスタム サンプル1 サンプル2 入力 設定 迷路の最短経路探索 前へ 次へ">
+入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$． 備考: スタートからゴールまでの経路が一つは存在することを仮定する． 出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長． アルゴリズム 使用するデータ構造 $\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」 $d$:「（暫定）最短経路長を記録するための変数」 手続き $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする． $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行: $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了; $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d&#43;1) \rbrace$ とする． 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d&#43;1)$として 2. を繰り返す． ビジュアライザ 迷路の設定 カスタム サンプル1 サンプル2 サンプル3 入力 設定 迷路の最短経路探索 前へ 次へ">
 
   
   <meta itemprop="name" content="迷路の最短経路探索">
   <meta itemprop="description" content="問題 $\gdef\map{\mathrm{map}}$ $\gdef\sdist{\mathrm{dist}}$ $\gdef\dist#1#2{\sdist[#1][#2]}$ $\gdef\xp{x^\prime}$ $\gdef\yp{y^\prime}$
-入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$． 備考: スタートからゴールまでの経路が一つは存在することを仮定する． 出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長． アルゴリズム 使用するデータ構造 $\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」 $d$:「（暫定）最短経路長を記録するための変数」 手続き $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする． $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行: $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了; $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d&#43;1) \rbrace$ とする． 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d&#43;1)$として 2. を繰り返す． ビジュアライザ 迷路の設定 カスタム サンプル1 サンプル2 入力 設定 迷路の最短経路探索 前へ 次へ">
-  <meta itemprop="wordCount" content="84">
+入力: 障害物のマスを記録した二次元配列 $\map$，スタート座標 $(sx, sy)$，ゴール座標 $(gx, gy)$． 備考: スタートからゴールまでの経路が一つは存在することを仮定する． 出力: スタート座標からゴール座標まで，四方向移動で移動したときの最短経路長． アルゴリズム 使用するデータ構造 $\sdist$:「各マスの（暫定）最短経路長を記録するための二次元配列」 $d$:「（暫定）最短経路長を記録するための変数」 手続き $d \gets 0$とする．スタート座標 $(sx, sy)$ についてのみ $\dist{sy}{sx} \gets 0$とし，それ以外の各座標 $(x, y)$ について $\dist{y}{x} \gets \infty$とする． $\dist{y}{x} = d$ となるような各 $(x, y)$ を探索対象として，以下を実行: $(x, y) = (gx, gy)$ならば，最短経路長として $d$ を返して終了; $(x, y) \neq (gx, gy)$ならば，$(x, y)$から（$\map$の障害物情報を考慮しつつ）一回の移動（注: 移動可能マスは上下左右で障害物が無いマス）で辿り着ける座標 $(\xp, \yp)$ について，$\dist{\yp}{\xp} \gets \mathrm{min}\lbrace \dist{\yp}{\xp}, (d&#43;1) \rbrace$ とする． 距離が $d$ の場合の更新処理を全て終えた後，$d \gets (d&#43;1)$として 2. を繰り返す． ビジュアライザ 迷路の設定 カスタム サンプル1 サンプル2 サンプル3 入力 設定 迷路の最短経路探索 前へ 次へ">
+  <meta itemprop="wordCount" content="85">
   <meta itemprop="keywords" content="Graph,Shortest Path">
 
   
@@ -80,7 +77,7 @@
   <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/ja/" class="capitalize font-extrabold text-2xl">
     
     Algo Zoo
     
@@ -179,6 +176,7 @@ $\gdef\yp{y^\prime}$</p>
       <option value="0">カスタム</option>
       <option value="1">サンプル1</option>
       <option value="2">サンプル2</option>
+      <option value="3">サンプル3</option>
     </select>
     <label>入力</label>
     <textarea class="w-full" rows="12" id="maze-input"></textarea>
@@ -193,8 +191,7 @@ $\gdef\yp{y^\prime}$</p>
     </div>
   </div>
 </div>
-
-  </article>
+</article>
     </main><footer class="container p-6 mx-auto flex justify-between items-center">
   <span class="text-sm font-light">
     

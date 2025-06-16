@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head>
+<html lang="ja" itemscope itemtype="http://schema.org/WebPage"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -8,17 +8,14 @@
   <title>
   グラフに対する深さ優先探索(DFS) - Algo Zoo
   </title>
-  <meta name="generator" content="Hugo 0.145.0"><link
-    rel="stylesheet"
-    href="https://algo-zoo.com/css/styles.min.2df0f673dfa1af647908a0b34702d846acc91d3091353cdbd6e2d7e59d7d475a.css"
-    inte,grity="sha256-LfD2c9+hr2R5CKCzRwLYRqzJHTCRNTzb1uLX5Z19R1o="
-  />
-  <meta property="og:url" content="https://algo-zoo.com/ja/dfs/">
+  <meta name="generator" content="Hugo 0.147.8">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta property="og:url" content="http://localhost:1313/ja/dfs/">
   <meta property="og:site_name" content="Algo Zoo">
   <meta property="og:title" content="グラフに対する深さ優先探索(DFS)">
   <meta property="og:description" content="問題 入力: 有向グラフ $G = (V, E)$ と探索開始頂点 $s$ 出力: $G$ を $s$ から深さ優先探索したときの訪問した頂点の列 アルゴリズム 使用するデータ構造 $\gdef\svisited{\mathrm{visited}}$ $\gdef\visited#1{\svisited[{#1}]}$ $\gdef\null{\mathrm{null}}$
 $S$: 「探索予定の頂点を格納するためのスタック」 $i$: 「現在の探索順番を記録するための数値変数」 $\visited{u}$: 「頂点 $u$ が何番目に探索されたかを記録するための数値配列」 手続き スタック $S$ に対し，探索開始頂点 $s$ を push する．また，$i \leftarrow 0$ とし，各頂点 $u \in V$ について $\visited{u} \leftarrow \null$ とする． スタック $S$ が空になるまで，以下を繰り返し実行: $S$ を pop して得られる要素を $u$ とする．以下を実行: $\visited{u} = \null$ ならば，$\visited{u} \leftarrow i$ を実行して次に進む． $\visited{u} \neq \null$ ならば，頂点 $u$ は探索済みだから，2.の処理を実行． $u$ に隣接する各頂点 $t$ について$^{\dagger}$，以下を実行: $\visited{t} = \null$ ならば，頂点 $t$ は未訪問であるから $t$ をスタックに push する． $\visited{t} \neq \null$ ならば，訪問済み頂点であるから何もしない． $i \leftarrow i &#43; 1$ を実行． この時点で深さ優先探索が終了し，$\svisited$に結果が格納されている．
-（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点） 手続きの補足 上記の手続きは一例であり，他の実装方法もある．特に，今回の実装では pop 時点で $\svisited$ を更新しているが，push 時点で更新する方が一般的．なお，今回の実装ではスタックに同一要素が push される場合がある． 上記の $(\dagger)$ 部分の「$u$ に隣接する各頂点 $t$」について，どの隣接頂点を先に探索するかによって探索順に違いが現れる．そのため，何らかの規則によって探索順を規定することでアルゴリズムの出力を一意にできる． 本ビジュアライザのサンプルでは，$(\dagger)$処理において，複数の頂点があり得る場合は，辞書順で後に来るラベルの頂点から処理している． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット">
+（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点） 手続きの補足 上記の手続きは一例であり，他の実装方法もある．特に，今回の実装では pop 時点で $\svisited$ を更新しているが，push 時点で更新する方が一般的．なお，今回の実装ではスタックに同一要素が push される場合がある． 上記の $(\dagger)$ 部分の「$u$ に隣接する各頂点 $t$」について，どの隣接頂点を先に探索するかによって探索順に違いが現れる．そのため，何らかの規則によって探索順を規定することでアルゴリズムの出力を一意にできる． 本ビジュアライザのサンプルでは，$(\dagger)$処理において，複数の頂点があり得る場合は，辞書順で後に来るラベルの頂点から処理している． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:tag" content="Graph">
@@ -28,14 +25,14 @@ $S$: 「探索予定の頂点を格納するためのスタック」 $i$: 「現
   <meta name="twitter:title" content="グラフに対する深さ優先探索(DFS)">
   <meta name="twitter:description" content="問題 入力: 有向グラフ $G = (V, E)$ と探索開始頂点 $s$ 出力: $G$ を $s$ から深さ優先探索したときの訪問した頂点の列 アルゴリズム 使用するデータ構造 $\gdef\svisited{\mathrm{visited}}$ $\gdef\visited#1{\svisited[{#1}]}$ $\gdef\null{\mathrm{null}}$
 $S$: 「探索予定の頂点を格納するためのスタック」 $i$: 「現在の探索順番を記録するための数値変数」 $\visited{u}$: 「頂点 $u$ が何番目に探索されたかを記録するための数値配列」 手続き スタック $S$ に対し，探索開始頂点 $s$ を push する．また，$i \leftarrow 0$ とし，各頂点 $u \in V$ について $\visited{u} \leftarrow \null$ とする． スタック $S$ が空になるまで，以下を繰り返し実行: $S$ を pop して得られる要素を $u$ とする．以下を実行: $\visited{u} = \null$ ならば，$\visited{u} \leftarrow i$ を実行して次に進む． $\visited{u} \neq \null$ ならば，頂点 $u$ は探索済みだから，2.の処理を実行． $u$ に隣接する各頂点 $t$ について$^{\dagger}$，以下を実行: $\visited{t} = \null$ ならば，頂点 $t$ は未訪問であるから $t$ をスタックに push する． $\visited{t} \neq \null$ ならば，訪問済み頂点であるから何もしない． $i \leftarrow i &#43; 1$ を実行． この時点で深さ優先探索が終了し，$\svisited$に結果が格納されている．
-（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点） 手続きの補足 上記の手続きは一例であり，他の実装方法もある．特に，今回の実装では pop 時点で $\svisited$ を更新しているが，push 時点で更新する方が一般的．なお，今回の実装ではスタックに同一要素が push される場合がある． 上記の $(\dagger)$ 部分の「$u$ に隣接する各頂点 $t$」について，どの隣接頂点を先に探索するかによって探索順に違いが現れる．そのため，何らかの規則によって探索順を規定することでアルゴリズムの出力を一意にできる． 本ビジュアライザのサンプルでは，$(\dagger)$処理において，複数の頂点があり得る場合は，辞書順で後に来るラベルの頂点から処理している． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット">
+（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点） 手続きの補足 上記の手続きは一例であり，他の実装方法もある．特に，今回の実装では pop 時点で $\svisited$ を更新しているが，push 時点で更新する方が一般的．なお，今回の実装ではスタックに同一要素が push される場合がある． 上記の $(\dagger)$ 部分の「$u$ に隣接する各頂点 $t$」について，どの隣接頂点を先に探索するかによって探索順に違いが現れる．そのため，何らかの規則によって探索順を規定することでアルゴリズムの出力を一意にできる． 本ビジュアライザのサンプルでは，$(\dagger)$処理において，複数の頂点があり得る場合は，辞書順で後に来るラベルの頂点から処理している． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット">
 
   
   <meta itemprop="name" content="グラフに対する深さ優先探索(DFS)">
   <meta itemprop="description" content="問題 入力: 有向グラフ $G = (V, E)$ と探索開始頂点 $s$ 出力: $G$ を $s$ から深さ優先探索したときの訪問した頂点の列 アルゴリズム 使用するデータ構造 $\gdef\svisited{\mathrm{visited}}$ $\gdef\visited#1{\svisited[{#1}]}$ $\gdef\null{\mathrm{null}}$
 $S$: 「探索予定の頂点を格納するためのスタック」 $i$: 「現在の探索順番を記録するための数値変数」 $\visited{u}$: 「頂点 $u$ が何番目に探索されたかを記録するための数値配列」 手続き スタック $S$ に対し，探索開始頂点 $s$ を push する．また，$i \leftarrow 0$ とし，各頂点 $u \in V$ について $\visited{u} \leftarrow \null$ とする． スタック $S$ が空になるまで，以下を繰り返し実行: $S$ を pop して得られる要素を $u$ とする．以下を実行: $\visited{u} = \null$ ならば，$\visited{u} \leftarrow i$ を実行して次に進む． $\visited{u} \neq \null$ ならば，頂点 $u$ は探索済みだから，2.の処理を実行． $u$ に隣接する各頂点 $t$ について$^{\dagger}$，以下を実行: $\visited{t} = \null$ ならば，頂点 $t$ は未訪問であるから $t$ をスタックに push する． $\visited{t} \neq \null$ ならば，訪問済み頂点であるから何もしない． $i \leftarrow i &#43; 1$ を実行． この時点で深さ優先探索が終了し，$\svisited$に結果が格納されている．
-（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点） 手続きの補足 上記の手続きは一例であり，他の実装方法もある．特に，今回の実装では pop 時点で $\svisited$ を更新しているが，push 時点で更新する方が一般的．なお，今回の実装ではスタックに同一要素が push される場合がある． 上記の $(\dagger)$ 部分の「$u$ に隣接する各頂点 $t$」について，どの隣接頂点を先に探索するかによって探索順に違いが現れる．そのため，何らかの規則によって探索順を規定することでアルゴリズムの出力を一意にできる． 本ビジュアライザのサンプルでは，$(\dagger)$処理において，複数の頂点があり得る場合は，辞書順で後に来るラベルの頂点から処理している． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット">
-  <meta itemprop="wordCount" content="151">
+（注: $\visited{v} = \null$ ならば開始頂点 $s$ から頂点 $v$ にはたどり着けない; $\visited{v} = j$ならば，頂点 $v$ は開始頂点から $j$ 番目に訪問される頂点） 手続きの補足 上記の手続きは一例であり，他の実装方法もある．特に，今回の実装では pop 時点で $\svisited$ を更新しているが，push 時点で更新する方が一般的．なお，今回の実装ではスタックに同一要素が push される場合がある． 上記の $(\dagger)$ 部分の「$u$ に隣接する各頂点 $t$」について，どの隣接頂点を先に探索するかによって探索順に違いが現れる．そのため，何らかの規則によって探索順を規定することでアルゴリズムの出力を一意にできる． 本ビジュアライザのサンプルでは，$(\dagger)$処理において，複数の頂点があり得る場合は，辞書順で後に来るラベルの頂点から処理している． ビジュアライザ グラフの設定（ 補足説明 ⓘ 補足説明 ⓘ 「カスタム」から「サンプル1」などに切り替えると、用意されたグラフを使用可能。 頂点名を入力し「追加」を押すと挿入モードになり、グラフ上の位置を選ぶと頂点を追加できる。 ） カスタム サンプル1 サンプル2 サンプル3 サンプル4 頂点の追加 追加 隣接行列 グラフ（ 補足説明 ⓘ 補足説明 ⓘ 頂点を選ぶと位置修正モードになり、グラフ上の新しい場所を選ぶと頂点が移動できる。 ） 探索開始頂点 ワンステップ探索 最終状態まで探索 リセット">
+  <meta itemprop="wordCount" content="152">
   <meta itemprop="keywords" content="Graph">
 
   
@@ -82,7 +79,7 @@ $S$: 「探索予定の頂点を格納するためのスタック」 $i$: 「現
   <link href="/css/algo-util.css" rel="stylesheet" />
 </head>
 <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
-  <a href="https://algo-zoo.com/ja/" class="capitalize font-extrabold text-2xl">
+  <a href="http://localhost:1313/ja/" class="capitalize font-extrabold text-2xl">
     
     Algo Zoo
     
@@ -214,6 +211,7 @@ $\gdef\null{\mathrm{null}}$</p>
       <option value="1">サンプル1</option>
       <option value="2">サンプル2</option>
       <option value="3">サンプル3</option>
+      <option value="4">サンプル4</option>
     </select>
     <label>頂点の追加</label>
     <input class="alg-input mb-1" id="node_label" type="text" placeholder="頂点名"></input>
@@ -248,8 +246,7 @@ $\gdef\null{\mathrm{null}}$</p>
   <button class="alg-btn" id="goal">最終状態まで探索</button>
   <button class="alg-btn" id="reset">リセット</button>
 </div>
-
-  </article>
+</article>
     </main><footer class="container p-6 mx-auto flex justify-between items-center">
   <span class="text-sm font-light">
     
