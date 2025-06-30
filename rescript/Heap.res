@@ -299,6 +299,8 @@ export class Heap {
         addLog('delete()');
       }
     }
+
+    this.refresh();
   }
 }
 `)
