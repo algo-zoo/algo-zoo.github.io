@@ -1,4 +1,6 @@
 #!/bin/sh
+npx tailwindcss -c assets/css/tailwind.config.js \
+  -i assets/css/styles.css -o assets/css/generated.css --minify
 npx rescript build
 if [ "$#" -eq 1 ]; then
   npx parcel build $1 --no-scope-hoist
