@@ -1,6 +1,5 @@
 baseURL = 'https://algo-zoo.com'
 languageCode = 'en'
-theme = 'blist-hugo-theme'
 title = 'Algo Zoo'
 
 [languages]
