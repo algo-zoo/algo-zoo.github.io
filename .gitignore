@@ -2,4 +2,12 @@
 .parcel-cache
 node_modules/
 resources/
+
+# ReScript のビルド成果物
+lib/
 rescript/*.js
+
+# Hull.js (https://github.com/AndriiHeonia/hull) のベンダリング実体。
+# 生成物ではないので追跡する。出典とライセンスはファイル冒頭にある。
+# build.sh がこれを static/js へ cp するため、追跡していないと新規クローンでビルドできない。
+!rescript/concave-hull.js
