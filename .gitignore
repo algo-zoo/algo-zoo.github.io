@@ -11,3 +11,10 @@ rescript/*.js
 # 生成物ではないので追跡する。出典とライセンスはファイル冒頭にある。
 # build.sh がこれを static/js へ cp するため、追跡していないと新規クローンでビルドできない。
 !rescript/concave-hull.js
+
+# サイトのビルド成果物。CI (.github/workflows/static.yml) が生成してデプロイする。
+public/
+
+# static/ はソースと生成物が混在している。static/css と static/image は手書きなので
+# 追跡し、parcel の出力先である static/js だけを除外する。
+static/js/
