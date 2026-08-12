@@ -74,9 +74,18 @@
       <script src="{{ . }}"></script>
     {{ end }}
   {{ end }}
+  {{/* front matter の js = ['/js/Dijkstra.js'] は、hugo.toml の module mount で
+       assets/js に載せた rescript/ のコンパイル済み JS を指す。
+       js.Build (内蔵 esbuild) がページごとに 1 本へバンドルする。 */}}
   {{ with .Params.js }}
     {{ range . }}
-      <script type="module" src="{{ . }}"></script>
+      {{ $path := strings.TrimPrefix "/" . }}
+      {{ with resources.Get $path }}
+        {{ $bundle := . | js.Build (dict "format" "esm" "minify" hugo.IsProduction) | fingerprint }}
+        <script type="module" src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
+      {{ else }}
+        {{ errorf "head.html: js asset %q not found under assets/ (mounted from rescript/). npx rescript build を先に実行したか確認すること" $path }}
+      {{ end }}
     {{ end }}
   {{ end }}
   <link href="/css/algo-util.css" rel="stylesheet" />

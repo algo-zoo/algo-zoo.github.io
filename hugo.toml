@@ -21,6 +21,19 @@ title = 'Algo Zoo'
 
 defaultContentLanguage = 'en'
 
+# ReScript は in-source ビルドなので、コンパイル済みの .js は rescript/ に生成される。
+# それを assets/js へマウントし、head.html の js.Build (hugo 内蔵の esbuild) で
+# ページごとにバンドルする。
+# 同じ component (assets) に明示マウントを足すと既定マウントが外れるため、
+# assets 自身も明示的に再宣言している。
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'rescript'
+    target = 'assets/js'
+
 [params]
   favicon = '/favicon.png'
   hideMeta = true

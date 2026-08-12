@@ -2,13 +2,7 @@
 npx tailwindcss -c assets/css/tailwind.config.js \
   -i assets/css/styles.css -o assets/css/generated.css --minify
 npx rescript build
-if [ "$#" -eq 1 ]; then
-  npx parcel build $1 --no-scope-hoist
-else
-  for x in rescript/*.js; do
-    if [ "$(basename "$x")" != "concave-hull.js" ]; then
-      npx parcel build "$x" --no-scope-hoist
-    fi
-  done
-fi
+# rescript/*.js のバンドルは hugo の js.Build が行う (layouts/partials/head.html)。
+# concave-hull.js だけはバンドル対象外の素の script なので static/ から配る。
+mkdir -p static/js
 cp rescript/concave-hull.js static/js

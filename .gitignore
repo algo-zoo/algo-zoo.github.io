@@ -1,5 +1,4 @@
 .hugo_build.lock
-.parcel-cache
 node_modules/
 resources/
 
@@ -19,5 +18,5 @@ assets/css/generated.css
 public/
 
 # static/ はソースと生成物が混在している。static/css と static/image は手書きなので
-# 追跡し、parcel の出力先である static/js だけを除外する。
+# 追跡し、build.sh が concave-hull.js を置くだけの static/js は除外する。
 static/js/
