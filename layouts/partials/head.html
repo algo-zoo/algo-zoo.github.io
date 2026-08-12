@@ -5,7 +5,7 @@
   <link rel="icon" href="{{ if (isset .Site.Params "favicon") }}{{ .Site.Params.favicon }}{{ else }}/favicon.ico{{ end }}">
 
   <title>
-  {{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}
+  {{ if and (not .IsHome) (ne .Title site.Title) }}{{ .Title }} - {{ end }}{{ site.Title }}
   </title>
   <!-- <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}" /> -->
   {{- if .Keywords }}
@@ -32,6 +32,9 @@
   <meta name="lang" content="{{ .Site.Language }}" />
   {{ end }}
 
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
   <script src="{{ .Site.Params.flowbite.cdn }}" integrity="{{ .Site.Params.flowbite.sri }}" crossorigin="anonymous"></script>
   <link href="{{ .Site.Params.flowbite.css_cdn }}" integrity="{{ .Site.Params.flowbite.css_sri }}" crossorigin="anonymous" rel="stylesheet" />
 
@@ -42,7 +45,7 @@
   <script src="{{ .Site.Params.p5js.cdn }}" integrity="{{ .Site.Params.p5js.sri }}" crossorigin="anonymous"></script>
   {{ end }}
   {{ if (in .Params.cdn "katex") }}
-  <link rel="stylesheet" href="{{ .Site.Params.katex.css_cdn }}" integrity="{{ .Site.Params.katex_css_cdn_sri }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ .Site.Params.katex.css_cdn }}" integrity="{{ .Site.Params.katex.css_sri }}" crossorigin="anonymous">
   <script defer src="{{ .Site.Params.katex.cdn }}" integrity="{{ .Site.Params.katex.sri }}" crossorigin="anonymous"></script>
   <script defer src="{{ .Site.Params.katex.render_cdn }}" integrity="{{ .Site.Params.katex.render_sri }}" crossorigin="anonymous"></script>
   <script>

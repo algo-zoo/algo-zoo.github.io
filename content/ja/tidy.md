@@ -16,7 +16,7 @@ tags = ['tool']
 * 操作手順:
   1. アップロードボタンより、画像（JPG画像もしくはPNG画像）をアップロードする。
   2. アップロードされた画像と、台形補正用の４つのマーカーが表示されるので、４つのマーカーをマウスクリック・移動により適切な位置に移動させる。
-  3. 適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンを画像を保存する。
+  3. 適切な変換後の出力が得られたら、必要に応じてファイル名を変更し、保存ボタンで画像を保存する。
 
 ## 台形補正
 
@@ -38,7 +38,7 @@ tags = ['tool']
 <div class="container">
   <canvas id="outputCanvas"></canvas>
   <label for="file_name">保存時のファイル名</label>
-  <div class="display: flex">
+  <div style="display: flex">
     <input class="alg-input" id="file_name" type="text" placeholder="保存時のファイル名"></input>
     <label class="ml-2 mt-1">.jpg</label>
   </div>
