@@ -8,6 +8,7 @@ module.exports = {
     "config.toml",
     "hugo.toml",
     "content/**/*.html",
+    "content/**/*.md",
     "assets/js/search.js",
     "exampleSite/layouts/**/*.html",
     "exampleSite/config.toml",

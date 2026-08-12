@@ -25,7 +25,7 @@ tags = ['graph', 'shortest path']
     <button class="alg-btn" id="graph_draw">グラフON/OFF</button>
   </div>
   <div>
-    <label>探索開始頂点</label><select id="start"></select>
+    <label>探索開始頂点</label><select id="start" class="alg-select"></select>
     <button class="alg-btn" id="search">ワンステップ探索</button>
     <button class="alg-btn" id="goal">最終状態まで探索</button>
     <button class="alg-btn" id="reset">リセット</button>

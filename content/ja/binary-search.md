@@ -64,7 +64,7 @@ $\gdef\vmid{\mathrm{mid}}$
   </div>
   <div>
     <label>実行記録</label><br>
-    <textarea class="w-full" rows="12" id="textbox" disabled></textarea>
+    <textarea class="alg-textarea w-full" rows="12" id="textbox" disabled></textarea>
   </div>
 </div>
 

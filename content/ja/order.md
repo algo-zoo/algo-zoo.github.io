@@ -22,29 +22,29 @@ tags = ['limit']
   <div class="alg-box light-red">
     <label for="function">時間計算量関数: $T(x)$</label>
     <input class="alg-input" id="function" type="text" value="3*x + 123" onchange="reload();">
-    <input type="radio" name="function_viz" value="1" checked>グラフ表示</input>
-    <input type="radio" name="function_viz" value="0">グラフ非表示</input>
+    <input class="alg-radio" type="radio" name="function_viz" value="1" checked>グラフ表示</input>
+    <input class="alg-radio" type="radio" name="function_viz" value="0">グラフ非表示</input>
   </div>
 
   <div class="alg-box light-gray">
     <label for="order">オーダー表現用の関数: $f(x)$</label>
     <input class="alg-input" id="order" type="text" value="x" onchange="reload();">
-    <input type="radio" name="order_viz" value="1">グラフ表示</input>
-    <input type="radio" name="order_viz" value="0" checked>グラフ非表示</input>
+    <input class="alg-radio" type="radio" name="order_viz" value="1">グラフ表示</input>
+    <input class="alg-radio" type="radio" name="order_viz" value="0" checked>グラフ非表示</input>
   </div>
 
   <div class="alg-box light-blue">
     <label for="const_c">関数 $c \cdot f(x)$ の定数: $c$</label>
     <input class="alg-input" id="const_c" type="text" value="2" onchange="reload();">
-    <input type="radio" name="c_viz" value="1">グラフ表示</input>
-    <input type="radio" name="c_viz" value="0" checked>グラフ非表示</input>
+    <input class="alg-radio" type="radio" name="c_viz" value="1">グラフ表示</input>
+    <input class="alg-radio" type="radio" name="c_viz" value="0" checked>グラフ非表示</input>
   </div>
 
   <div class="alg-box zebra">
     <label for="const_n">定数: $N_0$</label>
     <input class="alg-input" id="const_n" type="text" value="0" onchange="reload();">
-    <input type="radio" name="n_viz" value="1">グラフ表示</input>
-    <input type="radio" name="n_viz" value="0" checked>グラフ非表示</input>
+    <input class="alg-radio" type="radio" name="n_viz" value="1">グラフ表示</input>
+    <input class="alg-radio" type="radio" name="n_viz" value="0" checked>グラフ非表示</input>
   </div>
 
   <label>関数$f(x)$による関数$T(x)$のオーダー評価の成否の簡易チェック</label>

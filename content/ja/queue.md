@@ -20,7 +20,7 @@ tags = ['queue']
 <div class="container">
   <div>
     <label for="program">コマンド列</label><br>
-    <textarea class="w-full" id="program"></textarea><br>
+    <textarea class="alg-textarea w-full" id="program"></textarea><br>
     <button class="alg-btn" id="run">実行</button>
   </div>
   <div>

@@ -35,16 +35,15 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  {{/* Flowbite の JS はポップオーバー等の対話コンポーネントを使うページだけに絞る。
-       data-* 属性を監視するだけで、対象外ページには一切マッチしないことを
-       静的解析で確認済み(2026-08-12)。CSS は外さない — Flowbite CDN 側が
-       Tailwind preflight 相当のフォーム要素ベーススタイルを同梱しており、
-       複数ページの生 HTML なフォーム要素(select/textarea/radio/file input)が
-       無自覚にこれへ依存しているため。切り離すには自前スタイルの整備が別途要る。 */}}
+  {{/* Flowbite(JS+CSS)はポップオーバー等の対話コンポーネントを使うページだけに絞る。
+       data-* 属性を監視するだけの JS は対象外ページに一切マッチしないことを、
+       CSS はフォーム要素(select/textarea/radio/file input)の見た目を
+       static/css/algo-util.css の .alg-* 規約で自前化したことを、
+       それぞれ静的解析で確認済み(2026-08-12)。 */}}
   {{ if (in .Params.cdn "flowbite") }}
   <script src="{{ .Site.Params.flowbite.cdn }}" integrity="{{ .Site.Params.flowbite.sri }}" crossorigin="anonymous"></script>
-  {{ end }}
   <link href="{{ .Site.Params.flowbite.css_cdn }}" integrity="{{ .Site.Params.flowbite.css_sri }}" crossorigin="anonymous" rel="stylesheet" />
+  {{ end }}
 
   {{ if (in .Params.cdn "jquery") }}
   <script src="{{ .Site.Params.jquery.cdn }}" integrity="{{ .Site.Params.jquery.sri }}" crossorigin="anonymous"></script>

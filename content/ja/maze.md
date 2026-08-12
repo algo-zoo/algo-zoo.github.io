@@ -48,7 +48,7 @@ $\gdef\yp{y^\prime}$
       <option value="3">サンプル3</option>
     </select>
     <label>入力</label>
-    <textarea class="w-full" rows="12" id="maze-input"></textarea>
+    <textarea class="alg-textarea w-full" rows="12" id="maze-input"></textarea>
     <button class="alg-btn" id="maze-load">設定</button>
   </div>
   <div>

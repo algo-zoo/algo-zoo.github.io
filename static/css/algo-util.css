@@ -80,6 +80,12 @@
   outline-offset: 2px;
   width: 100%;
   padding: 0.625rem;
+  padding-right: 2.5rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
 }
 
 .alg-select:focus {
@@ -97,6 +103,32 @@
 .alg-select.dark:focus {
   border-color: #2563eb;
   outline-offset: 0;
+}
+
+.alg-radio {
+  accent-color: #2563eb;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.alg-textarea {
+  background-color: #f9fafb;
+  border: 1px solid #d2d6dc;
+  color: #374151;
+  font-size: 0.875rem;
+  font-family: inherit;
+  border-radius: 0.375rem;
+  outline: none;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.alg-textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
 .alg-help-text {
@@ -119,6 +151,23 @@
   cursor: pointer;
   background-color: #f9fafb;
   outline: none;
+}
+
+.alg-upload-input::file-selector-button,
+.alg-upload-input::-webkit-file-upload-button {
+  padding: 0.625rem 1rem;
+  margin-right: 1rem;
+  border: none;
+  border-right: 1px solid #d1d5db;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.alg-upload-input::file-selector-button:hover,
+.alg-upload-input::-webkit-file-upload-button:hover {
+  background-color: #e5e7eb;
 }
 
 .alg-upload-btn.dark {
