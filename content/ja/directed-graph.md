@@ -4,7 +4,7 @@ draft = false
 categories = ['visualizer']
 tags = ['graph']
 [params]
-    cdn = ['jquery', 'p5js']
+    cdn = ['jquery', 'p5js', 'flowbite']
     css = ['/css/graph.css']
     js = ['/js/DirectedGraphVis.js']
 +++

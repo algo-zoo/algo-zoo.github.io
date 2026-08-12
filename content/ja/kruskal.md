@@ -4,7 +4,7 @@ draft = false
 categories = ['visualizer']
 tags = ['graph', 'minimum spanning tree']
 [params]
-    cdn = ['jquery', 'p5js', 'katex']
+    cdn = ['jquery', 'p5js', 'katex', 'flowbite']
     css = ['/css/graph.css']
     js = ['/js/Kruskal.js']
 +++
