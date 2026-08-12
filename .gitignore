@@ -9,6 +9,11 @@ rescript/*.js
 # Tailwind CLI (build.sh) の出力。hugo は fingerprint をかけて配信するだけ。
 assets/css/generated.css
 
+# hugo が js.Build 用の module mounts(rescript/ -> assets/js)に対して
+# エディタ補完支援のために自動生成する。`hugo`/`hugo server` を一度でも
+# 実行すると生える。ビルドには使われない生成物なので追跡しない。
+assets/jsconfig.json
+
 # Hull.js (https://github.com/AndriiHeonia/hull) のベンダリング実体。
 # 生成物ではないので追跡する。出典とライセンスはファイル冒頭にある。
 # build.sh がこれを static/js へ cp するため、追跡していないと新規クローンでビルドできない。
