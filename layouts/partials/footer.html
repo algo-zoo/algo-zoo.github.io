@@ -15,10 +15,6 @@
   </span>
 </footer>
 
-{{ if .Site.Params.enableSearch }}
-{{- partial "search-ui.html" . -}}
-{{ end }}
-
 {{ partial "google_analytics.html" . }}
 
 {{ if ge (len .Site.Languages) 3 }}
