@@ -127,3 +127,12 @@
   border-color: #4b5563;
 }
 
+#canvas-hole:empty::before {
+  content: "ビジュアライザを読み込んでいます…";
+  display: block;
+  min-height: 12rem;
+  padding-top: 2rem;
+  color: #6b7280;
+  text-align: center;
+}
+

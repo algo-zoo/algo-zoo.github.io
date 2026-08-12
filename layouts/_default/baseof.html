@@ -2,6 +2,11 @@
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   {{- partial "head.html" . -}}
   <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
+    <noscript>
+      <p class="text-center py-3 px-4 bg-yellow-50 text-yellow-800">
+        JavaScript が無効になっています。このサイトのビジュアライザは正しく表示・動作しません。
+      </p>
+    </noscript>
     {{- partial "header.html" . -}}
     <main class="flex-1">
     {{- block "main" . }}{{- end }}
