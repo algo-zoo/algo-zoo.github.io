@@ -57,9 +57,6 @@
     });
   </script>
   {{ end }}
-  {{ if (in .Params.cdn "d3") }}
-  <script src="{{ .Site.Params.d3.cdn }}" integrity="{{ .Site.Params.d3.sri }}" crossorigin="anonymous"></script>
-  {{ end }}
   {{ if (in .Params.cdn "fplot") }}
   <script src="{{ .Site.Params.fplot.cdn }}" integrity="{{ .Site.Params.fplot.sri }}" crossorigin="anonymous"></script>
   {{ end }}
