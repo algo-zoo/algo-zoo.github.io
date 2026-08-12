@@ -1,18 +1,18 @@
 baseURL = 'https://algo-zoo.com'
-languageCode = 'en'
+locale = 'en'
 title = 'Algo Zoo'
 
 [languages]
   [languages.en]
-    languageCode = 'en'
-    languageName = '🇺🇸 English'
+    locale = 'en'
+    label = '🇺🇸 English'
     weight = 1
     [[languages.en.menu.main]]
       name = "Tags"
       url = "tags"
   [languages.ja]
-    languageCode = 'ja'
-    languageName = '🇯🇵 日本語'
+    locale = 'ja'
+    label = '🇯🇵 日本語'
     contentDir = 'content/ja'
     weight = 2
     [[languages.ja.menu.main]]
